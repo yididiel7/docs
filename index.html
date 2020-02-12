@@ -1,0 +1,5505 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):(o[e]||(o[e]=[]),void o[e].push(n))}var r=e("ee").create(),o={};n.exports=t,t.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=(e(2),window),f=u.document,s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="theme-color" content="#574e4a">
+
+    <title>System76 Support</title>
+    <meta property="og:title" content="System76 Support">
+    <meta itemprop="name" content="System76 Support">
+    <meta name="twitter:title" content="System76 Support">
+
+    <meta name="description" content="Official System76 Support and useful documentation.
+">
+    <meta property="og:description" content="Official System76 Support and useful documentation.
+">
+    <meta itemprop="description" content="Official System76 Support and useful documentation.
+">
+    <meta name="twitter:description" content="Official System76 Support and useful documentation.
+">
+
+    <meta name="keywords" content="">
+
+    
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@system76">
+    <meta name="twitter:creator" content="@system76">
+
+
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://system76.com/images/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://system76.com/images/touch-icon-ipad-retina.png">
+    <link rel="touch-icon" sizes="196x196" href="https://system76.com/images/icon-196.png">
+    <link rel="icon" sizes="196x196" href="https://system76.com/images/icon-196.png">
+
+    <link rel="stylesheet" type="text/css" media="all" href="https://system76.com/stylesheets/app.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Google+ -->
+    <link href="https://plus.google.com/104919222657565747428" rel="publisher" />
+
+    <!--[if lt IE 10]><script>document.documentElement.className += " legacy";</script><![endif]-->
+
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-196052-1', 'auto');
+        ga('send', 'pageview');
+        </script>
+
+        <script>
+        (function() {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) {
+                var fbds = document.createElement('script');
+                fbds.async = true;
+                fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(fbds, s);
+                _fbq.loaded = true;
+            }
+        })();
+        window._fbq = window._fbq || [];
+        </script>
+
+        <script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+
+        <script>
+        var fbSent = false;
+
+        function facebookStatusChangeCallback(response) {
+            if (response.status === 'connected' && fbSent) {
+                window.oauthSuccess('facebook', response.authResponse.accessToken);
+            }
+        }
+
+        function facebookCheckLoginState() {
+            FB.getLoginStatus(function(response) {
+                facebookStatusChangeCallback(response);
+            });
+        }
+
+        function facebookLogin() {
+            fbSent = true;
+            FB.login(
+                facebookCheckLoginState,
+                {
+                    scope: 'email'
+                }
+            );
+        }
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '346948125501334',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.1'
+            });
+
+            FB.getLoginStatus(function(response) {
+                facebookStatusChangeCallback(response);
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <script>
+        function githubLogin() {
+            var gitHubWindow = popupCenter(
+                "https://github.com/login/oauth/authorize?" +
+                "client_id=dc1b6955f316f6f4633b" +
+                "&scope=user,user:email",
+                "GitHub"+Date.now(),
+                1024,
+                600
+            );
+        }
+        </script>
+
+        <meta name="google-signin-clientid" content="118911812273-tsqn79u4hm451chlbhm1gkkt63ttgoq9.apps.googleusercontent.com" />
+        <meta name="google-signin-scope" content="email" />
+        <meta name="google-signin-cookiepolicy" content="single_host_origin" />
+        <script src="https://apis.google.com/js/client:platform.js?onload=googleRender" async defer></script>
+
+        <script>
+        function googleLogin() {
+            gapi.auth.signIn({
+                'callback': googleSigninCallback
+            });
+        }
+
+        function googleSigninCallback(authResult) {
+            if (authResult['status']['signed_in']) {
+                if( authResult['status']['method'] == 'PROMPT' ) {
+                    window.oauthSuccess("google", authResult['access_token']);
+                }
+            }
+        }
+        </script>
+
+        <link href="https://cdn.rawgit.com/Lukas-W/font-linux/v0.5/assets/font-linux.css" rel="stylesheet">
+
+</head>
+
+  <body class="path-support">
+    <div id="page-container">
+        <header id="masthead" class="main">
+	<nav>
+		<a id="logo" class="home" href="https://system76.com"></a>
+
+		<ul class="quick" id="nav-links">
+			<li>
+				<a id="link-contact" href="https://system76.com/contact" title="Contact">
+					<i class="fa fa-comments"></i>
+					Contact
+				</a>
+			</li>
+
+			<li>
+				<a id="link-support" href="https://support.system76.com" title="Support">
+					<i class="fa fa-life-ring"></i>
+					Support
+				</a>
+			</li>
+
+			<li>
+				<a id="link-account" href="https://system76.com/my-account" title="Account">
+					<i class="fa fa-user"></i>
+					Account
+				</a>
+			</li>
+		</ul>
+
+		<ul id="nav-links" class="categories">
+			<li><a href="https://system76.com/laptops">Laptops</a></li>
+			<li><a href="https://system76.com/desktops">Desktops</a></li>
+			<li><a href="https://system76.com/desktops/meerkat">Mini</a></li>
+			<li><a href="https://system76.com/servers">Servers</a></li>
+			<li><a href="https://system76.com/pop">Pop!_OS</a></li>
+		</ul>
+	</nav>
+</header>
+
+
+
+        <div class="support">
+	<div class="hero">
+		<img src="https://system76.com/images/support/robot-type.png" alt="Buy a computer, don't talk to one. Lifetime support from 100% real humans." />
+	</div>
+
+	<div class="row support-actions">
+		<div class="small-12 medium-6 columns">
+			<h3>Support Tickets</h3>
+			<p class="lead">To submit a ticket for an existing order, visit the Orders page in your Account (<i class="fa fa-user"></i>). Or just hit the big button directly below!</p>
+			<a class="button" href="https://system76.com/my-account/orders">Go to Existing Orders</a>
+		</div>
+		<div class="small-12 medium-6 columns">
+			<h3>Need to chat now?</h3>
+			<p class="lead">Our representatives are available to take questions and comments by phone <strong>Monday–Friday</strong> between <strong>8am and 5pm Mountain Time</strong>.</p>
+			<p class="lead">You can reach us at <strong>(720) 226-9269</strong>.</p>
+		</div>
+	</div>
+
+	<!--
+	<div class="row">
+		<nav class="small-12 columns">
+
+			<a class="button" href="#getting-started">Getting Started</a>
+
+		</nav>
+	</div>
+	-->
+
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="getting-started">Getting Started</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts getting-started">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/server-setup/">Configure Your System76 Server</a></h3>
+							<p>Instructions on setting up a System76 server, including initial login credentials.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/desktop-quickstart/">Desktop Quickstart</a></h3>
+							<p>Getting started on your new System76 Desktop.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/guides/">Find Your Quickstart Guide</a></h3>
+							<p>Diagrams and component guides for your computer.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/terminal-basics/">Linux Terminal Basics</a></h3>
+							<p>Linux offers users a lot of flexibility. Use the terminal to accomplish tasks faster</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/pop-basics/">Pop!_OS Basics</a></h3>
+							<p>Learn how to navigate your new Pop!_OS desktop environment with a few easy tips.</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/pop-keyboard-shortcuts/">Pop!_OS Keyboard Shortcuts</a></h3>
+							<p>Learn how master using Pop!_OS with your keyboard</p>
+
+						</article>
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/switch/">Switching to Ubuntu From Apple</a></h3>
+							<p>If you are coming from Apple’s operating system and just using Ubuntu for the first time, we can help make the transition a little smoother.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/ubuntu-basics/">Ubuntu Basics</a></h3>
+							<p>Learn how to navigate your new Ubuntu desktop environment with a few easy tips.</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/ubuntu-keyboard-shortcuts/">Ubuntu Keyboard Shortcuts</a></h3>
+							<p>Learn how master using Ubuntu with your keyboard</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="pop-ubuntu">Pop!_OS & Ubuntu</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts pop-ubuntu">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/login-loop/">Can't Log In or Black Screen After Logging In</a></h3>
+							<p>Are you getting stuck in a login loop, even though your password is correct? Do you see a black screen after you log in?</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/password/">Change Your Password</a></h3>
+							<p>Forgot your main password?  Locked out of your computer? Need to change your encryption passphrase? Follow these instructions to change both!</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/oem-firstboot/">Create a User If Initial User Setup Fails</a></h3>
+							<p>Sometimes, the first boot user creation fails and leaves only a Guest session. You can fix this by following the steps here.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/customize-gnome/">Customize Pop!_OS</a></h3>
+							<p>Pop with the GNOME desktop is highly customizable!  See here to get started making your desktop just right for you.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/difference-between-pop-ubuntu/">Differences between Pop!_OS and Ubuntu</a></h3>
+							<p>What are the differences between these two OSes?</p>
+
+						</article>
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/dual-booting/">Dual Boot Windows 10 Alongside Pop!_OS</a></h3>
+							<p>Learn how to install Windows OS alongside Pop!_OS</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/package-manager/">Fix Package Manager Issues</a></h3>
+							<p>Here are ways to fix update, upgrade, and other package manager issues.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/install-pop/">Install Pop!_OS On Your System76 Computer</a></h3>
+							<p>Full instructions on installing Pop!_OS your computer.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/steam/">Install Steam</a></h3>
+							<p>Want to game on your super awesome new System76 machine?  Take a look at these instructions to install Steam, a marketplace for hundreds of Linux games.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/install-ubuntu/">Install Ubuntu On Your System76 Computer</a></h3>
+							<p>Full instructions on installing Ubuntu your computer.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/dash-to-dock/">Move or Customize the Launcher</a></h3>
+							<p>Learn how to move the launcher to the bottom of the screen and customize other settings.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/file-sharing/">Sharing files between your Pop!_OS Computers</a></h3>
+							<p>How to share files with the Public Folder.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/graphics-switch-pop/">Switching Graphics in Pop!_OS</a></h3>
+							<p>How to switch between Intel, NVIDIA, and Hybrid graphics</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/graphics-switch-ubuntu/">Switching Graphics in Ubuntu</a></h3>
+							<p>How to switch between Intel, NVIDIA, and Hybrid graphics</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/upgrade-pop/">Upgrade Pop!_OS</a></h3>
+							<p>Get the newest version of Pop!_OS on your System76 computer! Check out our upgrade directions.</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/upgrade-ubuntu/">Upgrade Ubuntu</a></h3>
+							<p>Get the newest version of Ubuntu on your System76 computer! Check out our upgrade directions.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/pop-recovery/">Use The Recovery Partition</a></h3>
+							<p>Here is how to use the recovery partition to repair, refresh or reinstall your operating system.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/status-icons/">Using Legacy Status Icons</a></h3>
+							<p>Use legacy status icons (system tray/AppIndicators) with a GNOME extension</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="software-applications">Software & Applications</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts software-applications">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/backup-files/">Backup Files</a></h3>
+							<p>Here is how to backup your important files.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/desktop-environment/">Change the Desktop Environment</a></h3>
+							<p>Pop!_OS Comes with GNOME by default.  Follow these instructions to install additional desktop environments.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/windows-drivers/">Find Windows Drivers</a></h3>
+							<p>If you are trying to install Windows on a System76 computer, here are some instructions for locating the drivers.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/cuda/">Install CUDA and cuDNN</a></h3>
+							<p>Complete instructions on setting up the NVIDIA CUDA toolkit and cuDNN libraries</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/install-in-vm/">Install Pop!_OS in VirtualBox</a></h3>
+							<p>Install Pop!_OS in a virtual machine like VirtualBox</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/install-tensorflow/">Install TensorFlow</a></h3>
+							<p>Complete instructions on installing TensorFlow</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/windows-vm/">Install Windows 10 in VirtualBox</a></h3>
+							<p>Instructions on how to install Windows 10 in a virtual machine using VirtualBox</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/ppa-third-party/">Keep PPAs Enabled when Upgrading Releases</a></h3>
+							<p>Upgrading to a new releases disables PPAs and third party repos.  Learn how to keep your PPA or third party repo enabled during upgrades.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/bootloader/">Repair the Bootloader</a></h3>
+							<p>How to repair and reinstall the bootloader.</p>
+
+						</article>
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/custom-mouse-buttons/">Setting Custom Mouse Actions</a></h3>
+							<p>How to set custom mouse actions with xbindkeys</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/ar-sandbox/">Setup your new AR Sandbox</a></h3>
+							<p>Calibrate and use your new AR Sandbox</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/system-firmware/">Update System Firmware</a></h3>
+							<p>How to update System76 firmware.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/nvidia-nvs/">Use 8 displays with NVIDIA NVS GPU</a></h3>
+							<p>Use 8 displays with a NVIDIA NVS GPU</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/use-tensorflow/">Use TensorFlow</a></h3>
+							<p>Complete instructions on setting up TensorFlow</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/use-tensorman/">Use Tensorman</a></h3>
+							<p>Using TensorMan to manage TensorFlow Containers</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/containers/">Using Containers on Linux</a></h3>
+							<p>How to setup and use LXC/LXD</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/flash/">Watch Flash Content and Netflix</a></h3>
+							<p>How to install Google Chrome or Pepperflash to watch Netflix, Hulu, and other Flash Videos.</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/codecs/">Watch Videos and Play Music (MP3, DVD, etc.)</a></h3>
+							<p>Proprietary multimedia formats, such as MP3 files and DVD decoders, aren’t included by default. To enable playback of these media, please see this document.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="hardware-drivers">Hardware & Drivers</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts hardware-drivers">
+			
+			
+				
+					
+						<article>
+							<h3><a href="/articles/boot-menu/">Access BIOS or Boot Menu</a></h3>
+							<p>How to access BIOS settings or boot from other media.</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/add-a-printer-pop/">Add a Printer in Pop!_OS</a></h3>
+							<p>Here is how to add a printer in Pop!_OS.</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/add-a-printer-ubuntu/">Add a Printer in Ubuntu</a></h3>
+							<p>Here is how to add a printer in Ubuntu.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/extra-drive/">Auto-Mounting Second Hard Drive</a></h3>
+							<p>If you ordered your computer with additional storage, it comes pre-formatted and ready for use. For instructions on automatically mounting an additional hard drive, check out this extra drive documentation.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/battery/">Battery Life Improvements</a></h3>
+							<p>Stretch the battery life and create amazing things for longer.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/touchpad/">Configure Or Disable Touchpad</a></h3>
+							<p>Learn how to turn on and configure touchpad functions.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/live-disk/">Create and Use Bootable Media from Other OS's</a></h3>
+							<p>You can run Pop!_OS from a USB drive for hardware testing, recovery, and installation/re-installation.</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/pop-live-disk/">Create and Use Bootable Media on Pop!_OS</a></h3>
+							<p>You can run Pop!_OS from a USB drive for hardware testing, recovery, and installation/re-installation.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/hardware-failure/">Diagnose Hardware Failures</a></h3>
+							<p>If the computer won’t start, boot, or otherwise operate normally, there may be a hardware issue.  Follow these steps to diagnose hardware failures.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/system76-driver/">Install the System76 Driver</a></h3>
+							<p>Our System76 Driver can generate system logs, we’ll also go over how to reinstall the NVIDIA Driver.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/serval-dac/">Stop DAC Clicking on the Serval</a></h3>
+							<p>Certain models of the Serval WS will “click” when the DAC turns on and off, but the frequency can be decreased.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/webcam/">Webcam</a></h3>
+							<p>Activate and troubleshoot your laptop webcam</p>
+
+						</article>
+					
+				
+			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="wifi-bluetooth">WiFi & Bluetooth</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts wifi-bluetooth">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/wireless/">Solve Wireless Issues</a></h3>
+							<p>If you’re having problems with your wireless Internet connection, take a look at the suggestions in this article.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/bluetooth/">Troubleshoot Bluetooth Issues</a></h3>
+							<p>Here is how to fix several common Bluetooth issues with your computer.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="graphics-audio-video">Graphics, Audio and Video</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts graphics-audio-video">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/hdmi-audio/">Configure HDMI Audio</a></h3>
+							<p>Here is how to play audio over an HDMI or DisplayPort connection.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/audio/">Fix Audio Issues</a></h3>
+							<p>Here is how to fix several common audio issues with your computer.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/hidpi-multi-monitor/">HiDPI Multi-Monitor Support</a></h3>
+							<p>Mixing HiDPI and LoDpi displays can be complicated.  Learn what to do and how System76 automates this for you!</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/microphone/">Use The Microphone</a></h3>
+							<p>Here is how to enable and adjust the microphone.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="security-encryption">Security & Encryption</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts security-encryption">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/encrypt-extra/">Encrypt Extra Drive</a></h3>
+							<p>Learn how to encrypt the extra drive</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/advanced-luks/">Full Disk Encryption Passwords</a></h3>
+							<p>How to add extra passwords for your Full Disk Encryption setup</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/use-openvpn/">Install OpenVPN</a></h3>
+							<p>This page will go over setting up and using OpenVPN to browse the internet more securely in places like airports, cafe shops and more.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/active-directory-client/">Join an Active Directory Domain</a></h3>
+							<p>Learn how to join Pop!_OS to an Active Directory domain</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="accessories">Accessories</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts accessories">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/use-docking-station/">Docking Station Support</a></h3>
+							<p>A Docking Station makes it easy to use multi monitors. It also adds an ethernet port, multi USB ports and more while only using one USB 3.0 port on your laptop.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/accessories/">How to order accessories for your laptop</a></h3>
+							<p>Instructions to order a new AC Adapter for your laptop.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="repairs-returns">Repairs and Returns</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts repairs-returns">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/reboxing/">Laptop Repackaging Instructions</a></h3>
+							<p>Step by step instructions for repackaging your laptop for repair or return</p>
+
+						</article>
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/service-manuals/">Service Manuals for your System76 machines</a></h3>
+							<p>Instructions on how to take apart your System76 machines for upgrading or repairs.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/shipping/">Shipping Your Computer</a></h3>
+							<p>Instructions for preparing your computer for shipping to System76.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+	
+	<!--
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="known">Known Solutions</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts known">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+    -->
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="community">Community Articles</h1>
+      <p align="center"> The following documents have been graciously submitted by community members.  They have not been checked for accuracy, completeness, or style.  Please
+      contact the contributers through their GitHub account for any questions.</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts community">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/map-a-network-drive/">Drives - Map a Network Drive</a></h3>
+								<p>Map a network drive using Files in Pop!_OS.</p>
+
+								
+						  </article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/minecraft-server/">Install Minecraft Server</a></h3>
+								<p>Install Minecraft Server and play with your friends!</p>
+
+								
+						  </article>
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/numba/">Install Numba  on Python3</a></h3>
+								<p>Complete instructions on setting up the Numba library in Python for fast, parallel computing using the NVIDIA CUDA toolkit.</p>
+
+								
+						  </article>
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/openspades/">Install OpenSpades</a></h3>
+								<p>Use Snap or build OpenSpades from source to enjoy a voxel-based first person shooter.</p>
+
+								
+						  </article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/install-minecraft/">Install and Optimize Minecraft!</a></h3>
+								<p>So you want some of that blocky goodness? Well, get Java and some graphics cards and let’s go!</p>
+
+								
+						  </article>
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/minetest/">Install and Play Minetest</a></h3>
+								<p>Minetest, an open source infinite-world block sandbox game with survival and crafting.</p>
+
+								
+						  </article>
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/cjdns/">Install cjdns</a></h3>
+								<p>Connect to the meshnet! Cjdns uses an ipv6 allocated space public key encrypted routing system to protect privacy.</p>
+
+								
+						  </article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/yubikey-login/">Login with Yubikey</a></h3>
+								<p>Configure Pop!_OS to accept a Yubikey for login and unlock.</p>
+
+								
+						  </article>
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/show-battery-percentage/">Pop! - Show Battery Percentage</a></h3>
+								<p>Show the battery percentage in the top bar in Pop!_OS.</p>
+
+								
+						  </article>
+					
+				
+			
+				
+					
+							<article>
+								<h3><a href="/articles/keyboard-shortcuts/">Pop! - View and Modify Keyboard Shortcuts</a></h3>
+								<p>View, add, or modify keyboard shortcuts in Pop!_OS.</p>
+
+								
+						  </article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+
+    <div class="row">
+		<div class="small-12 columns">
+			<hr />
+			<h1 id="case-studies">Case Studies</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns support-excerpts case-studies">
+			
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/bioinformatics-moritz-beber-dtu/">Advancing Biosustainability at the Technical University of Denmark</a></h3>
+							<p>Developing metabolic engineering, robotics, and lab automation tools.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/bioinformatics-joshua-orvis-johns-hopkins/">Bioinformatics at Johns Hopkins University</a></h3>
+							<p>Using Linux computers for bioinformatics education and scientific data  analysis.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/bioinformatics-william-brazelton-utah/">Conducting Collaborative Oceanographic Research</a></h3>
+							<p>Marine biology expeditions, powered by Linux.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/deep-learning-steve-hart-university-of-colorado/">Deep Learning Research at the University of Colorado</a></h3>
+							<p>Systems administration and IT support for deep learning researchers.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/software-development-james-ramey-codeweavers/">Developing Desktop Applications at CodeWeavers</a></h3>
+							<p>Growing Linux on the desktop with CrossOver.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+					
+				
+			
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/web-development-jordi-alomar-eficent/">Web Application Development at Eficent</a></h3>
+							<p>Developing and deploying web applications with Linux.</p>
+
+						</article>
+					
+				
+			
+				
+					
+						<article>
+							<h3><a href="/articles/web-design-david-trounce-mallee/">Web Design and Site Management at Mallee Blue Media</a></h3>
+							<p>Web development, content marketing, and conversion optimization with Linux.</p>
+
+						</article>
+					
+				
+			
+				
+					
+				
+			
+		</div>
+	</div>
+    </br>
+    </br>
+</div>
+
+
+<!-- <script type="text/javascript">
+    window.location.replace("https://system76.com/support");
+</script> -->
+
+    </div>
+    <footer id="foot">
+    <div id="foot-links" class="row">
+        <ul class="small-5 medium-2 columns">
+            <li><a href="https://system76.com/contact">Contact</a></li>
+            <li><a href="https://system76.com/support">Support</a></li>
+            <li><a href="https://system76.com/about">About Us</a></li>
+            <li><a href="http://blog.system76.com">Blog</a></li>
+            <li><a href="https://system76.com/careers">Careers</a></li>
+        </ul>
+        <ul class="small-7 medium-4 columns">
+            <li><a href="https://system76.com/shipping">Shipping Information</a></li>
+            <li><a href="https://system76.com/warranty">Warranty &amp; Returns</a></li>
+            <li><a href="https://system76.com/privacy">Privacy Policy</a></li>
+            <li><a href="https://system76.com/disclaimer">Disclaimer</a></li>
+            <li><a href="https://system76.com/terms">Terms &amp; Conditions</a></li>
+        </ul>
+        <ul id="social-links" class="small-12 medium-6 columns">
+            <li><a href="https://www.facebook.com/system76/"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/system76/"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://plus.google.com/u/0/104919222657565747428"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="https://www.pinterest.com/system76/"><i class="fa fa-pinterest"></i></a></li>
+        </ul>
+    </div>
+    <div id="copyright" class="text-center">Copyright &copy; 2020 System76, Inc. </div>
+
+    <div class="disclaimer text-center">* All financing prices are based on the advertised price at 10% APR paid over 12 months.</div>
+
+    <div id="trademarks" class="text-center">Intel, the Intel Logo, Intel Core, and Xeon are trademarks of Intel Corporation in the U.S. and/or other countries.</div>
+</footer>
+
+<script src="https://system76.com/scripts/thinkbott1k.js"></script>
+
+<div style="position: absolute; top: -123456px; left: -123456px;">
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1068332445;
+var google_conversion_language = "en";
+var google_conversion_label = "c2onCLG-igUQneu1_QM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1068332445/?value=0&amp;label=c2onCLG-igUQneu1_QM&amp;guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 993752734;
+var google_conversion_language = "en";
+var google_conversion_label = "T0XwCIqNswkQnu3t2QM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/993752734/?value=0&amp;label=T0XwCIqNswkQnu3t2QM&amp;guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+
+</div>
+
+<!--[if lt IE 10]>
+<div id="legacy-warning">
+<h1>System76 is built on modern web technologies your browser doesn&rsquo;t support.</h1>
+<p>This version of Internet Explorer is out of date and may contain bugs or security vulnerabilities. Please <a href="http://browsehappy.com/">upgrade</a> to IE 11 or an alternative web browser.</p>
+<p>If you have questions about an order or require support, feel free to <a href="/contact">contact us</a>.</p>
+<div id="legacy-warning-buttons">
+<a href="#" onClick="document.getElementById('legacy-warning').style.display = 'none';">Dismiss</a>
+<a class="primary" href="http://browsehappy.com/">Learn More</a>
+</div>
+</div>
+<![endif]-->
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"60dd9d43b0","applicationID":"9373382","transactionName":"ZABaZ0IAChcDBUFfC11KeVBECAsKTTBcUxNsJlVAHwgKAAce","queueTime":0,"applicationTime":24,"atts":"SEdZEQoaGRk=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script>
+
+  </body>
+</html>
