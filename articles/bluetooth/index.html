@@ -273,6 +273,13 @@ sudo rfkill unblock bluetooth
 
 <p>Here are a few addition tidbits about the Bluetooth system that may help with troubleshooting.</p>
 
+<h4 id="controlling-audio">Controlling audio</h4>
+
+<p>Once you are connected to a Bluetooth speaker, you may need to change where your current audio is “routed”. You can get a more advanced interface to settings on audio with the program called PulseAudio Volume Control. To install, run this command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install pavucontrol
+</code></pre></div></div>
+<p>There will be a drop-down in the Playback tab for each of your applications that is outputting sound that you should be able to change to your Bluetooth speaker.</p>
+
 <h4 id="linux-firmware">Linux Firmware</h4>
 
 <p>Occasionally the kernel and/or Linux firmware will have problems.  Sometimes, newer Linux firmware packages will have fixed bugs that aren’t yet in the repositories.  They can be downloaded from here:</p>
@@ -295,7 +302,7 @@ sudo rfkill unblock bluetooth
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-10-31</p>
+        <p>Article last modified: 2020-02-13</p>
     </div>
 </div>
 
