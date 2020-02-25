@@ -220,7 +220,7 @@
 
 <ul>
   <li>
-    <p>Make sure the laptop is <strong>plugged into power</strong> for the entire firmware updating process.</p>
+    <p>Make sure the laptop is <strong>plugged into the AC Adapter as USB Type-C charging is not supported</strong> for the entire firmware updating process.</p>
   </li>
   <li>
     <p><strong>Disconnect external devices</strong>, including any displays or USB devices.</p>
@@ -236,18 +236,19 @@
 <h3 id="performing-the-update">Performing the Update</h3>
 
 <ol>
-  <li>Select <strong>Restart Now</strong> to begin.</li>
+  <li>For Pop!_OS or Ubuntu you can start the firmware update using <strong>Settings -&gt; Devices -&gt; Firmware</strong>.</li>
+  <li>Select <strong>Restart Now</strong> from the notification or <strong>Update</strong> from the Settings application.</li>
   <li>The System76 Firmware updater will start on reboot. Once it has initialized, you’ll be prompted to <strong>press <kbd>Enter</kbd></strong> to commence flashing.</li>
   <li>The firmware update process will begin, then the system will restart back into the System76 Firmware updater. The fans on the system will be on full blast.</li>
   <li>The firmware update process will finish. When prompted, <strong>press any key to shutdown</strong>.</li>
   <li>After the system powers off, <strong>press the power button</strong> to turn it back on.</li>
   <li>Two small blue boxes may appear in succession with a message about the CMOS. <strong>Press <kbd>Enter</kbd></strong> to dismiss each one.</li>
-  <li>The machine will then reboot. Repeatedly press the <kbd>F2</kbd> key to boot into the BIOS settings. Using the arrow keys, go over to the <strong>Exit</strong> tab.
+  <li>The machine will then reboot. Repeatedly press or hold the <kbd>F2</kbd> key to boot into the BIOS settings. Using the arrow keys, go over to the <strong>Exit</strong> tab.
     <ul>
       <li>If the BIOS settings do not launch, reboot the machine and try again.</li>
     </ul>
   </li>
-  <li>Once in the BIOS move to the Exit tab and select then confirm <strong>Load Setup Defaults</strong> or <strong>Load Optimal Defaults</strong>.</li>
+  <li>Once in the BIOS move to the Exit tab and select then confirm <strong>Load Setup Defaults</strong> or <strong>Load Optimal Defaults</strong>. (This step does not apply to Open Firmware machines)</li>
   <li>Select and confirm <strong>Save changes and reset</strong> in that same tab.</li>
   <li>Once the system restarts, the firmware will be up to date!</li>
 </ol>
@@ -294,7 +295,7 @@ gnome-control-center firmware
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-08-21</p>
+        <p>Article last modified: 2020-02-25</p>
     </div>
 </div>
 
