@@ -10,21 +10,21 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Create a User If Initial User Setup Fails - System76 Support</title>
-    <meta property="og:title" content="Create a User If Initial User Setup Fails - System76 Support">
-    <meta itemprop="name" content="Create a User If Initial User Setup Fails - System76 Support">
-    <meta name="twitter:title" content="Create a User If Initial User Setup Fails - System76 Support">
+    <title>Can't Log In or Black Screen After Logging In with Pop!_OS - System76 Support</title>
+    <meta property="og:title" content="Can't Log In or Black Screen After Logging In with Pop!_OS - System76 Support">
+    <meta itemprop="name" content="Can't Log In or Black Screen After Logging In with Pop!_OS - System76 Support">
+    <meta name="twitter:title" content="Can't Log In or Black Screen After Logging In with Pop!_OS - System76 Support">
 
-    <meta name="description" content="Sometimes, the first boot user creation fails and leaves only a Guest session. You can fix this by following the steps here.
+    <meta name="description" content="Are you getting stuck in a login loop, even though your password is correct? Do you see a black screen after you log in?
 ">
-    <meta property="og:description" content="Sometimes, the first boot user creation fails and leaves only a Guest session. You can fix this by following the steps here.
+    <meta property="og:description" content="Are you getting stuck in a login loop, even though your password is correct? Do you see a black screen after you log in?
 ">
-    <meta itemprop="description" content="Sometimes, the first boot user creation fails and leaves only a Guest session. You can fix this by following the steps here.
+    <meta itemprop="description" content="Are you getting stuck in a login loop, even though your password is correct? Do you see a black screen after you log in?
 ">
-    <meta name="twitter:description" content="Sometimes, the first boot user creation fails and leaves only a Guest session. You can fix this by following the steps here.
+    <meta name="twitter:description" content="Are you getting stuck in a login loop, even though your password is correct? Do you see a black screen after you log in?
 ">
 
-    <meta name="keywords" content="Support Crash Guest Guest Session OEM First boot">
+    <meta name="keywords" content="Support Guides Login NVIDIA Loop Password session greeter">
 
     
     <meta property="og:image" content="http://support.system76.com/images/system76.png" />
@@ -205,8 +205,8 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Create a User If Initial User Setup Fails
-        <a href="https://github.com/system76/docs/edit/master/_articles/oem-firstboot.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+        Can't Log In or Black Screen After Logging In with Pop!_OS
+        <a href="https://github.com/system76/docs/edit/master/_articles/login-loop-pop.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
   </header>
@@ -214,70 +214,143 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>A lot of work goes in to making your System76 experience fantastic right out of the box. Getting running needs just a little bit of information like a username and password. Every now and then, something goes wrong with the new user creator. If there is only a Guest Session, follow these instructions to fix the issue.</p>
+        <p>Sometimes after an upgrade, your system might not bring you to the desktop after logging in. If you try logging in and you just see a black screen, or Pop!_OS brings you back to the login screen, you’re experiencing a login loop. There are several causes for login loops:</p>
 
-<h3 id="overview">Overview</h3>
+<ul>
+  <li>Configuration files in your home directory are not compatible with new versions of software</li>
+  <li>The display/login manager is not working correctly</li>
+  <li>The NVIDIA driver has been updated and is causing an issue</li>
+</ul>
 
-<p>Here are the general steps for creating a user manually:</p>
+<p>Each cause has a different solution, and certain items (such as NVIDIA) might not be applicable to your system. In most cases, you can switch to a full-screen terminal (called a <em>TTY</em>) to log in and fix the issue.</p>
 
-<ol>
-  <li>Reboot into Recovery Mode</li>
-  <li>Run a fsck to mount the drive as read-write</li>
-  <li>Drop to a root shell</li>
-  <li>Run oem-config-prepare</li>
-  <li>Reboot the system</li>
-  <li>Send logs to System76 to help us track this down</li>
-</ol>
+<h3 id="switch-to-a-terminal">Switch to a Terminal</h3>
 
-<h4 id="recovery-mode">Recovery Mode</h4>
+<p>At the login screen, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F5</kbd> to switch to a TTY. You’ll be prompted to enter a login. At the <code class="language-plaintext highlighter-rouge">login</code> prompt, enter your username and press <kbd>Enter</kbd>. You’ll then be prompted for your password. You will not see your password as you are typing it; just type it and press “Enter.”</p>
 
-<p>Power on (or reboot) your system and tap the <kbd>ESC</kbd> key to get to the GRUB boot menu.</p>
+<p>If you’re not able to log in, the reason could be:</p>
 
-<p>If you end up at the GRUB CLI (it looks like <code class="language-plaintext highlighter-rouge">grub &gt;</code>) type <code class="language-plaintext highlighter-rouge">normal</code>, press <kbd>Enter</kbd> and then immediately press <kbd>ESC</kbd>. If that fails, just reboot the computer with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>, pressing the reset button, or holding the power button until the computer shuts off.</p>
+<ul>
+  <li><strong>Wrong username</strong>: your username may not be the same as your display name. It is often your first name all lowercase, first and last name all lowercase, or first initial and last name all lowercase.</li>
+  <li><strong>Wrong password</strong>: you’re notified of this at the graphical login screen.</li>
+  <li>Something else is blocking the login.</li>
+</ul>
 
-<p><img src="/images/oem-firstboot/grub-menu.png" alt="GRUB menu" /></p>
+<p>The easiest way to confirm your username is by booting into recovery mode, entering a chroot, and running <code class="language-plaintext highlighter-rouge">ls</code> in the <code class="language-plaintext highlighter-rouge">/home</code> directory, as outlined in the <a href="/articles/password/">Password Reset</a> article. If your username and password are both correct, then something else is blocking the login. This is a difficult issue to troubleshoot, and you might want to consider backing up your files from a live disk and <a href="/articles/install-pop/">Reinstalling Pop!_OS</a> or contacting Support for more assistance.</p>
 
-<p>Once you’re in the GRUB boot menu, choose <strong>Advanced options for Ubuntu</strong> and then <strong>(recovery mode)</strong> on the first listed kernel. The system will boot into the recovery menu.</p>
+<p>After logging in, you’ll be presented with a prompt showing your username, hostname, and a tilde (~) representing your home directory.</p>
 
-<p><img src="/images/oem-firstboot/recovery-mode.png" alt="Advanced options" /></p>
+<p><img src="/images/login-loop/login-initial.png" alt="Login and initial prompt" /></p>
 
-<p>At any time, random messages or text may clutter up the recovery menu. If this happens, just press the up/down arrow keys to re-draw the menu items. The text does not affect operation of the recovery menu.</p>
+<p>Note that you can always return to the graphical login screen by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F1</kbd>, or by typing <code class="language-plaintext highlighter-rouge">sudo systemctl restart gdm</code>.</p>
 
-<p>The system will boot into the recovery menu:</p>
+<h3 id="move-old-configuration-files-out-of-the-way">Move old configuration files out of the way</h3>
 
-<p><img src="/images/oem-firstboot/fsck-option.png" alt="fsck option at recovery mode" /></p>
+<p>To determine whether configuration in your home directory is causing the issue, you can create a new user account for testing purposes:</p>
 
-<p>Choose <strong>fsck</strong>, and then press <kbd>Enter</kbd>. You will be notified that to continue, “your / filesystem will be mounted in read/write mode”. Choose <strong>Yes</strong> to continue.</p>
-
-<p><img src="/images/oem-firstboot/fsck-remount.png" alt="fsck remount request" /></p>
-
-<p><u>fsck</u> will run for about 3 seconds and ends with <code class="language-plaintext highlighter-rouge">[ OK ] Reached target Swap.</code> At this point, press <kbd>Enter</kbd> for the Recovery menu.</p>
-
-<p>Choose <strong>root</strong> and press <kbd>Enter</kbd> to continue. Press <kbd>Enter</kbd> until the system shows a root prompt like the image below:</p>
-
-<p><img src="/images/oem-firstboot/recovery-menu.png" alt="Root shell" /></p>
-
-<h4 id="recover-first-boot-menu">Recover First-Boot Menu</h4>
-
-<p>Once you’re at the root shell, identified with the prompt <code class="language-plaintext highlighter-rouge">root@ubuntu:~#</code>, enter the commands below:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oem-config-prepare
-reboot
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo adduser test
+sudo systemctl reboot
 </code></pre></div></div>
 
-<p>The system will reboot into the first-user System Configuration.</p>
+<p>If you’re able to log in with the test user, the issue is somewhere in your regular user’s home folder. Log into the full-screen terminal with your regular user again, and move some of the common configuration files out of the way:</p>
 
-<h4 id="help-us">Help Us</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv ~/.config ~/.config.old
+mv ~/.local ~/.local.old
+mv ~/.cache ~/.cache.old
+mv ~/.nvidia-settings-rc ~/.nvidia-settings-rc.old
+mv ~/.nv ~/.nv.old
+sudo systemctl reboot
+</code></pre></div></div>
 
-<p>Lastly, we need your help in tracking down this bug. When you get logged in, open a terminal and run this command, then send us the ‘log.tgz’ file it creates.</p>
+<p>After moving those files and rebooting, try logging in again. (There may be files you need to move other than the common ones listed above.)</p>
 
-<p><code class="language-plaintext highlighter-rouge">sudo tar -cvz -f ~/log.tgz /var/log</code></p>
+<h3 id="reinstall-the-login-manager">Reinstall the login manager</h3>
 
-<p>Please open a support ticket and attach the log file.</p>
+<p>You can reinstall GNOME Display Manager (which handles the login screen), along with the desktop environment. On Pop!_OS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall gdm3 pop-desktop gnome-shell
+sudo systemctl reboot
+</code></pre></div></div>
+
+<p>Or on Ubuntu:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall gdm3 ubuntu-desktop gnome-shell
+sudo systemctl reboot
+</code></pre></div></div>
+
+<p>After reinstalling those packages and rebooting, try logging in again.</p>
+
+<h3 id="reinstall-nvidia-driver">Reinstall NVIDIA Driver</h3>
+
+<p>If your system is equipped with NVIDIA graphics, a recent update might be causing the login issues. (Usually, NVIDIA driver issues will prevent the login screen from loading at all; however, it’s still worth reinstalling if you are unable to log in after the above steps.) Refer to the table below to determine if your system contains NVIDIA graphics:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Always</th>
+      <th style="text-align: left">Maybe</th>
+      <th style="text-align: left">Never</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Oryx Pro</td>
+      <td style="text-align: left">Wild Dog Pro</td>
+      <td style="text-align: left">Lemur</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Adder WS</td>
+      <td style="text-align: left">Ratel</td>
+      <td style="text-align: left">Kudu</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Serval WS</td>
+      <td style="text-align: left">Gazelle</td>
+      <td style="text-align: left">Meerkat</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bonobo WS</td>
+      <td style="text-align: left">Thelio</td>
+      <td style="text-align: left">Galago Pro</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Leopard WS</td>
+      <td style="text-align: left">Thelio Major</td>
+      <td style="text-align: left">Darter Pro</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Silverback WS</td>
+      <td style="text-align: left">Thelio Massive</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To remove the NVIDIA driver, run the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt purge *nvidia*
+sudo apt autoremove
+sudo apt clean
+</code></pre></div></div>
+
+<p><img src="/images/login-loop/purge-nvidia.png" alt="Removing NVIDIA" /></p>
+
+<p>After the NVIDIA driver has been removed, add it back using the following commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt full-upgrade
+sudo apt install system76-driver-nvidia
+</code></pre></div></div>
+
+<p>After the installation has completed, type <code class="language-plaintext highlighter-rouge">sudo systemctl reboot</code> and try logging in again.</p>
+
+<h3 id="if-these-steps-dont-work">If these steps don’t work…</h3>
+
+<p>Contact Support! We have a few more things to try. There are a significant number of processes and files required for your graphical desktop environment to be loaded, and much fewer for the terminal login. As such, you can usually recover your desktop using the command line interface!</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-02-12</p>
+        <p>Article last modified: 2020-04-17</p>
     </div>
 </div>
 

@@ -10,25 +10,25 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Use The Recovery Partition - System76 Support</title>
-    <meta property="og:title" content="Use The Recovery Partition - System76 Support">
-    <meta itemprop="name" content="Use The Recovery Partition - System76 Support">
-    <meta name="twitter:title" content="Use The Recovery Partition - System76 Support">
+    <title>Can't Log In or Black Screen After Logging In with Ubuntu - System76 Support</title>
+    <meta property="og:title" content="Can't Log In or Black Screen After Logging In with Ubuntu - System76 Support">
+    <meta itemprop="name" content="Can't Log In or Black Screen After Logging In with Ubuntu - System76 Support">
+    <meta name="twitter:title" content="Can't Log In or Black Screen After Logging In with Ubuntu - System76 Support">
 
-    <meta name="description" content="Here is how to use the recovery partition to repair, refresh or reinstall your operating system.
+    <meta name="description" content="Are you getting stuck in a login loop, even though your password is correct? Do you see a black screen after you log in?
 ">
-    <meta property="og:description" content="Here is how to use the recovery partition to repair, refresh or reinstall your operating system.
+    <meta property="og:description" content="Are you getting stuck in a login loop, even though your password is correct? Do you see a black screen after you log in?
 ">
-    <meta itemprop="description" content="Here is how to use the recovery partition to repair, refresh or reinstall your operating system.
+    <meta itemprop="description" content="Are you getting stuck in a login loop, even though your password is correct? Do you see a black screen after you log in?
 ">
-    <meta name="twitter:description" content="Here is how to use the recovery partition to repair, refresh or reinstall your operating system.
+    <meta name="twitter:description" content="Are you getting stuck in a login loop, even though your password is correct? Do you see a black screen after you log in?
 ">
 
-    <meta name="keywords" content="recovery reset locked out crash reinstall refresh repair">
+    <meta name="keywords" content="Support Guides Login NVIDIA Loop Password session greeter">
 
     
-    <meta property="og:image" content="http://support.system76.com/images/pop-icon.png" />
-    <meta name="twitter:image:src" content="http://support.system76.com/images/pop-icon.png">
+    <meta property="og:image" content="http://support.system76.com/images/system76.png" />
+    <meta name="twitter:image:src" content="http://support.system76.com/images/system76.png">
     
 
     <meta name="twitter:card" content="summary_large_image">
@@ -205,8 +205,8 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Use The Recovery Partition
-        <a href="https://github.com/system76/docs/edit/master/_articles/pop-recovery.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+        Can't Log In or Black Screen After Logging In with Ubuntu
+        <a href="https://github.com/system76/docs/edit/master/_articles/login-loop-ubuntu.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
   </header>
@@ -214,85 +214,139 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>The recovery partition on this operating system is a full copy of the Pop!_OS installation disk. It can be used exactly the same as if a live disk copy of Pop!_OS was booted from a USB drive. The existing operating system can be repaired or reinstalled from the recovery mode. You can also perform a refresh install, which allows you to reinstall without losing any user data or data in your home directory, or opt to do a fresh install, which will essentially reset all OS data. Refresh Installs are only available on a fresh install of Pop!_OS 19.04.</p>
-
-<p>To boot into recovery mode, bring up the <u>systemd-boot</u> menu by holding down <kbd>SPACE</kbd> while the system is booting. On the menu, choose <strong>Pop!_OS Recovery</strong>.</p>
-
-<p><img src="/images/pop-recovery/systemd-boot.png" alt="systemd-boot" /></p>
-
-<h2 id="table-of-contents">Table of Contents</h2>
+        <p>Sometimes after an upgrade, your system might not bring you to the desktop after logging in. If you try logging in and you just see a black screen, or Pop!_OS brings you back to the login screen, you’re experiencing a login loop. There are several causes for login loops:</p>
 
 <ul>
-  <li><a href="/articles/pop-recovery/#repair">Repair</a></li>
-  <li><a href="/articles/pop-recovery/#refresh-install">Refresh Install</a></li>
-  <li><a href="/articles/pop-recovery/#reinstall">Reinstall</a></li>
+  <li>Configuration files in your home directory are not compatible with new versions of software</li>
+  <li>The display/login manager is not working correctly</li>
+  <li>The NVIDIA driver has been updated and is causing an issue</li>
 </ul>
 
-<h3 id="repair">Repair</h3>
+<p>Each cause has a different solution, and certain items (such as NVIDIA) might not be applicable to your system. In most cases, you can switch to a full-screen terminal (called a <em>TTY</em>) to log in and fix the issue.</p>
 
-<p>If the existing system needs to be repaired, then click the <strong>Install Pop!_OS</strong> in the top left, and choose <strong>quit</strong>.</p>
+<h3 id="switch-to-a-terminal">Switch to a Terminal</h3>
 
-<p>To get access to the existing drive to run the package manager <a href="/articles/package-manager/">repair commands</a>, the following commands will need to be run:</p>
+<p>At the login screen, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F5</kbd> to switch to a TTY. You’ll be prompted to enter a login. At the <code class="language-plaintext highlighter-rouge">login</code> prompt, enter your username and press <kbd>Enter</kbd>. You’ll then be prompted for your password. You will not see your password as you are typing it; just type it and press “Enter.”</p>
 
-<p>First, press <kbd><span class="fl-pop-key"></span></kbd>+<kbd>T</kbd>/<kbd><i class="fl-ubuntu"></i></kbd>+<kbd>T</kbd> to open a terminal, then type this command:</p>
+<p>If you’re not able to log in, the reason could be:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
+<ul>
+  <li><strong>Wrong username</strong>: your username may not be the same as your display name. It is often your first name all lowercase, first and last name all lowercase, or first initial and last name all lowercase.</li>
+  <li><strong>Wrong password</strong>: you’re notified of this at the graphical login screen.</li>
+  <li>Something else is blocking the login.</li>
+</ul>
+
+<p>The easiest way to confirm your username is by booting into recovery mode, entering a chroot, and running <code class="language-plaintext highlighter-rouge">ls</code> in the <code class="language-plaintext highlighter-rouge">/home</code> directory, as outlined in the <a href="/articles/password/">Password Reset</a> article. If your username and password are both correct, then something else is blocking the login. This is a difficult issue to troubleshoot, and you might want to consider backing up your files from a live disk and <a href="/articles/install-pop/">Reinstalling Pop!_OS</a> or contacting Support for more assistance.</p>
+
+<p>After logging in, you’ll be presented with a prompt showing your username, hostname, and a tilde (~) representing your home directory.</p>
+
+<p><img src="/images/login-loop/login-initial.png" alt="Login and initial prompt" /></p>
+
+<p>Note that you can always return to the graphical login screen by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F1</kbd>, or by typing <code class="language-plaintext highlighter-rouge">sudo systemctl restart gdm</code>.</p>
+
+<h3 id="move-old-configuration-files-out-of-the-way">Move old configuration files out of the way</h3>
+
+<p>To determine whether configuration in your home directory is causing the issue, you can create a new user account for testing purposes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo adduser test
+sudo systemctl reboot
 </code></pre></div></div>
 
-<p>This will show you the name of the main internal drive, which will have 4 partitions on it.  We will be working with the 3rd partition.  If the main drive is an NVMe drive, it will be called <code class="language-plaintext highlighter-rouge">/dev/nvme0n1p3</code> and if the drive is a SATA or regular M.2 drive, it will be called <code class="language-plaintext highlighter-rouge">/dev/sda3</code>.</p>
+<p>If you’re able to log in with the test user, the issue is somewhere in your regular user’s home folder. Log into the full-screen terminal with your regular user again, and move some of the common configuration files out of the way:</p>
 
-<p>Next, run this command:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv ~/.config ~/.config.old
+mv ~/.local ~/.local.old
+mv ~/.cache ~/.cache.old
+mv ~/.nvidia-settings-rc ~/.nvidia-settings-rc.old
+mv ~/.nv ~/.nv.old
+sudo systemctl reboot
 </code></pre></div></div>
 
-<p>If the command fails and says <code class="language-plaintext highlighter-rouge">mount: /mnt: unknown filesystem type 'crypto_LUKS'</code>, then the hard drive has been encrypted, and additional commands are needed to unlock it.</p>
+<p>After moving those files and rebooting, try logging in again. (There may be files you need to move other than the common ones listed above.)</p>
 
-<h3 id="encrypted-disk">Encrypted Disk</h3>
+<h3 id="reinstall-the-login-manager">Reinstall the login manager</h3>
 
-<p>To get access to an encrypted disk, these additional commands need to be run in order to unlock the disk.  Please use the <code class="language-plaintext highlighter-rouge">lsblk</code> command described above to determine the correct drive and partition.</p>
+<p>You can reinstall GNOME Display Manager (which handles the login screen), along with the desktop environment. On Pop!_OS:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/sda3 cryptdata
-sudo lvscan
-sudo vgchange -ay
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall gdm3 pop-desktop gnome-shell
+sudo systemctl reboot
 </code></pre></div></div>
 
-<p>And take note as to what the cryptdata group is called.  Substitute the correct info into this next command.  Make sure that <code class="language-plaintext highlighter-rouge">-root</code> is on the end:</p>
+<p>Or on Ubuntu:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/mapper/data-root /mnt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall gdm3 ubuntu-desktop gnome-shell
+sudo systemctl reboot
 </code></pre></div></div>
 
-<p>And now the existing hard drive can be accessed by going to the <code class="language-plaintext highlighter-rouge">/mnt</code> folder.  To use the <u>Files</u> program, go to ‘+ Other Locations’ -&gt; ‘Computer’ and then click on the <code class="language-plaintext highlighter-rouge">/mnt</code> folder.</p>
+<p>After reinstalling those packages and rebooting, try logging in again.</p>
 
-<h3 id="chroot">Chroot</h3>
+<h3 id="reinstall-nvidia-driver">Reinstall NVIDIA Driver</h3>
 
-<p><u>chroot</u> is the way to run commands as if the existing operating system had been booted.  Once these commands are run, then package manager (<u>apt</u>) and other system level commands can be run.</p>
+<p>If your system is equipped with NVIDIA graphics, a recent update might be causing the login issues. (Usually, NVIDIA driver issues will prevent the login screen from loading at all; however, it’s still worth reinstalling if you are unable to log in after the above steps.) Refer to the table below to determine if your system contains NVIDIA graphics:</p>
 
-<p>The EFI partition is usually around 512MB so that would be the partition that we replace in the next command. The Recovery Partition is around 4GB as well.</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Always</th>
+      <th style="text-align: left">Maybe</th>
+      <th style="text-align: left">Never</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Oryx Pro</td>
+      <td style="text-align: left">Wild Dog Pro</td>
+      <td style="text-align: left">Lemur</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Adder WS</td>
+      <td style="text-align: left">Ratel</td>
+      <td style="text-align: left">Kudu</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Serval WS</td>
+      <td style="text-align: left">Gazelle</td>
+      <td style="text-align: left">Meerkat</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bonobo WS</td>
+      <td style="text-align: left">Thelio</td>
+      <td style="text-align: left">Galago Pro</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Leopard WS</td>
+      <td style="text-align: left">Thelio Major</td>
+      <td style="text-align: left">Darter Pro</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Silverback WS</td>
+      <td style="text-align: left">Thelio Massive</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
-sudo chroot /mnt
+<p>To remove the NVIDIA driver, run the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt purge *nvidia*
+sudo apt autoremove
+sudo apt clean
 </code></pre></div></div>
 
-<p>To exit from the <u>chroot</u> and reboot the computer, run these commands:</p>
+<p><img src="/images/login-loop/purge-nvidia.png" alt="Removing NVIDIA" /></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
-reboot
+<p>After the NVIDIA driver has been removed, add it back using the following commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt full-upgrade
+sudo apt install system76-driver-nvidia
 </code></pre></div></div>
 
-<h3 id="refresh-install">Refresh Install</h3>
+<p>After the installation has completed, type <code class="language-plaintext highlighter-rouge">sudo systemctl reboot</code> and try logging in again.</p>
 
-<p>Starting with new installations of Pop!_OS 19.04 (not through upgrading) the installer will include a new Refresh Install option that allows you to reinstall the OS to be reinstalled without losing user account information and data in the home directory. However, your applications will still need to be reinstalled.</p>
+<h3 id="if-these-steps-dont-work">If these steps don’t work…</h3>
 
-<p><img src="/images/pop-recovery/refresh-install-option.png" alt="Refresh Install Option" /></p>
-
-<h3 id="reinstall">Reinstall</h3>
-
-<p>Once the recovery operating system has opened, the <u>Pop Installer</u> will start automatically.  If the system needs to be reinstalled, go ahead and continue the installation steps as demonstrated <a href="/articles/install-pop/">here</a>.</p>
-
-<p>If files need to be copied off before reinstall, open the <u>Files</u> program to get access to the existing install.  If the existing install is encrypted, please see the <a href="#encrypted-disk">encrypted disk</a> instructions below.</p>
+<p>Contact Support! We have a few more things to try. There are a significant number of processes and files required for your graphical desktop environment to be loaded, and much fewer for the terminal login. As such, you can usually recover your desktop using the command line interface!</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">

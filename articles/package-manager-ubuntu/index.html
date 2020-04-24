@@ -10,25 +10,25 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Use The Recovery Partition - System76 Support</title>
-    <meta property="og:title" content="Use The Recovery Partition - System76 Support">
-    <meta itemprop="name" content="Use The Recovery Partition - System76 Support">
-    <meta name="twitter:title" content="Use The Recovery Partition - System76 Support">
+    <title>Fix Package Manager Issues in Ubuntu - System76 Support</title>
+    <meta property="og:title" content="Fix Package Manager Issues in Ubuntu - System76 Support">
+    <meta itemprop="name" content="Fix Package Manager Issues in Ubuntu - System76 Support">
+    <meta name="twitter:title" content="Fix Package Manager Issues in Ubuntu - System76 Support">
 
-    <meta name="description" content="Here is how to use the recovery partition to repair, refresh or reinstall your operating system.
+    <meta name="description" content="Here are ways to fix update, upgrade, and other package manager issues.
 ">
-    <meta property="og:description" content="Here is how to use the recovery partition to repair, refresh or reinstall your operating system.
+    <meta property="og:description" content="Here are ways to fix update, upgrade, and other package manager issues.
 ">
-    <meta itemprop="description" content="Here is how to use the recovery partition to repair, refresh or reinstall your operating system.
+    <meta itemprop="description" content="Here are ways to fix update, upgrade, and other package manager issues.
 ">
-    <meta name="twitter:description" content="Here is how to use the recovery partition to repair, refresh or reinstall your operating system.
+    <meta name="twitter:description" content="Here are ways to fix update, upgrade, and other package manager issues.
 ">
 
-    <meta name="keywords" content="recovery reset locked out crash reinstall refresh repair">
+    <meta name="keywords" content="package manager apt aptitude apt-get upgrades updates">
 
     
-    <meta property="og:image" content="http://support.system76.com/images/pop-icon.png" />
-    <meta name="twitter:image:src" content="http://support.system76.com/images/pop-icon.png">
+    <meta property="og:image" content="http://support.system76.com/images/system76.png" />
+    <meta name="twitter:image:src" content="http://support.system76.com/images/system76.png">
     
 
     <meta name="twitter:card" content="summary_large_image">
@@ -205,8 +205,8 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Use The Recovery Partition
-        <a href="https://github.com/system76/docs/edit/master/_articles/pop-recovery.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+        Fix Package Manager Issues in Ubuntu
+        <a href="https://github.com/system76/docs/edit/master/_articles/package-manager-ubuntu.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
   </header>
@@ -214,85 +214,44 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>The recovery partition on this operating system is a full copy of the Pop!_OS installation disk. It can be used exactly the same as if a live disk copy of Pop!_OS was booted from a USB drive. The existing operating system can be repaired or reinstalled from the recovery mode. You can also perform a refresh install, which allows you to reinstall without losing any user data or data in your home directory, or opt to do a fresh install, which will essentially reset all OS data. Refresh Installs are only available on a fresh install of Pop!_OS 19.04.</p>
+        <p>If your system complains about a failed upgrade, package manager conflicts, broken upgrades, or other package-related issues, there are several common fixes to these problems.  Some package manager issues can be resolved with the graphical update program, but many require the command line.  If you get the red circle in the status bar, run these commands to fix your package manager:</p>
 
-<p>To boot into recovery mode, bring up the <u>systemd-boot</u> menu by holding down <kbd>SPACE</kbd> while the system is booting. On the menu, choose <strong>Pop!_OS Recovery</strong>.</p>
-
-<p><img src="/images/pop-recovery/systemd-boot.png" alt="systemd-boot" /></p>
-
-<h2 id="table-of-contents">Table of Contents</h2>
-
-<ul>
-  <li><a href="/articles/pop-recovery/#repair">Repair</a></li>
-  <li><a href="/articles/pop-recovery/#refresh-install">Refresh Install</a></li>
-  <li><a href="/articles/pop-recovery/#reinstall">Reinstall</a></li>
-</ul>
-
-<h3 id="repair">Repair</h3>
-
-<p>If the existing system needs to be repaired, then click the <strong>Install Pop!_OS</strong> in the top left, and choose <strong>quit</strong>.</p>
-
-<p>To get access to the existing drive to run the package manager <a href="/articles/package-manager/">repair commands</a>, the following commands will need to be run:</p>
-
-<p>First, press <kbd><span class="fl-pop-key"></span></kbd>+<kbd>T</kbd>/<kbd><i class="fl-ubuntu"></i></kbd>+<kbd>T</kbd> to open a terminal, then type this command:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt clean
+sudo apt update -m
+sudo dpkg --configure -a
+sudo apt install -f
+sudo apt dist-upgrade
+sudo apt autoremove --purge
 </code></pre></div></div>
 
-<p>This will show you the name of the main internal drive, which will have 4 partitions on it.  We will be working with the 3rd partition.  If the main drive is an NVMe drive, it will be called <code class="language-plaintext highlighter-rouge">/dev/nvme0n1p3</code> and if the drive is a SATA or regular M.2 drive, it will be called <code class="language-plaintext highlighter-rouge">/dev/sda3</code>.</p>
+<p>Sometimes, you may see some packages that are still broken and need to be installed manually or purged manually.  There may be broken dependencies or cyclical dependencies.  If so, these commands can help:</p>
 
-<p>Next, run this command:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall &lt;packagename&gt;
 </code></pre></div></div>
 
-<p>If the command fails and says <code class="language-plaintext highlighter-rouge">mount: /mnt: unknown filesystem type 'crypto_LUKS'</code>, then the hard drive has been encrypted, and additional commands are needed to unlock it.</p>
+<p>This command reinstalls the package.  This can be convenient when the package has many reverse dependencies.</p>
 
-<h3 id="encrypted-disk">Encrypted Disk</h3>
-
-<p>To get access to an encrypted disk, these additional commands need to be run in order to unlock the disk.  Please use the <code class="language-plaintext highlighter-rouge">lsblk</code> command described above to determine the correct drive and partition.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/sda3 cryptdata
-sudo lvscan
-sudo vgchange -ay
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt purge &lt;package name&gt;
 </code></pre></div></div>
 
-<p>And take note as to what the cryptdata group is called.  Substitute the correct info into this next command.  Make sure that <code class="language-plaintext highlighter-rouge">-root</code> is on the end:</p>
+<p>This will remove a package and its configuration files.  Use this command to remove a package that is causing issues, and reinstall it with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/mapper/data-root /mnt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install &lt;package name&gt;
 </code></pre></div></div>
 
-<p>And now the existing hard drive can be accessed by going to the <code class="language-plaintext highlighter-rouge">/mnt</code> folder.  To use the <u>Files</u> program, go to ‘+ Other Locations’ -&gt; ‘Computer’ and then click on the <code class="language-plaintext highlighter-rouge">/mnt</code> folder.</p>
+<p><strong>Important:</strong> Please pay attention when using a purge command.  If the command looks like it will remove several additional packages besides the one you are trying to fix, don’t run it!  If it’s only a few packages, most likely it’s safe.  If additional packages are removed, make sure to install them again before restarting the computer.  This command will make sure the core Pop!_OS components are installed after any purge commands:</p>
 
-<h3 id="chroot">Chroot</h3>
-
-<p><u>chroot</u> is the way to run commands as if the existing operating system had been booted.  Once these commands are run, then package manager (<u>apt</u>) and other system level commands can be run.</p>
-
-<p>The EFI partition is usually around 512MB so that would be the partition that we replace in the next command. The Recovery Partition is around 4GB as well.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
-sudo chroot /mnt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install pop-desktop
 </code></pre></div></div>
 
-<p>To exit from the <u>chroot</u> and reboot the computer, run these commands:</p>
+<p>If <u>Software Updater</u> indicates that some remote repositories can’t be reached, open the <u>Software &amp; Updates</u> program and look in the <strong>Other Software</strong> tab for the broken repository.  Either remove the repository, or search for the software vendor to determine what has happened to their software server.  Sometimes the version of the repo (xenial, yakkety, zesty, artful, etc) needs changing to match the current version of the operating system.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
-reboot
+<h2 id="useful-programs">Useful Programs</h2>
+
+<p>The program <u>Synaptic</u> is a very powerful GUI of the package manager.  Packages can be installed, removed, selectively upgraded, pinned, and information gained about their purpose and dependencies.  It also provides a comprehensive list of available packages and programs to be downloaded.  It can be installed in the <u>Software Center</u> or with this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install synaptic
 </code></pre></div></div>
-
-<h3 id="refresh-install">Refresh Install</h3>
-
-<p>Starting with new installations of Pop!_OS 19.04 (not through upgrading) the installer will include a new Refresh Install option that allows you to reinstall the OS to be reinstalled without losing user account information and data in the home directory. However, your applications will still need to be reinstalled.</p>
-
-<p><img src="/images/pop-recovery/refresh-install-option.png" alt="Refresh Install Option" /></p>
-
-<h3 id="reinstall">Reinstall</h3>
-
-<p>Once the recovery operating system has opened, the <u>Pop Installer</u> will start automatically.  If the system needs to be reinstalled, go ahead and continue the installation steps as demonstrated <a href="/articles/install-pop/">here</a>.</p>
-
-<p>If files need to be copied off before reinstall, open the <u>Files</u> program to get access to the existing install.  If the existing install is encrypted, please see the <a href="#encrypted-disk">encrypted disk</a> instructions below.</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
