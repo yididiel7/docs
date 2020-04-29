@@ -214,7 +214,7 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>The recovery partition on this operating system is a full copy of the Pop!_OS installation disk. It can be used exactly the same as if a live disk copy of Pop!_OS was booted from a USB drive. The existing operating system can be repaired or reinstalled from the recovery mode. You can also perform a refresh install, which allows you to reinstall without losing any user data or data in your home directory, or opt to do a fresh install, which will essentially reset all OS data. Refresh Installs are only available on a fresh install of Pop!_OS 19.04.</p>
+        <p>The recovery partition on this operating system is a full copy of the Pop!_OS installation disk. It can be used exactly the same as if a live disk copy of Pop!_OS was booted from a USB drive. The existing operating system can be repaired or reinstalled from the recovery mode. You can also perform a refresh install, which allows you to reinstall without losing any user data or data in your home directory, or opt to do a fresh install, which will essentially reset all OS data. Refresh Installs are only available on a fresh install of Pop!_OS 19.04 and above.</p>
 
 <p>To boot into recovery mode, bring up the <u>systemd-boot</u> menu by holding down <kbd>SPACE</kbd> while the system is booting. On the menu, choose <strong>Pop!_OS Recovery</strong>.</p>
 
@@ -232,7 +232,7 @@
 
 <p>If the existing system needs to be repaired, then click the <strong>Install Pop!_OS</strong> in the top left, and choose <strong>quit</strong>.</p>
 
-<p>To get access to the existing drive to run the package manager <a href="/articles/package-manager/">repair commands</a>, the following commands will need to be run:</p>
+<p>To access to the existing OS drive and run the package manager <a href="/articles/package-manager/">repair commands</a>, the following commands will need to be run:</p>
 
 <p>First, press <kbd><span class="fl-pop-key"></span></kbd>+<kbd>T</kbd>/<kbd><i class="fl-ubuntu"></i></kbd>+<kbd>T</kbd> to open a terminal, then type this command:</p>
 
@@ -245,6 +245,10 @@
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
 </code></pre></div></div>
+<p>OR for NVMe drives:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p3 /mnt
+</code></pre></div></div>
 
 <p>If the command fails and says <code class="language-plaintext highlighter-rouge">mount: /mnt: unknown filesystem type 'crypto_LUKS'</code>, then the hard drive has been encrypted, and additional commands are needed to unlock it.</p>
 
@@ -256,8 +260,14 @@
 sudo lvscan
 sudo vgchange -ay
 </code></pre></div></div>
+<p>OR for NVMe drives:</p>
 
-<p>And take note as to what the cryptdata group is called.  Substitute the correct info into this next command.  Make sure that <code class="language-plaintext highlighter-rouge">-root</code> is on the end:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/nvme0n1p3 cryptdata
+sudo lvscan
+sudo vgchange -ay
+</code></pre></div></div>
+
+<p><strong>Note</strong> Pay attention to what the cryptdata group is called. If it is named something other than ‘data-root’ Substitute the correct info into this next command.  Make sure that <code class="language-plaintext highlighter-rouge">-root</code> is on the end:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/mapper/data-root /mnt
 </code></pre></div></div>
@@ -286,7 +296,7 @@ reboot
 
 <p>Starting with new installations of Pop!_OS 19.04 (not through upgrading) the installer will include a new Refresh Install option that allows you to reinstall the OS to be reinstalled without losing user account information and data in the home directory. However, your applications will still need to be reinstalled.</p>
 
-<p><img src="/images/pop-recovery/refresh-install-option.png" alt="Refresh Install Option" /></p>
+<p><img src="/images/pop-recovery/recovery-install-page-20.04.png" alt="Refresh Install Option" /></p>
 
 <h3 id="reinstall">Reinstall</h3>
 
@@ -296,7 +306,7 @@ reboot
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-17</p>
+        <p>Article last modified: 2020-04-29</p>
     </div>
 </div>
 
