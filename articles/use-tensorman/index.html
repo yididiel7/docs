@@ -321,15 +321,15 @@ tensorman run --gpu --python3 --jupyter bash
 
 <p>Using a default tensorflow image:</p>
 
-<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">docker_flags</span> <span class="p">=</span> <span class="p">[</span> <span class="err">'-p'</span><span class="p">,</span> <span class="err">'</span><span class="mi">8080</span><span class="err">:</span><span class="mi">8080</span><span class="err">'</span> <span class="p">]</span>
-<span class="py">tag</span> <span class="p">=</span> <span class="err">'</span><span class="mf">2.0.0</span><span class="err">'</span>
-<span class="py">variants</span> <span class="p">=</span> <span class="p">[</span><span class="err">'gpu'</span><span class="p">,</span> <span class="err">'python</span><span class="mi">3</span><span class="err">'</span><span class="p">]</span>
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">docker_flags</span> <span class="p">=</span> <span class="p">[</span> <span class="s">'-p'</span><span class="p">,</span> <span class="s">'8080:8080'</span> <span class="p">]</span>
+<span class="py">tag</span> <span class="p">=</span> <span class="s">'2.0.0'</span>
+<span class="py">variants</span> <span class="p">=</span> <span class="p">[</span><span class="s">'gpu'</span><span class="p">,</span> <span class="s">'python3'</span><span class="p">]</span>
 </code></pre></div></div>
 
 <p>Defining a custom image:</p>
 
-<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">docker_flags</span> <span class="p">=</span> <span class="p">[</span> <span class="err">'-p'</span><span class="p">,</span> <span class="err">'</span><span class="mi">8080</span><span class="err">:</span><span class="mi">8080</span><span class="err">'</span> <span class="p">]</span>
-<span class="py">image</span> <span class="p">=</span> <span class="err">'custom-image'</span>
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">docker_flags</span> <span class="p">=</span> <span class="p">[</span> <span class="s">'-p'</span><span class="p">,</span> <span class="s">'8080:8080'</span> <span class="p">]</span>
+<span class="py">image</span> <span class="p">=</span> <span class="s">'custom-image'</span>
 <span class="py">variants</span> <span class="p">=</span> <span class="nn">['gpu']</span>
 </code></pre></div></div>
 

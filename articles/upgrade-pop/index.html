@@ -216,7 +216,7 @@
     <div class="small-12 small-centered medium-10 large-8 columns">
         <p>Pop!_OS 20.04 LTS was released April 30, 2020. View the <a href="/articles/Pop!_OS-20.04-LTS-Release-Notes">Release Notes</a> to learn about new features.</p>
 
-<h3 id="upgrading-to-pop_os-to-2004-from-1910-or-1804">Upgrading to Pop!_OS to 20.04 from 19.10 or 18.04</h3>
+<h3 id="upgrading-to-pop_os-to-2004-from-1910-or-1804-for-all-other-operating-system-versions-scroll-down-to-the-instructions-for-upgrading-from-an-earlier-release">Upgrading to Pop!_OS to 20.04 from 19.10 or 18.04 (For all other operating system versions, scroll down to the instructions for upgrading from an earlier release)</h3>
 
 <p>First, make sure you have applied all updates to your system. You can do this through the Pop!_Shop, or through the terminal:</p>
 
@@ -228,11 +228,7 @@ sudo apt full-upgrade
 
 <p>On the system’s “About” page, you will notice a new feature has been added. The System76 upgrade package will display a message that Pop!_OS 20.04 is available with a “Download” button.</p>
 
-<p><img src="/images/upgrade-pop/about-download-button.png" alt="Image Name" /></p>
-
-<p>Click the button and the download will begin.</p>
-
-<p><img src="/images/upgrade-pop/about-download-complete.png" alt="Image Name" /></p>
+<p>Click the “Download” button and the download will begin.</p>
 
 <p>Once the download is complete, you will receive a second notification saying the upgrade is ready.</p>
 
@@ -284,25 +280,36 @@ sudo apt full-upgrade
 
 <h3 id="upgrading-older-releases">Upgrading older releases</h3>
 
-<p>Upgrading Pop!_OS 17.10, 18.10 or 19.04.</p>
+<p>Upgrading Pop!_OS 18.10 or 19.04.</p>
 
-<p>These older Pop!_OS releases are now unsupported and no new updates are available. After unsupported versions have been removed from the archive and mirror network, you will need to change where your system checks for un-applied updates to be able to upgrade. Type the following commands in a terminal to switch where <code class="language-plaintext highlighter-rouge">apt</code> checks for updates. If you would like to have the recovery partition, you will need to backup data and reinstall with a 18.04 or newer release of Pop!_OS</p>
+<p>These older Pop!_OS releases are now unsupported and no new updates are available. After unsupported versions have been removed from the archive and mirror network, you will need to change where your system checks for un-applied updates to be able to upgrade. Open a terminal and follow the next set of instructions to upgrade from Pop!_OS 18.10 or 19.04.</p>
 
-<p>Pop!_OS 17.10 is now unsupported and no new updates are available. After unsupported versions have been removed from the archive and mirror network, you will need to change where your system checks for updates to be able to upgrade. Type the following commands in a terminal to switch where <code class="language-plaintext highlighter-rouge">apt</code> checks for updates. If you would like to have the recovery partition, you will need to backup data and reinstall with a 18.04 or newer release of Pop!_OS</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -e 's/us.archive./old-releases./' /etc/apt/sources.list &gt; ~/sources.list
-sudo mv ~/sources.list /etc/apt/sources.list
-sudo apt clean
+<p>1) Get your current system fully updated:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/us.archive/old-releases/g' /etc/apt/sources.list
 sudo apt update -m
+sudo dpkg --configure -a
+sudo apt install -f
 sudo apt full-upgrade
 sudo apt install pop-desktop
 </code></pre></div></div>
-<p>For Pop!_OS 18.10 and 19.04 Run</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pop-upgrade release upgrade systemd
+
+<p>2) Move any PPA additions out of the way, and get all of the sources pointed at the 20.04 versions:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mkdir -p /etc/apt/sources.list.d/backup
+sudo mv /etc/apt/sources.list.d/* /etc/apt/sources.list.d/backup
+sudo apt-add-repository -yn ppa:system76-dev/stable
+sudo apt-add-repository -yn ppa:system76/pop
+sudo sed -i 's/old-releases/us.archive/g' /etc/apt/sources.list
+sudo sed -i 's/disco/focal/g' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
 </code></pre></div></div>
-<p>For Pop!_OS 17.10 Run</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo do-release-upgrade
+
+<p>3) Now,do the upgrade! This will have a three phases and once the download is complete, you can’t change your mind. This works from a new install of 19.04, but some packages may add complications, so make sure you have a backup of important data before moving forward. There may be a question about restarting services, and it is safe to answer “Yes”. There may be some questions about using “maintainer” version of configuration files and using the that new version is also very likely what you want to do (and the default answer will work):</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt install dpkg apt
+sudo apt full-upgrade | tee ~/upgrade.log
 </code></pre></div></div>
+
+<p>4) Now put the PPAs back; You will want to take a look at the files that end in “list” in “/etc/apt/sources.list.d/backup” to see if you want to enable that again by moving them back to the /etc/apt/sources.list.d/ directory.</p>
+
 <h2 id="troubleshooting">Troubleshooting</h2>
 
 <p>Most upgrades proceed without a hitch, but occasionally things go wrong. If your system hangs on the upgrade process or if it reboots and won’t start, then the following steps can help repair your broken OS.</p>
@@ -328,7 +335,7 @@ sudo apt install pop-desktop
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-05-02</p>
+        <p>Article last modified: 2020-05-26</p>
     </div>
 </div>
 
