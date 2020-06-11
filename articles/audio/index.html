@@ -309,7 +309,13 @@
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pulseaudio --start
 </code></pre></div></div>
+<h2 id="fix-pciinternal-sound-card-not-detected-dummy-output-with-ubuntu-kernel-530-41-and-newer-in-ubuntu-1910">Fix PCI/internal sound card not detected (dummy output) with Ubuntu kernel 5.3.0-41 and newer in Ubuntu 19.10</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "options snd-hda-intel dmic_detect=0" | sudo tee -a /etc/modprobe.d/alsa-base.conf  
+echo "blacklist snd_soc_skl" | sudo tee -a /etc/modprobe.d/blacklist.conf  
+</code></pre></div></div>
+<p>Reboot after making the changes.</p>
 
+<p>Credit of <img src="https://www.linuxuprising.com/2018/06/fix-no-sound-dummy-output-issue-in.html" alt="Linux-Uprising" /></p>
 <h2 id="gather-information-for-support">Gather Information for Support</h2>
 
 <p>The <code class="language-plaintext highlighter-rouge">alsa-info</code> command will gather a number of outputs, including some of the above-listed outputs, and package them so they can be shared easily. In a terminal, run the command:</p>
@@ -323,7 +329,7 @@
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-01-30</p>
+        <p>Article last modified: 2020-03-21</p>
     </div>
 </div>
 
