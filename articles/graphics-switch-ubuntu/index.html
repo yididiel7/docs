@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="How to switch between integrated, NVIDIA, and Hybrid graphics
 ">
 
-    <meta name="keywords" content="System76 Ubuntu 18.04 NVIDIA Integrated">
+    <meta name="keywords" content="System76 Ubuntu 18.04 19.1 20.04 NVIDIA Hybrid Integrated">
 
     
     <meta property="og:image" content="http://support.system76.com/images/ubuntu.png" />
@@ -243,6 +243,16 @@ Gazelle, may also have external ports connected to the integrated GPU.)</p>
 Applications will use the integrated GPU unless explicitly requested to use the
 discrete GPU.</p>
 
+<p>Vulkan applications must be launched with the following command to be rendered on the dGPU (NVIDIA):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__NV_PRIME_RENDER_OFFLOAD=1 &lt;application&gt;
+</code></pre></div></div>
+
+<p>GLX applications must be launched with the following command to be rendered on the dGPU (NVIDIA):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia &lt;application&gt;
+</code></pre></div></div>
+
 <h3 id="switch-graphics">Switch graphics</h3>
 
 <p>Pop!_OS by System76 includes the system76-power package, which includes the
@@ -313,7 +323,7 @@ command line tool. You can see the options with this command:</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-05-22</p>
+        <p>Article last modified: 2020-06-11</p>
     </div>
 </div>
 
