@@ -256,9 +256,29 @@
 
 <p>Once in the BIOS change the Boot Order to boot Pop!_OS first that way when the <kbd>Spacebar</kbd> is pressed systemd-boot will appear and then the Windows Boot Manager can be selected for booting Windows 10. Steps for accessing the BIOS and changing the Boot Order are found <a href="/articles/boot-menu/">here</a>.</p>
 
+<h2 id="fix-your-clock">Fix your clock</h2>
+
+<p>Windows and Linux store their time in the BIOS differently, this will cause your clock to be desynchronized when you switch from one OS to the other.</p>
+
+<p>The easiest solution for it is to fix it in Linux, forcing it to work the same way as Windows. You can do this through the terminal:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl set-local-rtc 1 --adjust-system-clock
+</code></pre></div></div>
+
+<p>You can verify if the change has been successful, by running this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl
+</code></pre></div></div>
+
+<p>You should see <code class="language-plaintext highlighter-rouge">RTC in local TZ: yes</code>. 
+If you need to revert it, just set it to 0:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl set-local-rtc 0 --adjust-system-clock
+</code></pre></div></div>
+
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-17</p>
+        <p>Article last modified: 2020-06-11</p>
     </div>
 </div>
 
