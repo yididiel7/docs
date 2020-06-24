@@ -220,6 +220,7 @@
   <li>Configuration files in your home directory are not compatible with new versions of software</li>
   <li>The display/login manager is not working correctly</li>
   <li>The NVIDIA driver has been updated and is causing an issue</li>
+  <li>The AMD radeon driver is being loaded and causing issues</li>
 </ul>
 
 <p>Each cause has a different solution, and certain items (such as NVIDIA) might not be applicable to your system. In most cases, you can switch to a full-screen terminal (called a <em>TTY</em>) to log in and fix the issue.</p>
@@ -344,13 +345,23 @@ sudo apt install system76-driver-nvidia
 
 <p>After the installation has completed, type <code class="language-plaintext highlighter-rouge">sudo systemctl reboot</code> and try logging in again.</p>
 
+<h3 id="blacklist-radeon-driver">Blacklist Radeon Driver</h3>
+
+<p>If you are using an AMD graphics card, the radeon driver might be causing issues as it does not support newer versions of Ubuntu.  The amdgpu driver that comes with the kernel does however. To blacklist the radeon driver and ensure amdgpu is loaded:</p>
+
+<p>Open <code class="language-plaintext highlighter-rouge">/etc/modprobe.d/blacklist.conf</code> for editing and add <code class="language-plaintext highlighter-rouge">blacklist radeon</code> to the file. Then run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo update-initramfs -c -k all
+sudo shutdown -r now
+</code></pre></div></div>
+
 <h3 id="if-these-steps-dont-work">If these steps don’t work…</h3>
 
 <p>Contact Support! We have a few more things to try. There are a significant number of processes and files required for your graphical desktop environment to be loaded, and much fewer for the terminal login. As such, you can usually recover your desktop using the command line interface!</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-17</p>
+        <p>Article last modified: 2020-06-24</p>
     </div>
 </div>
 
