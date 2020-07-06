@@ -253,6 +253,13 @@ discrete GPU.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia &lt;application&gt;
 </code></pre></div></div>
 
+<p>Hybrid graphics mode is available on 19.10 and later.</p>
+
+<h4 id="compute">Compute</h4>
+
+<p>Compute graphics mode uses the integrated GPU for all rendering. The NVIDIA
+GPU is left available, allowing it to be used as a compute node.</p>
+
 <h3 id="switch-graphics">Switch graphics</h3>
 
 <p>Pop!_OS by System76 includes the system76-power package, which includes the
@@ -280,7 +287,7 @@ switching.</p>
 
 <p><img src="/images/graphics-switch-ubuntu/system-menu.png" alt="Graphics" /></p>
 
-<p>Click on NVIDIA, integrated, or Hybrid, depending on your use case.</p>
+<p>Click on NVIDIA, Integrated, Hybrid, or Compute depending on your use case.</p>
 
 <p>Once you select a mode, you will be prompted to reboot.</p>
 
@@ -312,6 +319,11 @@ command line tool. You can see the options with this command:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics hybrid
 </code></pre></div></div>
 
+<p>For switching to compute mode:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics compute
+</code></pre></div></div>
+
 <h3 id="sources">Sources</h3>
 
 <p>The source code for the system76-power utility and the GNOME Shell extension can be found on GitHub:</p>
@@ -323,7 +335,7 @@ command line tool. You can see the options with this command:</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-06-23</p>
+        <p>Article last modified: 2020-07-06</p>
     </div>
 </div>
 
