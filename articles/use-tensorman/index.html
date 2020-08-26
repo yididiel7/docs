@@ -234,7 +234,7 @@
 
 <p>Packaging Tensorflow for Linux distributions is notoriously difficult, if not impossible. Every release of Tensorflow is accommodated by a myriad of possible build configurations, which requires building many variants of Tensorflow for each Tensorflow release. To make matters worse, each new version of Tensorflow will depend on a wide number of shared dependencies. Dependencies which may not be supported on older versions of a Linux distribution, even if that distribution is actively supported by the distribution maintainers.</p>
 
-<p>To solve this problem, the Tensorflow project provides official Docker container builds, which allow Tensorflow to operate in a contained environment that is isolated from the rest of the system. This virtual environment can operate independent of the base system, allowing you to use any version of Tensorflow on any version of a Linux distribution that supports the Docker runtime.</p>
+<p>To solve this problem, the Tensorflow project provides official Docker container builds, which allow Tensorflow to operate in a contained environment that is isolated from the rest of the system. This virtual environment can operate independently of the base system, allowing you to use any version of Tensorflow on any version of a Linux distribution that supports the Docker runtime.</p>
 
 <p>However, configuring and managing Docker containers for Tensorflow using the <code class="language-plaintext highlighter-rouge">docker</code> command line is currently tedious, and managing multiple versions for different projects is even more-so. To solve this problem for our users, we have developed <code class="language-plaintext highlighter-rouge">tensorman</code> as a convenient tool to manage the installation and execution of Tensorflow Docker containers. It condenses the command-line soup into a set of simple commands that are easy to memorize.</p>
 
@@ -408,7 +408,7 @@ tensorman remove =custom-image
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-11-06</p>
+        <p>Article last modified: 2020-08-02</p>
     </div>
 </div>
 
