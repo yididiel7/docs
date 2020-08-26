@@ -10,21 +10,21 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Watch Flash Content and Netflix - System76 Support</title>
-    <meta property="og:title" content="Watch Flash Content and Netflix - System76 Support">
-    <meta itemprop="name" content="Watch Flash Content and Netflix - System76 Support">
-    <meta name="twitter:title" content="Watch Flash Content and Netflix - System76 Support">
+    <title>Watch Protected Content from Netflix, Amazon Prime, and Other Streaming Services - System76 Support</title>
+    <meta property="og:title" content="Watch Protected Content from Netflix, Amazon Prime, and Other Streaming Services - System76 Support">
+    <meta itemprop="name" content="Watch Protected Content from Netflix, Amazon Prime, and Other Streaming Services - System76 Support">
+    <meta name="twitter:title" content="Watch Protected Content from Netflix, Amazon Prime, and Other Streaming Services - System76 Support">
 
-    <meta name="description" content="How to install Google Chrome or Pepperflash to watch Netflix, Hulu, and other Flash Videos.
+    <meta name="description" content="How to view DRM-protected video content from online streaming services such as Netflix and Amazon Prime
 ">
-    <meta property="og:description" content="How to install Google Chrome or Pepperflash to watch Netflix, Hulu, and other Flash Videos.
+    <meta property="og:description" content="How to view DRM-protected video content from online streaming services such as Netflix and Amazon Prime
 ">
-    <meta itemprop="description" content="How to install Google Chrome or Pepperflash to watch Netflix, Hulu, and other Flash Videos.
+    <meta itemprop="description" content="How to view DRM-protected video content from online streaming services such as Netflix and Amazon Prime
 ">
-    <meta name="twitter:description" content="How to install Google Chrome or Pepperflash to watch Netflix, Hulu, and other Flash Videos.
+    <meta name="twitter:description" content="How to view DRM-protected video content from online streaming services such as Netflix and Amazon Prime
 ">
 
-    <meta name="keywords" content="Support google chrome mozilla firefox netflix amazon hulu flash videos restricted System76">
+    <meta name="keywords" content="Support google chrome mozilla firefox netflix amazon hulu videos restricted System76">
 
     
     <meta property="og:image" content="http://support.system76.com/images/system76.png" />
@@ -202,8 +202,8 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Watch Flash Content and Netflix
-        <a href="https://github.com/system76/docs/edit/master/_articles/flash.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+        Watch Protected Content from Netflix, Amazon Prime, and Other Streaming Services
+        <a href="https://github.com/system76/docs/edit/master/_articles/protected-content.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
   </header>
@@ -211,12 +211,11 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>To watch Flash videos with <u>Firefox</u>, <u>Chromium</u>, and <u>Opera</u>, we recommend using <u>Pepperflash</u>, rather than <u>Adobe Flash</u>, for security reasons.  <u>Pepperflash</u> is maintained by Google and included in the <u>Chrome</u> browser by default, and can be downloaded separately to be used in other browsers.  Please run this command to install <u>Pepperflash</u>:</p>
+        <p>Video content from online streaming services such as Netflix and Amazon Prime is typically protected using various encryption schemes to prevent copying. This is known as digital rights management (DRM). In order to play DRM-encumbered content, you will need to use a browser that supports playback of DRM-controlled content. Please note that not all vendors use a a DRM encryption method that is compatible with Linux (for instance, HBO and HBO Max).</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install browser-plugin-freshplayer-pepperflash
-</code></pre></div></div>
+<h2 id="google-chrome">Google Chrome</h2>
 
-<p>Otherwise, to install <u>Google Chrome</u>, follow these instructions:</p>
+<p>Google Chrome has support for DRM-encumbered playback out-of-the-box, without the need for any additional configuration.</p>
 
 <h3 id="download-chrome">Download Chrome</h3>
 
@@ -265,9 +264,23 @@
 
 <p><u>Chrome</u> will automatically be updated through the package manager.</p>
 
+<h2 id="firefox">Firefox</h2>
+
+<p>Mozilla Firefox is installed by default in both Ubuntu and Pop!_OS, and can be configured to play DRM-encumbered media.</p>
+
+<h3 id="enable-drm-playback">Enable DRM Playback</h3>
+
+<p>To enable playback of DRM content, open Firefox, then click the menu button and click on <strong>Preferences</strong>.</p>
+
+<p>Under the General section, scroll down until you see <strong>Digital Rights Management (DRM) Content</strong>, and then tick the checkbox to enable playback:</p>
+
+<p><img src="/images/flash/firefox_drm.png" alt="Enable DRM in Firefox by ticking the checkbox" /></p>
+
+<p>After that, playback of DRM-encumbered content should be functional.</p>
+
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-02-12</p>
+        <p>Article last modified: 2020-08-26</p>
     </div>
 </div>
 
