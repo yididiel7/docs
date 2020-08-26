@@ -218,6 +218,8 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall bluez gnome-bluetooth indicator-bluetooth pulseaudio-module-bluetooth
 </code></pre></div></div>
 
+<p><strong>NOTE:</strong> After reinstalling the above packages, fully shut down the machine and then power it back on, rather than rebooting. This ensures the hardware completely resets.</p>
+
 <p>If <code class="language-plaintext highlighter-rouge">tlp</code> is installed, then there may be settings interfering with Bluetooth functionality.  Edit this file and disable Wifi and Bluetooth power saving features:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /etc/default/tlp
@@ -299,7 +301,7 @@ sudo rfkill unblock bluetooth
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-05-19</p>
+        <p>Article last modified: 2020-08-26</p>
     </div>
 </div>
 
