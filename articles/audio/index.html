@@ -215,7 +215,12 @@
 
 <h2 id="reset-pulseaudio">Reset PulseAudio</h2>
 
-<p>If the system is not playing audio, you can remove the user configuration files for <u>PulseAudio</u>:</p>
+<p>If the system is not playing audio, first try reseting the pulseaudio daemon:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl --user restart pulseaudio
+</code></pre></div></div>
+
+<p>Applications may need to be restarted. If this fails then try removing the user configuration files for <u>PulseAudio</u>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -r ~/.config/pulse
 </code></pre></div></div>
@@ -326,7 +331,7 @@ echo "blacklist snd_soc_skl" | sudo tee -a /etc/modprobe.d/blacklist.conf
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-03-21</p>
+        <p>Article last modified: 2020-07-17</p>
     </div>
 </div>
 
