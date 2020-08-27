@@ -221,6 +221,14 @@
 
 <h2 id="install-windows-10">Install Windows 10</h2>
 
+<h3 id="create-install-media">Create Install Media</h3>
+
+<p>To create the Install Media on Pop!_OS and Ubuntu, use the <a href="https://www.dropbox.com/s/8emsfrqkqmf9km9/woeusb_3.3.1a_amd64.deb?dl=0">WoeUSB tool</a>. Once you have WoeUSB installed, download <a href="https://www.microsoft.com/en-us/software-download/windows10ISO">the Windows ISO file</a>.</p>
+
+<p><img src="/images/dual-booting/woeusb.png" alt="WoeUSB" /></p>
+
+<p>Select the Windows ISO file as the <strong>Source</strong>, set the <strong>File system</strong> as NTFS, then select the USB drive <strong>Target device</strong> and hit the <strong>Install</strong> button.</p>
+
 <p>Once Windows 10 is loaded and the ‘Windows Setup’ window is shown the partition that was created earlier for Windows can be selected. When installing Windows 10 it will use the Pop EFI system partition (ESP) so that Windows boot efi files will be placed in the ESP partition.</p>
 
 <p><img src="/images/dual-booting/windows-partitioning.png" alt="Windows" /></p>
@@ -275,7 +283,7 @@ If you need to revert it, just set it to 0:</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-08-02</p>
+        <p>Article last modified: 2020-08-27</p>
     </div>
 </div>
 
