@@ -226,22 +226,22 @@
 
 <p>System76 Open Firmware is primarily open-source, meaning the source code is available for users and developers to read and modify as they please. Proprietary firmware is developed by the upstream motherboard manufacturers, and its source code is not available for viewing or modification. You can read about the benefits of using open-source firmware <a href="https://blog.system76.com/post/623810010985742337/open-up-benefits-of-open-source-firmware">here</a>.</p>
 
-<p>Because System76 Open Firmware is intended to be lightweight and simple to use, there are less options available in the UEFI setup menu than for proprietary firmware. Notably:</p>
+<p>System76 Open Firmware is designed to be lightweight and performant with a simple and straightforward user interface.</p>
 
 <ul>
-  <li>Many features are enabled by default in Open Firmware, but are not present in the UEFI setup menu. This includes:
+  <li>Many features are configured by default in System76 Open Firmware
     <ul>
-      <li>Hardware virtualization (Intel VT-D/AMD-V) - can be disabled by the OS via a kernel boot option.</li>
-      <li>Hyperthreading - can be disabled by the OS via a kernel boot option.</li>
-      <li>Thunderbolt security - devices must be allowed by the user within the OS.</li>
-      <li>Battery thresholds - can be set by the user within the OS.</li>
+      <li>Enabled: Hardware virtualization (Intel VT-x and VT-d/AMD-V). Can be disabled by the OS via a kernel boot option.</li>
+      <li>Enabled: Hyperthreading. Can be disabled by the OS via a kernel boot option.</li>
+      <li>Enabled: Thunderbolt security. Devices must be allowed by the user within the OS.</li>
+      <li>Disabled: Intel ME (Management Engine)</li>
+      <li>Disabled: Secure Boot</li>
     </ul>
   </li>
   <li>Some features are present in proprietary firmware but are not available in Open Firmware, including:
     <ul>
-      <li>Intel ME - always disabled.</li>
-      <li>Secure Boot - always disabled.</li>
-      <li>Self-encryptiong storage drives - not supported (note that the full-disk encryption used in Pop!_OS does not require this firmware-level feature.)</li>
+      <li>Flexicharger (battery threshold). This feature is currently in development for System76 Open Firmware.</li>
+      <li>Self-encryptiong storage drives. Not supported (note that the full-disk encryption used in Pop!_OS does not require this firmware-level feature.)</li>
     </ul>
   </li>
 </ul>
