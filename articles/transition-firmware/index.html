@@ -10,21 +10,21 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Update System Firmware - System76 Support</title>
-    <meta property="og:title" content="Update System Firmware - System76 Support">
-    <meta itemprop="name" content="Update System Firmware - System76 Support">
-    <meta name="twitter:title" content="Update System Firmware - System76 Support">
+    <title>Switching Between Proprietary Firmware and System76 Open Firmware - System76 Support</title>
+    <meta property="og:title" content="Switching Between Proprietary Firmware and System76 Open Firmware - System76 Support">
+    <meta itemprop="name" content="Switching Between Proprietary Firmware and System76 Open Firmware - System76 Support">
+    <meta name="twitter:title" content="Switching Between Proprietary Firmware and System76 Open Firmware - System76 Support">
 
-    <meta name="description" content="How to update System76 firmware.
+    <meta name="description" content="How to transition from proprietary firmware to System76 Open Firmware on supported models.
 ">
-    <meta property="og:description" content="How to update System76 firmware.
+    <meta property="og:description" content="How to transition from proprietary firmware to System76 Open Firmware on supported models.
 ">
-    <meta itemprop="description" content="How to update System76 firmware.
+    <meta itemprop="description" content="How to transition from proprietary firmware to System76 Open Firmware on supported models.
 ">
-    <meta name="twitter:description" content="How to update System76 firmware.
+    <meta name="twitter:description" content="How to transition from proprietary firmware to System76 Open Firmware on supported models.
 ">
 
-    <meta name="keywords" content="Firmware Intel ME Management Engine Update">
+    <meta name="keywords" content="Firmware">
 
     
     <meta property="og:image" content="http://support.system76.com/images/system76.png" />
@@ -202,8 +202,8 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Update System Firmware
-        <a href="https://github.com/system76/docs/edit/master/_articles/system-firmware.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+        Switching Between Proprietary Firmware and System76 Open Firmware
+        <a href="https://github.com/system76/docs/edit/master/_articles/transition-firmware.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
   </header>
@@ -211,129 +211,83 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>These instructions are for System76 owners who have been prompted for a firmware update. Firmware updates may be issued to fix security vulnerabilities or to improve hardware functionality.</p>
+        <h2 id="switching-between-proprietary-firmware-and-system76-open-firmware">Switching Between Proprietary Firmware and System76 Open Firmware</h2>
 
-<h3 id="before-you-begin">Before You Begin</h3>
+<p>Some models shipped with proprietary firmware, but later received support for <a href="https://github.com/system76/firmware-open">System76 Open Firmware</a> and <a href="https://github.com/system76/ec">System76 Open EC</a>. Below is a list of these models:</p>
 
 <ul>
-  <li>Make sure the laptop is <strong>plugged into the AC Adapter</strong> for the entire firmware updating process. USB Type-C charging is <strong>not</strong> supported during firmware updates on the following models: Galago Pro (galp3-c, galp4), Darter Pro (darp5, darp6)</li>
-  <li><strong>Disconnect external devices</strong>, including any displays or USB devices.</li>
-  <li><strong>Take a picture of these instructions</strong> or pull up <a href="https://s76.co/sfu">s76.co/sfu</a> on a phone or other device for reference.</li>
-  <li>During the firmware updating process, <strong>the system will restart several times</strong>. Prompts will occasionally ask for user involvement.</li>
+  <li>Adder WS (addw2)</li>
+  <li>Gazelle (gaze15)</li>
 </ul>
 
-<h3 id="starting-the-update-gui">Starting the Update (GUI)</h3>
+<p>This list may expand in the future as more models are ported.</p>
 
-<p>In Pop!_OS, you can check for firmware updates using <strong>Settings -&gt; Firmware</strong>.</p>
+<h3 id="differences-between-system76-open-firmware-and-proprietary-firmware">Differences between System76 Open Firmware and Proprietary Firmware</h3>
 
-<p><img src="/images/system-firmware/gui-pop.jpg" alt="Firmware settings in Pop!_OS" /></p>
+<p>System76 Open Firmware is primarily open-source, meaning the source code is available for users and developers to read and modify as they please. Proprietary firmware is developed by the upstream motherboard manufacturers, and its source code is not available for viewing or modification. You can read about the benefits of using open-source firmware <a href="https://blog.system76.com/post/623810010985742337/open-up-benefits-of-open-source-firmware">here</a>.</p>
 
-<p>In Ubuntu, you can check for firmware updates using the <strong>Firmware Manager</strong> application.</p>
+<p>Because System76 Open Firmware is intended to be lightweight and simple to use, there are less options available in the UEFI setup menu than for proprietary firmware. Notably:</p>
 
-<p><img src="/images/system-firmware/gui-ubuntu.jpg" alt="Firmware Manager in Ubuntu" /></p>
+<ul>
+  <li>Many features are enabled by default in Open Firmware, but are not present in the UEFI setup menu. This includes:
+    <ul>
+      <li>Hardware virtualization (Intel VT-D/AMD-V) - can be disabled by the OS via a kernel boot option.</li>
+      <li>Hyperthreading - can be disabled by the OS via a kernel boot option.</li>
+      <li>Thunderbolt security - devices must be allowed by the user within the OS.</li>
+      <li>Battery thresholds - can be set by the user within the OS.</li>
+    </ul>
+  </li>
+  <li>Some features are present in proprietary firmware but are not available in Open Firmware, including:
+    <ul>
+      <li>Intel ME - always disabled.</li>
+      <li>Secure Boot - always disabled.</li>
+      <li>Self-encryptiong storage drives - not supported (note that the full-disk encryption used in Pop!_OS does not require this firmware-level feature.)</li>
+    </ul>
+  </li>
+</ul>
 
-<p>If a green <strong>Update</strong> button is present, then a firmware update is available. Click the <strong>Update</strong> button, then click <strong>Reboot and Install</strong> to begin the update.</p>
+<p>Below is a comparison between the UEFI setup menu on proprietary firmware (left) and System76 Open Firmware (right):</p>
 
-<p><img src="/images/system-firmware/install-pop.jpg" alt="Starting a firmware update (Pop!_OS)" /></p>
+<p><img src="/images/system-firmware/proprietary-vs-open.webp" alt="Proprietary vs. Open Firmware" /></p>
 
-<p><img src="/images/system-firmware/install-ubuntu.jpg" alt="Starting a firmware update (Ubuntu)" /></p>
+<h3 id="checking-the-current-firmware-version">Checking the Current Firmware Version</h3>
 
-<h3 id="starting-the-update-cli">Starting the Update (CLI)</h3>
+<p>You can check your current firmware version using this command:</p>
 
-<p>The command-line firmware utility can be installed using these commands:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /sys/class/dmi/id/bios_version
+</code></pre></div></div>
+
+<p>If the output is a short, decimal-separated number such as <code class="language-plaintext highlighter-rouge">1.07.05</code>, then you are running proprietary firmware. If the output is a longer, date-based number such as <code class="language-plaintext highlighter-rouge">2020-09-03_9c310f0</code>, then you are running System76 Open Firmware.</p>
+
+<h3 id="installing-the-command-line-updater">Installing the command-line updater</h3>
+
+<p>Before switching between proprietary firmware and System76 Open Firmware, the command line updater must be installed by running the following commands in a terminal:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
 sudo apt install system76-firmware
 </code></pre></div></div>
 
-<p>Once installed, the following command can be used to schedule a firmware update for the next reboot (if the firmware is already up-to-date, this command will schedule a re-installation of the current firmware):</p>
+<h3 id="transitioning-to-system76-open-firmware">Transitioning to System76 Open Firmware</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-firmware-cli schedule
+<p>If you are running proprietary firmware and would like to transition to System76 Open Firmware, follow the <a href="#installing-the-command-line-updater">steps above</a> to install the updater from the command line, then run the following command to schedule the update:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-firmware-cli schedule --open
 </code></pre></div></div>
 
-<p>Reboot the system using <code class="language-plaintext highlighter-rouge">sudo systemctl reboot</code> to proceed with the update, or use <code class="language-plaintext highlighter-rouge">sudo system76-firmware-cli unschedule</code> to cancel the update.</p>
+<p>You may then follow the <a href="#performing-the-update">steps below</a> to perform the update.</p>
 
-<h3 id="performing-the-update">Performing the Update</h3>
+<h3 id="reverting-to-proprietary-firmware">Reverting to Proprietary Firmware</h3>
 
-<p>The System76 Firmware Updater will start on the next boot. Once it has initialized, you’ll be prompted to <strong>press <kbd>Enter</kbd></strong> to commence flashing.</p>
+<p>If you are running System76 Open Firmware and need to revert to proprietary firmware (for example, if you require a specific feature not yet present in System76 Open Firmware), follow the <a href="#installing-the-command-line-updater">steps above</a> to install the updater from the command line, then run the following command to schedule the update:</p>
 
-<p><img src="/images/system-firmware/press-enter.jpg" alt="Press Enter to commence flashing" /></p>
-
-<p>Depending on the model, the system may reboot at this point. The system’s fans may spin at full speed while the new firmware is being written. Once the firmware update process is complete, you may see a prompt to <strong>press any key</strong> to shut down.</p>
-
-<p><img src="/images/system-firmware/press-any-key.jpg" alt="Press any key to shut down" /></p>
-
-<p>After the system powers off, <strong>press the power button</strong> to turn it back on. On machines running Open Firmware, the system should boot normally.</p>
-
-<h3 id="disabling-the-me">Disabling the ME</h3>
-
-<p>For laptops not running Open Firmware, a few extra steps may be required after an update to ensure the Intel ME is disabled.</p>
-
-<p>Depending on the model, two blue boxes may appear in succession with a message about the CMOS. <strong>Press <kbd>Enter</kbd></strong> to dismiss each one. The system may also power off and on again at this point.</p>
-
-<p>On some laptops, the UEFI menu will display automatically. (If it doesn’t, you can also access this menu by holding down <kbd>F2</kbd> during boot.) Select <strong>Setup Utility</strong> to enter the UEFI setup utility.</p>
-
-<p><img src="/images/system-firmware/setup-utility.jpg" alt="Setup Utility" /></p>
-
-<p>Navigate to the <strong>Advanced</strong> section in the left sidebar, then select <strong>Advanced Chipset Control</strong>.</p>
-
-<p><img src="/images/system-firmware/advanced-chipset-control.jpg" alt="Advanced Chipset Control" /></p>
-
-<p>If there is an <strong>ME State</strong> option at the bottom of the list, select it, then select <strong>Disabled</strong> to ensure the ME is disabled.</p>
-
-<p><img src="/images/system-firmware/me-state-enabled.jpg" alt="ME State (enabled)" /></p>
-
-<p><img src="/images/system-firmware/disabling-me.jpg" alt="Disabling the ME" /></p>
-
-<p><img src="/images/system-firmware/me-state-disabled.jpg" alt="ME State (disabled)" /></p>
-
-<p>Navigate to the <strong>Exit</strong> section in the left sidebar, then select <strong>Exit Saving Changes</strong> and <strong>Yes</strong> to save and exit the setup utility. The system may power off and back on again, then it should boot normally.</p>
-
-<h3 id="updating-on-other-oss">Updating on Other OS’s</h3>
-
-<p>If your system is running another Linux-based OS installed with an EFI System Partition (ESP), then you can update your firmware using a live disk of Pop!_OS. First, create a live disk using one of the following articles:</p>
-
-<ul>
-  <li><a href="/articles/pop-live-disk/">Live Disk creation on Pop!_OS</a></li>
-  <li><a href="/articles/live-disk/">Live Disk creation on Other OS’s</a></li>
-</ul>
-
-<p>After creating the live disk, <a href="/articles/boot-menu/">access the boot menu</a> and select it from the list of options. Once the desktop appears, open a terminal (<kbd><span class="fl-pop-key"></span></kbd> + <kbd>T</kbd>) and use this command to list the partitions on your system:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-firmware-cli schedule --proprietary
 </code></pre></div></div>
 
-<p>Identify the EFI partition in the list. (The EFI partition is usually the first partition on one of the drives, and is around 512MB in size or slightly smaller.) Once you have identified the EFI partition, use the following commands to set up the system for a firmware update:</p>
+<p>You may then follow the <a href="#performing-the-update">steps below</a> to perform the update.</p>
 
-<h4 id="for-nvme-drives">For NVMe Drives:</h4>
+<h3 id="performing-the-update">Performing the update</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-driver
-sudo mkdir -p /boot/efi
-sudo mount /dev/nvme0n1p1 /boot/efi
-gnome-control-center firmware
-</code></pre></div></div>
-
-<p>Where <code class="language-plaintext highlighter-rouge">/dev/nvme0n1p1</code> is the EFI system partition.</p>
-
-<h4 id="for-sata-drives">For SATA Drives:</h4>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-driver
-sudo mkdir -p /boot/efi
-sudo mount /dev/sda1 /boot/efi
-gnome-control-center firmware
-</code></pre></div></div>
-
-<p>Where <code class="language-plaintext highlighter-rouge">/dev/sda1</code> is the EFI system partition.</p>
-
-<p>After the System76 Driver is installed and the EFI partition has been mounted using the above commands, you can use the above instructions to <a href="#starting-the-update-gui">update the firmware</a> normally.</p>
-
-<h3 id="firmware-notifications-for-laptops">Firmware Notifications for Laptops</h3>
-
-<p>If you’re receiving the firmware update notification but there are no updates available, then your system’s Intel ME may be turned on. Follow the above instructions to <a href="#disabling-the-me">disable the ME</a>.</p>
-
-<h3 id="switching-between-proprietary-firmware-and-system76-open-firmware">Switching Between Proprietary Firmware and System76 Open Firmware</h3>
-
-<p>If you would like to transition from proprietary firmware to System76 Open Firmware (on a supported model), please view <a href="/articles/transition-firmware/">this article</a>.</p>
+<p>Reboot the system using <code class="language-plaintext highlighter-rouge">sudo systemctl reboot</code> to proceed with the update, or use <code class="language-plaintext highlighter-rouge">sudo system76-firmware-cli unschedule</code> to cancel the update. For more information about the firmware upgrade process, please view the <a href="/articles/system-firmware">Update System Firmware</a> article.</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
