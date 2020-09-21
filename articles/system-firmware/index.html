@@ -240,9 +240,10 @@
 
 <h3 id="starting-the-update-cli">Starting the Update (CLI)</h3>
 
-<p>The command-line firmware utility can be installed using this command:</p>
+<p>The command-line firmware utility can be installed using these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-firmware
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt install system76-firmware
 </code></pre></div></div>
 
 <p>Once installed, the following command can be used to schedule a firmware update for the next reboot (if the firmware is already up-to-date, this command will schedule a re-installation of the current firmware):</p>
@@ -330,9 +331,64 @@ gnome-control-center firmware
 
 <p>If you’re receiving the firmware update notification but there are no updates available, then your system’s Intel ME may be turned on. Follow the above instructions to <a href="#disabling-the-me">disable the ME</a>.</p>
 
+<h2 id="switching-between-open-and-proprietary-firmware">Switching Between Open and Proprietary Firmware</h2>
+
+<p>Some models shipped with proprietary firmware, but later received support for <a href="https://github.com/system76/firmware-open">System76 Open Firmware</a>. A list of models that support Open Firmware can be found <a href="https://github.com/system76/firmware-open/#supported-models">here</a>.</p>
+
+<h3 id="differences-between-open-and-proprietary-firmware">Differences between Open and Proprietary Firmware</h3>
+
+<p>Open Firmware is open-source, meaning the source code is available for users and developers to read and modify as they please. Proprietary firmware is developed by the upstream motherboard manufacturers, and its source code is not available for viewing or modification. You can read about the benefits of using open-source firmware <a href="https://blog.system76.com/post/623810010985742337/open-up-benefits-of-open-source-firmware">here</a>.</p>
+
+<p>Because Open Firmware is intended to be lightweight and simple to use, there are less options available in the UEFI setup menu for Open Firmware than for proprietary firmware. Notably:</p>
+
+<ul>
+  <li>Many features are enabled by default in Open Firmware, but are not present in the UEFI setup menu. This includes:
+    <ul>
+      <li>Hardware virtualization (Intel VT-D/AMD-V) - can be disabled by the OS via a kernel boot option.</li>
+      <li>Hyperthreading - can be disabled by the OS via a kernel boot option.</li>
+      <li>Thunderbolt security - devices must be allowed by the user within the OS.</li>
+      <li>Battery thresholds - can be set by the user within the OS.</li>
+    </ul>
+  </li>
+  <li>Some features are present in proprietary firmware but are not available in Open Firmware, including:
+    <ul>
+      <li>Intel ME - always disabled.</li>
+      <li>Secure Boot - always disabled.</li>
+      <li>Self-encryptiong storage drives - not supported (note that the full-disk encryption used in Pop!_OS does not require this firmware-level feature.)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Below is a comparison between the UEFI setup menu on proprietary firmware (left) and Open Firmware (right):</p>
+
+<p><img src="/images/system-firmware/proprietary-vs-open.webp" alt="Proprietary vs. Open Firmware" /></p>
+
+<h3 id="transitioning-to-open-firmware">Transitioning to Open Firmware</h3>
+
+<p>If you are currently running proprietary firmware and would like to transition to Open Firmware, follow the <a href="#starting-the-update-cli">steps above</a> to start the update from the command line, but use the <code class="language-plaintext highlighter-rouge">--open</code> option when scheduling the update:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-firmware-cli schedule --open
+</code></pre></div></div>
+
+<h3 id="reverting-to-proprietary-firmware">Reverting to Proprietary Firmware</h3>
+
+<p>If you are running Open Firmware and need to revert to proprietary firmware (for example, if you require a specific feature not yet present in Open Firmware), you can transition back to proprietary firmware using the <code class="language-plaintext highlighter-rouge">--proprietary</code> option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-firmware-cli schedule --proprietary
+</code></pre></div></div>
+
+<h3 id="checking-the-current-firmware-version">Checking the Current Firmware Version</h3>
+
+<p>You can check your current firmware version using this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dmidecode | grep Version:
+</code></pre></div></div>
+
+<p>If the first line of output is a short, decimal-separated number such as <code class="language-plaintext highlighter-rouge">1.07.05</code>, then you are running proprietary firmware. If the output is a longer, date-based number such as <code class="language-plaintext highlighter-rouge">2020-09-03_9c310f0</code>, then you are running Open Firmware.</p>
+
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-07-31</p>
+        <p>Article last modified: 2020-09-21</p>
     </div>
 </div>
 
