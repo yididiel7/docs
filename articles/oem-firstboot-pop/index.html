@@ -10,10 +10,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Create a User If Initial User Setup Fails in Pop - System76 Support</title>
-    <meta property="og:title" content="Create a User If Initial User Setup Fails in Pop - System76 Support">
-    <meta itemprop="name" content="Create a User If Initial User Setup Fails in Pop - System76 Support">
-    <meta name="twitter:title" content="Create a User If Initial User Setup Fails in Pop - System76 Support">
+    <title>Create a User If Initial User Setup Fails in Pop!_OS - System76 Support</title>
+    <meta property="og:title" content="Create a User If Initial User Setup Fails in Pop!_OS - System76 Support">
+    <meta itemprop="name" content="Create a User If Initial User Setup Fails in Pop!_OS - System76 Support">
+    <meta name="twitter:title" content="Create a User If Initial User Setup Fails in Pop!_OS - System76 Support">
 
     <meta name="description" content="Sometimes, the first boot user creation fails and leaves only a Guest session. You can fix this by following the steps here.
 ">
@@ -202,7 +202,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Create a User If Initial User Setup Fails in Pop
+        Create a User If Initial User Setup Fails in Pop!_OS
         <a href="https://github.com/system76/docs/edit/master/_articles/oem-firstboot-pop.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -211,7 +211,16 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>A lot of work goes in to making your System76 experience fantastic right out of the box. Getting running needs just a little bit of information like a username and password. Every now and then, something goes wrong with the new user creator. If there is only a Guest Session, follow these instructions to fix the issue.</p>
+        <h1 id="create-a-user-if-initial-user-setup-fails-in-pop_os">Create a User If Initial User Setup Fails in Pop!_OS</h1>
+
+<ul>
+  <li>Document Version: 2.0.0</li>
+  <li>Date: (8-28-2020)</li>
+  <li>Author: Aaron Honeycutt, Nathan Dyer</li>
+  <li>Contributing Editor(s): Nathaniel Warburton</li>
+</ul>
+
+<p>A lot of work goes in to making your System76 experience fantastic right out of the box. Getting running needs just a little bit of information like a username and password. Every now and then, something goes wrong with the new user creator. If there is only a Guest Session, follow these instructions to fix the issue.</p>
 
 <h3 id="overview">Overview</h3>
 
@@ -258,8 +267,9 @@
 
 <p>Once you’re at the root shell, identified with the prompt <code class="language-plaintext highlighter-rouge">root@ubuntu:~#</code>, enter the commands below:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>oem-config-prepare
-reboot
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /usr/local/bin/
+./system76-preparetoship
+sudo reboot
 </code></pre></div></div>
 
 <p>The system will reboot into the first-user System Configuration.</p>
@@ -274,7 +284,7 @@ reboot
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-17</p>
+        <p>Article last modified: 2020-08-28</p>
     </div>
 </div>
 
