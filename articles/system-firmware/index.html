@@ -219,7 +219,10 @@
   <li>Make sure the laptop is <strong>plugged into the AC Adapter</strong> for the entire firmware updating process. USB Type-C charging is <strong>not</strong> supported during firmware updates on the following models: Galago Pro (galp3-c, galp4), Darter Pro (darp5, darp6)</li>
   <li><strong>Disconnect external devices</strong>, including any displays or USB devices.</li>
   <li><strong>Take a picture of these instructions</strong> or pull up <a href="https://s76.co/sfu">s76.co/sfu</a> on a phone or other device for reference.</li>
-  <li>During the firmware updating process, <strong>the system will restart several times</strong>. Prompts will occasionally ask for user involvement.</li>
+  <li>
+    <p>During the firmware updating process, <strong>the system will restart several times</strong>. Prompts will occasionally ask for user involvement.</p>
+  </li>
+  <li><strong>Take a picture of these instructions</strong> or pull up <a href="https://s76.co/sfu">s76.co/sfu</a> on a phone or other device for reference.</li>
 </ul>
 
 <h3 id="starting-the-update-gui">Starting the Update (GUI)</h3>
@@ -323,11 +326,17 @@ sudo mount /dev/sda1 /boot/efi
 gnome-control-center firmware
 </code></pre></div></div>
 
+<p>After the above commands are ran depending on the drive that the OS is installed on, you can use the above instructions to update your firmware.</p>
+
+<h3 id="firmware-notifications-for-laptops">Firmware Notifications for Laptops</h3>
+
+<p>If you’re receiving the firmware update notification after a firmware update, then your system’s Intel ME may be turned on. Let’s reboot the laptop and hold F2 to get to the BIOS. Then go to Advanced -&gt; Advanced Chipset Control and make sure that the ME is disabled, then go to the Exit tab and save. That should stop the notifications about a firmware update and you’re all set.</p>
+
 <p>Where <code class="language-plaintext highlighter-rouge">/dev/sda1</code> is the EFI system partition.</p>
 
 <p>After the System76 Driver is installed and the EFI partition has been mounted using the above commands, you can use the above instructions to <a href="#starting-the-update-gui">update the firmware</a> normally.</p>
 
-<h3 id="firmware-notifications-for-laptops">Firmware Notifications for Laptops</h3>
+<h3 id="firmware-notifications-for-laptops-1">Firmware Notifications for Laptops</h3>
 
 <p>If you’re receiving the firmware update notification but there are no updates available, then your system’s Intel ME may be turned on. Follow the above instructions to <a href="#disabling-the-me">disable the ME</a>.</p>
 
@@ -337,7 +346,7 @@ gnome-control-center firmware
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-09-25</p>
+        <p>Article last modified: 2020-09-30</p>
     </div>
 </div>
 
