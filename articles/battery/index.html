@@ -221,27 +221,48 @@
 
 <p><img src="/images/battery/system-menu.png" alt="Battery" /></p>
 
-<h3 id="flexicharger">FlexiCharger</h3>
+<h3 id="charging-thresholds">Charging Thresholds</h3>
 
-<p>On several models of our laptops, FlexiCharger can be used to change the charging behavior of the battery.  A general consensus is that charging a battery to 100% every time will shorten its overall lifespan.</p>
+<p>Configuring charging thresholds will allow your System76 laptop to disable the
+charger and run off the AC connection when the battery reaches a specified
+capacity. This is particularly useful when your laptop is plugged into AC power
+adapter for extended periods of time as it prevents unnecessary micro-charging
+which reduces battery longevity.</p>
 
-<p>To adjust the top charge, reboot the computer and enter into BIOS by holding down <kbd>F2</kbd>, and navigate to Advanced, then Advanced Chipset Control, and set Flexicharger to Enabled. Two new sub-menus will appear, and can be set to the user’s desired percentages. The longevity of lithium batteries is dependent on the number of charge cycles they go through. The larger the percentage of spread between Top and Bottom charge percentages, the longer the physical battery will last. For optimal longevity, charge cycles of 40%~80% are a good idea:</p>
+<p>The longevity of lithium batteries is dependent on the number of charge cycles
+they go through. The larger the percentage of spread between start and end
+charge percentages, the longer the physical battery will last. For optimal
+longevity, charge cycles of 40%~80% are a good idea.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Start Charge 40%
-Stop Charge 80%
-</code></pre></div></div>
-<p>Save and exit the BIOS</p>
-
-<ul>
-  <li>FlexiCharger will allow your System76 laptop to run solely off the AC power connection, and leave the battery alone while the computer is operating normally</li>
-  <li>This prevents unnecessary micro-charging which reduces battery longevity</li>
-  <li>It is particularly useful when your laptop is plugged into AC power adapter for extended periods of time</li>
-  <li>FlexiCharger can be disabled at any time in the BIOS, which reverts the charging profile to factory defaults. Before heading out into the wild blue yonder, disable FlexiCharger to charge your laptop battery to 100%.</li>
-</ul>
+<p>Before heading out into the wild blue yonder, disable this feature to charge
+your laptop battery to 100%.</p>
 
 <h4 id="open-firmware">Open Firmware</h4>
 
-<p>Laptops that ship with our Open Firmware do not have FlexiCharger.</p>
+<p>On laptops with System76 Open Firmware, charging thresholds are exposed through
+ACPI. The <code class="language-plaintext highlighter-rouge">system76_acpi</code> kernel module then makes these available through
+standard sysfs entries.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/sys/class/power_supply/BAT0/charge_control_start_threshold</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/sys/class/power_supply/BAT0/charge_control_end_threshold</code></li>
+</ul>
+
+<p>The default values of 0 for the start threshold and 100 for the end threshold
+disable the feature.</p>
+
+<h4 id="flexicharger">FlexiCharger</h4>
+
+<p>FlexiCharger is the implementation of charging thresholds in proprietary
+firmware, made available as a BIOS setting.</p>
+
+<p>To adjust the top charge, reboot the computer and enter into BIOS by holding
+down <kbd>F2</kbd>, and navigate to Advanced, then Advanced Chipset Control,
+and set Flexicharger to Enabled. Two new sub-menus will appear, and can be set
+to the user’s desired percentages. Once configured, save and exit the BIOS.</p>
+
+<p>FlexiCharger can be disabled at any time in the BIOS, which reverts the
+charging profile to factory defaults.</p>
 
 <h2 id="useful-programs">Useful Programs</h2>
 
@@ -365,7 +386,7 @@ man tlp-stat
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-08-26</p>
+        <p>Article last modified: 2020-10-01</p>
     </div>
 </div>
 
