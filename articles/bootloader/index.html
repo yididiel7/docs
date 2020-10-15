@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="How to repair and reinstall the bootloader.
 ">
 
-    <meta name="keywords" content="Support Grub Bootloader Refresh Reinstall System76">
+    <meta name="keywords" content="Support Grub systemd-boot Bootloader Refresh Reinstall System76">
 
     
     <meta property="og:image" content="http://support.system76.com/images/system76.png" />
@@ -247,7 +247,23 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo parted -ls
 </code></pre></div></div>
 
-<p>And then look for the name of your main hard drive. It could be <code class="language-plaintext highlighter-rouge">/dev/sda</code> or <code class="language-plaintext highlighter-rouge">/dev/nvme0n1</code>, depending on if you have a standard SATA drive, or an NVMe drive, respectively. If you have multiple drives, look at the sizes of the partitions and for the <code class="language-plaintext highlighter-rouge">linux-swap</code> partition to help identify the main OS drive.</p>
+<p>And then look for the name of your main hard drive. It could be <code class="language-plaintext highlighter-rouge">/dev/sda</code> or <code class="language-plaintext highlighter-rouge">/dev/nvme0n1</code>, depending on if you have a standard SATA drive, or an NVMe drive, respectively. If you have multiple drives, look at the sizes of the partitions and for the <code class="language-plaintext highlighter-rouge">linux-swap</code> partition to help identify the main OS drive. Here are some OS partition layout examples:</p>
+
+<p>Ubuntu 20.04 LTS</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      Number  Start   End     Size    File system     Name      Flags
+       1      2097kB  524MB   522MB   fat32                     boot, esp
+root   3      524MB   496GB   491GB
+       4      496GB   500GB   4295MB  linux-swap(v1)            swap
+</code></pre></div></div>
+
+<p>Pop!_OS 20.04 LTS</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      Number  Start   End     Size    File system     Name      Flags
+       1      2097kB  524MB   522MB   fat32                     boot, esp
+       2      524MB   4819MB  4295MB  fat32           recovery  msftdata
+root   3      4819MB  496GB   491GB
+       4      496GB   500GB   4295MB  linux-swap(v1)            swap
+</code></pre></div></div>
 
 <hr />
 
@@ -421,7 +437,7 @@ reboot
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-10-05</p>
+        <p>Article last modified: 2020-10-15</p>
     </div>
 </div>
 
