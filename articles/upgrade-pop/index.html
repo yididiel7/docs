@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="Get the newest version of Pop!_OS on your System76 computer! Check out our upgrade directions.
 ">
 
-    <meta name="keywords" content="Pop!_OS 17.10 Pop!_OS 18.04 Pop!_OS 18.10 Pop!_OS 19.04 Pop!_OS 19.10 LTS Non-LTS Upgrade Update Release System76 apt">
+    <meta name="keywords" content="Pop!_OS 17.10 Pop!_OS 18.04 Pop!_OS 18.10 Pop!_OS 19.04 Pop!_OS 19.10 Pop!_OS 20.04 Pop!_OS 20.10 LTS Non-LTS Upgrade Update Release System76 apt">
 
     
     <meta property="og:image" content="http://support.system76.com/images/pop-icon.png" />
@@ -211,9 +211,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Pop!_OS 20.04 LTS was released April 30, 2020. View the <a href="/articles/Pop!_OS-20.04-LTS-Release-Notes">Release Notes</a> to learn about new features.</p>
+        <p>Pop!_OS 20.10 was released October 23, 2020.</p>
 
-<h3 id="upgrading-pop_os-to-2004-from-1910-or-1804-for-all-other-operating-system-versions-scroll-down-to-the-instructions-for-upgrading-from-an-earlier-release">Upgrading Pop!_OS to 20.04 from 19.10 or 18.04 (For all other operating system versions, scroll down to the instructions for upgrading from an earlier release)</h3>
+<h3 id="upgrading-pop_os-to-2010-from-2004-for-all-other-operating-system-versions-scroll-down-to-the-instructions-for-upgrading-from-an-earlier-release">Upgrading Pop!_OS to 20.10 from 20.04 (For all other operating system versions, scroll down to the instructions for upgrading from an earlier release)</h3>
 
 <p>First, make sure you have applied all updates to your system. You can do this through the Pop!_Shop, or through the terminal:</p>
 
@@ -223,7 +223,7 @@ sudo apt full-upgrade
 
 <p>Once the updates are applied, a notification should appear at the top of your screen saying that an upgrade is available. Click on this notification, or go to Settings -&gt; Details -&gt; About.</p>
 
-<p>On the system’s “About” page, you will notice a new feature has been added. The System76 upgrade package will display a message that Pop!_OS 20.04 is available with a “Download” button.</p>
+<p>On the system’s “About” page, you will notice a new feature has been added. The System76 upgrade package will display a message that Pop!_OS 20.10 is available with a “Download” button.</p>
 
 <p>Click the “Download” button and the download will begin.</p>
 
@@ -277,7 +277,7 @@ sudo apt full-upgrade
 
 <h3 id="upgrading-older-releases">Upgrading older releases</h3>
 
-<p>Upgrading Pop!_OS 18.10 or 19.04.</p>
+<p>Upgrading Pop!_OS 18.10, 19.04 or 19.10 will require upgrading to Pop!_OS 20.04 LTS before upgrading to 20.10.</p>
 
 <p>These older Pop!_OS releases are now unsupported and no new updates are available. After unsupported versions have been removed from the archive and mirror network, you will need to change where your system checks for un-applied updates to be able to upgrade. Open a terminal and follow the next set of instructions to upgrade from Pop!_OS 18.10 or 19.04.</p>
 
@@ -307,6 +307,11 @@ sudo apt full-upgrade | tee ~/upgrade.log
 
 <p>4) Now put the PPAs back; You will want to take a look at the files that end in “list” in “/etc/apt/sources.list.d/backup” to see if you want to enable that again by moving them back to the /etc/apt/sources.list.d/ directory.</p>
 
+<p>5) After the 20.04 Pop upgrade is complete, reboot.</p>
+
+<p>6) Run the command to upgrade to Pop 20.10</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pop-upgrade release upgrade
+</code></pre></div></div>
 <h2 id="troubleshooting">Troubleshooting</h2>
 
 <p>Most upgrades proceed without a hitch, but occasionally things go wrong. If your system hangs on the upgrade process or if it reboots and won’t start, then the following steps can help repair your broken OS.</p>
@@ -332,7 +337,7 @@ sudo apt full-upgrade | tee ~/upgrade.log
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-07-19</p>
+        <p>Article last modified: 2020-10-28</p>
     </div>
 </div>
 
