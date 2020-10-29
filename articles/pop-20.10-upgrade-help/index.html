@@ -246,8 +246,9 @@ From:</p>
 
 <h3 id="repair-package-manager-after-failedincomplete-upgrade">Repair Package Manager after Failed/Incomplete Upgrade</h3>
 
-<p>If you’re able to log in and have a graphical interface, let’s try running a set of commands in a terminal (click your activities menu and type ‘t’ for ‘terminal’) to clean up the installed packages:
-***If this is your first time running commands, just a heads up- after each command, press the enter key. When the system prompts you for your password, type it in the terminal and press the enter key. The password will not show in the terminal, but it is taking the password)</p>
+<p>If you’re able to log in and have a graphical interface, let’s try running a set of commands in a terminal (click your activities menu and type ‘t’ for ‘terminal’) to clean up the installed packages:</p>
+
+<p><strong>If this is your first time running commands, just a heads up- after each command, press the enter key. When the system prompts you for your password, type it in the terminal and press the enter key. The password will not show in the terminal, but it is taking the password)</strong></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt clean
 sudo apt update -m
@@ -262,10 +263,9 @@ sudo apt autoremove --purge
 <p>If you cannot access the desktop or TTY, we can run the package repair commands in Pop Recovery instead. To do this, 
 1A. Turn your computer off, then turn it back on and hold down the space bar immediately. In the menu that appears, select Pop!_OS Recovery, and let it boot.</p>
 
-<p>1B. Once it boots, close out of the installation window or choose “try demo mode” (be sure not to choose any install or repair options, as this could result in data loss).</p>
+<p>1B. Once it boots, close out of the installation window or choose “Try Demo Mode” (be sure not to choose any install or repair options, as this could result in data loss).</p>
 
-<p>***If you do not have a Pop Recovery option, you can create a live disk image of the OS and follow the next steps to mount the installed OS while running in a live disk. To create a live disk, use the instructions in the following article, then proceed to the next step.
-http://support.system76.com/articles/live-disk/</p>
+<p><strong>If you do not have a Pop Recovery option, you can create a live disk image of the OS and follow the next steps to mount the installed OS while running in a live disk. To create a live disk, use the instructions in the following <a href="/articles/live-disk">article</a>, then proceed to the next step.</strong></p>
 
 <ol>
   <li>
@@ -281,29 +281,54 @@ http://support.system76.com/articles/live-disk/</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo parted -ls
 </code></pre></div></div>
 
-<p>Look for the name of your main hard drive. It could be /dev/sda or /dev/nvme0n1, depending on if you have a standard SATA drive, or an NVMe drive, respectively. Input the following commands based on your drive type:</p>
+<p>Look for the name of your main hard drive. It could be <code class="language-plaintext highlighter-rouge">/dev/sda</code> or <code class="language-plaintext highlighter-rouge">/dev/nvme0n1</code>, depending on if you have a standard SATA drive, or an NVMe drive, respectively. Input the following commands based on your drive type:</p>
 
-<p>***If disk is encrypted, start with these first 3 commands using the correct drive name in the /dev filepath:</p>
+<p><strong>If disk is encrypted, start with these first 3 commands using the correct drive name in the /dev filepath</strong>:</p>
 
+<p><strong>For SATA Drives</strong>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
+</code></pre></div></div>
+
+<p><strong>For NVMe Drives</strong>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p3 /mnt
+</code></pre></div></div>
+
+<p>If the command fails and says <code class="language-plaintext highlighter-rouge">mount: /mnt: unknown filesystem type 'crypto_LUKS'</code>, then the hard drive has been encrypted, and additional commands are needed to unlock it.</p>
+
+<p><strong>For SATA Drives</strong>:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/sda3 cryptdata
 sudo lvscan
 sudo vgchange -ay
 </code></pre></div></div>
+
 <p><strong>For NVMe Drives</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p3 /mnt
-sudo mount /dev/nvme0n1p1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
-sudo chroot /mnt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/nvme0n1p3 cryptdata
+sudo lvscan
+sudo vgchange -ay
 </code></pre></div></div>
+<p>Next we will mount the now decrypted drive:</p>
+
+<p><strong>NOTE:</strong> Pay attention to what the cryptdata group is called. If it is named something other than ‘data-root’ then you will need to substitute the correct info into this next command. Make sure that -root is on the end.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/mapper/data-root /mnt
+</code></pre></div></div>
+
+<p>Next we will need to mount the required paths for the chroot to function.</p>
+
 <p><strong>For SATA Drives</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
-sudo mount /dev/sda1 /mnt/boot/efi
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1 /mnt/boot/efi
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
 sudo cp /etc/resolv.conf /mnt/etc/
 sudo chroot /mnt
 </code></pre></div></div>
-<p>***If you get an error about the /etc/resolv/conf file being the same, you can safely ignore it.</p>
+
+<p><strong>For NVMe Drives</strong>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p1 /mnt/boot/efi
+for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
+sudo cp /etc/resolv.conf /mnt/etc/
+sudo chroot /mnt
+</code></pre></div></div>
+
+<p><strong>If you get an error about the <code class="language-plaintext highlighter-rouge">/etc/resolv/conf</code> file being the same, you can safely ignore it.</strong></p>
 
 <ol>
   <li>Once the installed OS is mounted, we can attempt to repair it by running the following commands:
@@ -324,7 +349,7 @@ reboot
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-10-28</p>
+        <p>Article last modified: 2020-10-29</p>
     </div>
 </div>
 
