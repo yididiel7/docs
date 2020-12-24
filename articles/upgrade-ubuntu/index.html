@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="Get the newest version of Ubuntu on your System76 computer! Check out our upgrade directions.
 ">
 
-    <meta name="keywords" content="Ubuntu 16.04 Ubuntu 16.04.1 Ubuntu 16.10 Ubuntu 17.04 Yakkety Yak Xenial Xerus Zesty Zapus LTS Point Release Upgrade Update Release System76 apt">
+    <meta name="keywords" content="Ubuntu 16.04 Ubuntu 18.04 Ubuntu 20.04 LTS Point Release Upgrade Update Release System76 apt">
 
     
     <meta property="og:image" content="http://support.system76.com/images/upgrade-ubuntu/Ubuntu-18-04.jpg" />
@@ -238,44 +238,19 @@
   </tbody>
 </table>
 
-<p>Next, we recommend backing up all important files from your computer. The upgrade process will leave your files intact, but it’s best to be safe in case something goes wrong.</p>
+<p>Next, we recommend backing up all important files from your computer. The upgrade process will leave your files intact, but it’s best to be safe in case something goes wrong. We have a support article that goes over creating backups <a href="/articles/backup-files">here.</a></p>
 
 <h3 id="upgrade">Upgrade</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th style="text-align: center">Reason</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="#upgrade-while-running">Upgrade While Running</a></td>
-      <td style="text-align: center">Great for moving to the next available release.</td>
-    </tr>
-    <tr>
-      <td><a href="#upgrade-from-media">Upgrade From Media</a></td>
-      <td style="text-align: center">Provides a more stable environment since the system isn’t running while it’s being upgraded. Upgrading from media is required if you’re more than one version behind.</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
-
-<h3 id="upgrade-while-running">Upgrade While Running</h3>
-
-<hr />
-
 <h4 id="open-software-updater">Open Software Updater</h4>
 
-<p>Open the Dash <i class="fl-ubuntu"></i> and then search for <u>Software Updater</u>.</p>
+<p>Open the Activities Overview by clicking on the Activities button in the top left and then search for <u>Software Updater</u>.</p>
 
-<p><img src="/images/upgrade-ubuntu/Step-1.jpg" alt="Updater in Dash" /></p>
+<p><img src="/images/upgrade-ubuntu/Step-1.png" alt="Updater in Overview" /></p>
 
 <h4 id="configure-version-updates">Configure Version Updates</h4>
 
-<p>Click on <strong>Settings</strong> and then select <strong>Updates</strong>. You can choose to receive all updates or only LTS updates using the drop-down menu at the bottom, labeled “Notify me of a new Ubuntu version”.</p>
+<p>Click on <strong>Settings…</strong> and then select <strong>Updates</strong>. You can choose to receive all updates or only LTS updates using the drop-down menu at the bottom, labeled “Notify me of a new Ubuntu version”.</p>
 
 <table>
   <thead>
@@ -308,17 +283,19 @@
 
 <p>The system will automatically check for updates. You may need to update (and sometimes, restart) before continuing with the upgrade process. If you have to restart after installing updates, launch the updater again as described above.</p>
 
-<p><img src="/images/upgrade-ubuntu/Step-2.jpg" alt="Software Updater" /></p>
+<p><img src="/images/upgrade-ubuntu/Step-2.png" alt="Software Updater" /></p>
+
+<p><img src="/images/upgrade-ubuntu/Step-2b.png" alt="Software Updater" /></p>
 
 <h4 id="install-the-upgrade">Install The Upgrade</h4>
 
-<p>A message will appear informing you of the availability of the new release. Click <strong>Upgrade</strong> and follow the on-screen instructions.</p>
+<p>A message will appear informing you of the availability of the new release. Click <strong>Yes, Upgrade Now</strong>  or <strong>Upgrade…</strong> depending on the window that you have and follow the on-screen instructions.</p>
 
-<p><img src="/images/upgrade-ubuntu/Step-3.jpg" alt="Upgrade Message" /></p>
+<p><img src="/images/upgrade-ubuntu/Step-3.png" alt="Upgrade Message" /></p>
 
 <h4 id="install-the-system76-driver">Install The System76 Driver</h4>
 
-<p>Once you’ve upgraded Ubuntu, you’ll need to download and install the current System76 Driver. Open the Terminal app (search <u>Terminal</u> from the Ubuntu dash <i class="fl-ubuntu"></i> or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>), then enter the following commands:</p>
+<p>Once you’ve upgraded Ubuntu, you’ll need to download and install the current System76 Driver. Open the Terminal app (search <u>Terminal</u> from the Activities Overview <i class="fl-ubuntu"></i> or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>), then enter the following commands:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-add-repository ppa:system76-dev/stable
 sudo apt update
@@ -338,66 +315,7 @@ sudo apt install system76-driver
 
 <p>If you use any third-party packages, you’ll need to re-enable them in the <strong>Software &amp; Updates</strong> app on the <strong>Other Software</strong> tab. Check any sources that you might need, then close the window.</p>
 
-<hr />
-
-<h3 id="upgrade-from-media">Upgrade From Media</h3>
-
-<hr />
-
-<h4 id="start-installer">Start Installer</h4>
-
-<p>Insert the live disk, then restart the computer. You’ll need to tell the computer to boot from the Live Disk. Immediately after you turn the computer on:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Laptops</th>
-      <th>Desktops</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Hold <kbd>F7</kbd> or <kbd>F1</kbd></td>
-      <td>Hold <kbd>F12</kbd>, <kbd>F8</kbd>, or <kbd>F10</kbd></td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="install-updates">Install Updates</h4>
-
-<p>When prompted, choose <strong>Install Ubuntu</strong>.</p>
-
-<p>Next, check the box labeled <strong>Download updates while installing Ubuntu</strong> to bring your installation up to date.</p>
-
-<p><img src="/images/install-ubuntu/updates.png" alt="Download Updates" /></p>
-
-<h4 id="complete-the-upgrade">Complete The Upgrade</h4>
-
-<p>Follow the on-screen instructions to complete the upgrade. To preserve your files and settings, be sure to choose <strong>Upgrade Ubuntu</strong>. This will ensure that your files are not erased. You do have the option to erase your operating system and start over by choosing <strong>Erase disk and install Ubuntu</strong>. More information on this is available in our <a href="/articles/restore/">Restore Guide</a>.</p>
-
-<p>If asked about installation of <code class="language-plaintext highlighter-rouge">grub_pc</code>, or other configuration packages, during the upgrade, you should select <strong>Install the Package Maintainer’s version</strong>, not the default option.</p>
-
-<h4 id="install-the-system76-driver-1">Install The System76 Driver</h4>
-
-<p>Once you’ve upgraded Ubuntu, you’ll need to download and install the current System76 Driver. Open the Terminal app (search <u>Terminal</u> from the Ubuntu dash <i class="fl-ubuntu"></i> or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>), then enter the following commands:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-add-repository ppa:system76-dev/stable
-sudo apt update
-sudo apt install system76-driver
-</code></pre></div></div>
-
-<p>For NVIDIA Graphics: If you ordered a system with a discrete NVIDIA graphics card, you will need to manually install the closed source drivers for your card to get the optimum performance. Please run the following command:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-driver-nvidia
-</code></pre></div></div>
-
-<p>Once the process is finished, restart your computer for the changes to take effect.</p>
-
-<h4 id="done-1">Done!</h4>
-
-<p>Once restarted the computer will be on the newly upgraded system! If you run into any issues, check out Troubleshooting below.</p>
-
-<p>If you use any third-party packages, you’ll need to re-enable them in the <strong>Software &amp; Updates</strong> app on the <strong>Other Software</strong> tab. Check any sources that you might need, then close the window.</p>
+<p><img src="/images/upgrade-ubuntu/Other-Software.png" alt="Other Software tab" /></p>
 
 <hr />
 
@@ -442,7 +360,7 @@ sudo apt install system76-driver
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-11-04</p>
+        <p>Article last modified: 2020-12-24</p>
     </div>
 </div>
 
