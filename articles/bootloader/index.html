@@ -282,7 +282,8 @@ root   3      4819MB  496GB   491GB
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p2 /mnt
 sudo mount /dev/nvme0n1p1 /mnt/boot/efi
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
+sudo cp -n /etc/resolv.conf /mnt/etc/
+
 sudo chroot /mnt
 apt install --reinstall grub-efi-amd64 linux-generic linux-headers-generic
 update-initramfs -c -k all
@@ -294,7 +295,8 @@ sudo update-grub
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda2 /mnt
 sudo mount /dev/sda1 /mnt/boot/efi
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
+sudo cp -n /etc/resolv.conf /mnt/etc/
+
 sudo chroot /mnt
 apt install --reinstall grub-efi-amd64 linux-generic linux-headers-generic
 update-initramfs -c -k all
@@ -316,7 +318,8 @@ sudo update-grub
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p2 /mnt
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
+sudo cp -n /etc/resolv.conf /mnt/etc/
+
 sudo chroot /mnt
 apt install --reinstall grub-efi-amd64 linux-generic linux-headers-generic
 update-initramfs -c -k all
@@ -327,7 +330,8 @@ sudo update-grub
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda2 /mnt
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
+sudo cp -n /etc/resolv.conf /mnt/etc/
+
 sudo chroot /mnt
 apt install --reinstall grub-efi-amd64 linux-generic linux-headers-generic
 update-initramfs -c -k all
@@ -350,7 +354,8 @@ sudo update-grub
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p3 /mnt
 sudo mount /dev/nvme0n1p1 /mnt/boot/efi
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
+sudo cp -n /etc/resolv.conf /mnt/etc/
+
 sudo chroot /mnt
 apt install --reinstall linux-generic linux-headers-generic
 update-initramfs -c -k all
@@ -363,7 +368,8 @@ sudo bootctl --path=/mnt/boot/efi install
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
 sudo mount /dev/sda1 /mnt/boot/efi
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
+sudo cp -n /etc/resolv.conf /mnt/etc/
+
 sudo chroot /mnt
 apt install --reinstall linux-generic linux-headers-generic
 update-initramfs -c -k all
@@ -437,7 +443,7 @@ reboot
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-10-15</p>
+        <p>Article last modified: 2020-12-24</p>
     </div>
 </div>
 

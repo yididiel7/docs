@@ -279,14 +279,16 @@ sudo vgchange -ay
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1 /mnt/boot/efi
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
+sudo cp -n /etc/resolv.conf /mnt/etc/
+/
 sudo chroot /mnt
 </code></pre></div></div>
 <p>OR for NVMe drives:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p1 /mnt/boot/efi
 for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp /etc/resolv.conf /mnt/etc/
+sudo cp -n /etc/resolv.conf /mnt/etc/
+/
 sudo chroot /mnt
 </code></pre></div></div>
 
@@ -310,7 +312,7 @@ reboot
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-08-28</p>
+        <p>Article last modified: 2020-12-24</p>
     </div>
 </div>
 
