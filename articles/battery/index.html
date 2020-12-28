@@ -221,35 +221,35 @@
 
 <p><img src="/images/battery/system-menu.png" alt="Battery" /></p>
 
-<h3 id="charging-thresholds">Charging Thresholds</h3>
+<!--
+### Charging Thresholds
 
-<p>Configuring charging thresholds will allow your System76 laptop to disable the
+Configuring charging thresholds will allow your System76 laptop to disable the
 charger and run off the AC connection when the battery reaches a specified
 capacity. This is particularly useful when your laptop is plugged into AC power
 adapter for extended periods of time as it prevents unnecessary micro-charging
-which reduces battery longevity.</p>
+which reduces battery longevity.
 
-<p>The longevity of lithium batteries is dependent on the number of charge cycles
+The longevity of lithium batteries is dependent on the number of charge cycles
 they go through. The larger the percentage of spread between start and end
 charge percentages, the longer the physical battery will last. For optimal
-longevity, charge cycles of 40%~80% are a good idea.</p>
+longevity, charge cycles of 40%~80% are a good idea.
 
-<p>Before heading out into the wild blue yonder, disable this feature to charge
-your laptop battery to 100%.</p>
+Before heading out into the wild blue yonder, disable this feature to charge
+your laptop battery to 100%.
 
-<h4 id="open-firmware">Open Firmware</h4>
+#### Open Firmware
 
-<p>On laptops with System76 Open Firmware, charging thresholds are exposed through
-ACPI. The <code class="language-plaintext highlighter-rouge">system76_acpi</code> kernel module then makes these available through
-standard sysfs entries.</p>
+On laptops with System76 Open Firmware, charging thresholds are exposed through
+ACPI. The `system76_acpi` kernel module then makes these available through
+standard sysfs entries.
 
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">/sys/class/power_supply/BAT0/charge_control_start_threshold</code></li>
-  <li><code class="language-plaintext highlighter-rouge">/sys/class/power_supply/BAT0/charge_control_end_threshold</code></li>
-</ul>
+- `/sys/class/power_supply/BAT0/charge_control_start_threshold`
+- `/sys/class/power_supply/BAT0/charge_control_end_threshold`
 
-<p>The default values of 0 for the start threshold and 100 for the end threshold
-disable the feature.</p>
+The default values of 0 for the start threshold and 100 for the end threshold
+disable the feature.
+-->
 
 <h4 id="flexicharger">FlexiCharger</h4>
 
@@ -386,7 +386,7 @@ man tlp-stat
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-10-01</p>
+        <p>Article last modified: 2020-12-28</p>
     </div>
 </div>
 
