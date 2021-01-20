@@ -367,7 +367,12 @@ man tlp-stat
   <p>iface enp4s0f2 inet manual</p>
 </blockquote>
 
-<p>Then, if Ethernet needs used, this command can be run to enable it for the session:</p>
+<p>This new configuration will take effect after a reboot. To disable the interface immediately, run this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ifconfig enp4s0f2 down
+</code></pre></div></div>
+
+<p>Then, if Ethernet needs to be used, this command can be run to enable it for the session:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ifconfig enp4s0f2 up
 </code></pre></div></div>
@@ -386,7 +391,7 @@ man tlp-stat
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-12-28</p>
+        <p>Article last modified: 2021-01-20</p>
     </div>
 </div>
 
