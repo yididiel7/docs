@@ -215,12 +215,12 @@
 
 <h2 id="reset-pulseaudio">Reset PulseAudio</h2>
 
-<p>If the system is not playing audio, first try reseting the pulseaudio daemon:</p>
+<p>If the system is not playing audio, first try restarting the PulseAudio daemon:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl --user restart pulseaudio
 </code></pre></div></div>
 
-<p>Applications may need to be restarted. If this fails then try removing the user configuration files for <u>PulseAudio</u>:</p>
+<p>After restarting the daemon, applications may need to be restarted to re-connect to PulseAudio. If the system still isn’t playing sound, then try removing the user configuration files for PulseAudio:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -r ~/.config/pulse
 </code></pre></div></div>
@@ -311,13 +311,43 @@
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pulseaudio --start
 </code></pre></div></div>
-<h2 id="fix-pciinternal-sound-card-not-detected-dummy-output-with-ubuntu-kernel-530-41-and-newer-in-ubuntu-1910">Fix PCI/internal sound card not detected (dummy output) with Ubuntu kernel 5.3.0-41 and newer in Ubuntu 19.10</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "options snd-hda-intel dmic_detect=0" | sudo tee -a /etc/modprobe.d/alsa-base.conf  
-echo "blacklist snd_soc_skl" | sudo tee -a /etc/modprobe.d/blacklist.conf  
-</code></pre></div></div>
-<p>Reboot after making the changes.</p>
 
-<p>Credit of <img src="https://www.linuxuprising.com/2018/06/fix-no-sound-dummy-output-issue-in.html" alt="Linux-Uprising" /></p>
+<h2 id="configuration-tweaks">Configuration Tweaks</h2>
+
+<p>Some particular problems may be solved by tweaks to ALSA or PulseAudio configuration.</p>
+
+<h3 id="audio-crackling-or-hardware-clicking">Audio crackling or hardware clicking</h3>
+
+<p>If you hear audio crackling (especially when you start or stop playing audio), PulseAudio may be putting your audio card to sleep too often. This is known to happen on the <a href="/articles/serval-dac/">serw12</a> and some <a href="https://github.com/system76/docs/issues/491">Thunderbolt docks</a>.</p>
+
+<p>These two commands will disable this behavior and restart PulseAudio:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/load-module module-suspend-on-idle/#load-module module-suspend-on-idle/' /etc/pulse/default.pa
+pulseaudio -k
+</code></pre></div></div>
+
+<p>This change can be undone using these commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/#load-module module-suspend-on-idle/load-module module-suspend-on-idle/' /etc/pulse/default.pa
+pulseaudio -k
+</code></pre></div></div>
+
+<h3 id="pciinternal-sound-card-not-detected-dummy-output">PCI/internal sound card not detected (dummy output)</h3>
+
+<p>With hardware that uses the <code class="language-plaintext highlighter-rouge">snd_hda_intel</code> kernel module, rare <a href="https://bugs.launchpad.net/ubuntu/+source/linux-oem-osp1/+bug/1864061">bugs</a> can cause the sound card to not be detected. If you’re having this issue, try running these commands to force the usage of a specific audio driver:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "options snd-hda-intel dmic_detect=0" | sudo tee -a /etc/modprobe.d/alsa-base.conf
+echo "blacklist snd_soc_skl" | sudo tee -a /etc/modprobe.d/blacklist.conf
+</code></pre></div></div>
+
+<p>Reboot after making the changes. If this doesn’t solve the issue, undo the changes using these commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/options snd-hda-intel dmic_detect=0//' /etc/modprobe.d/alsa-base.conf
+sudo sed -i 's/blacklist snd_soc_skl//' /etc/modprobe.d/blacklist.conf
+</code></pre></div></div>
+
+<p>Then reboot again.</p>
+
 <h2 id="gather-information-for-support">Gather Information for Support</h2>
 
 <p>The <code class="language-plaintext highlighter-rouge">alsa-info</code> command will gather a number of outputs, including some of the above-listed outputs, and package them so they can be shared easily. In a terminal, run the command:</p>
@@ -331,7 +361,7 @@ echo "blacklist snd_soc_skl" | sudo tee -a /etc/modprobe.d/blacklist.conf
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-07-17</p>
+        <p>Article last modified: 2021-02-11</p>
     </div>
 </div>
 
