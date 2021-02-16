@@ -363,75 +363,35 @@
 
 <p>Desktop environments can interfere with each other or change system-wide settings. Issues with a desktop environment’s appearance can generally be fixed by changing the theme in the <u>Appearance</u> control panel.</p>
 
-<h4 id="change-notification-dialog">Change Notification Dialog</h4>
+<h4 id="customize-notification-dialog">Customize Notification Dialog</h4>
 
 <p>Xfce will change the notification dialog to its own. It can be configured with this command:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xfce4-notifyd-config
 </code></pre></div></div>
 
-<p>Or changed back to Unity’s with this command:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /usr/share/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service
-</code></pre></div></div>
-
-<p>And replace this line:</p>
-
-<blockquote>
-  <p>Exec=/usr/lib/xfce4/notifyd/xfce4-notifyd</p>
-</blockquote>
-
-<p>With this one:</p>
-
-<blockquote>
-  <p>Exec=/usr/lib/x86_64-linux-gnu/notify-osd</p>
-</blockquote>
-
-<h4 id="fix-broken-desktop-background">Fix Broken Desktop Background</h4>
-
-<p>If your background turns to black or white, or stops changing when you select a new background, re-enable it with this command:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings set org.gnome.settings-daemon.plugins.background active true
-</code></pre></div></div>
-
 <h4 id="remove-duplicate-options-from-login-screen">Remove Duplicate Options From Login Screen</h4>
 
-<p>Many desktop environments supply both a bare-bones environment, a full featured environment, or other options. Cinnamon provides both a 2d and 3d environment. Some of the extra options aren’t needed, and don’t have to be presented as options. The options available at login are in the <code class="language-plaintext highlighter-rouge">/usr/share/xsessions</code> folder. Simply rename or delete the files to remove them as options.</p>
+<p>Some desktop environments provide more than one session. For example, Cinnamon provides both a 2D and a 3D session. The options available at login are located in the <code class="language-plaintext highlighter-rouge">/usr/share/xessions</code> directory, and unneeded options can be removed by deleting the corresponding files. For example, to remove Cinnamon’s extra option:</p>
 
-<p>Lubuntu’s extra options:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/share/xsessions/Lubuntu-Netbook.desktop
-/usr/share/xsessions/LXDE.desktop
-/usr/share/xsessions/openbox.desktop
-</code></pre></div></div>
-
-<p>Xubuntu’s extra option:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/share/xsessions/xfce.desktop
-</code></pre></div></div>
-
-<p>Cinnamon’s extra option:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/share/xsessions/cinnamon2d.desktop
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /usr/share/xsessions/cinnamon2d.desktop
 </code></pre></div></div>
 
 <h4 id="change-automatic-startup-programs">Change Automatic Startup Programs</h4>
 
-<p>Some desktop environments add addition programs to be started at boot. To change them, run the <u>Startup Applications</u> program, and turn off any additional startup programs that were undesirably added.</p>
+<p>Some desktop environments configure additional programs to start at boot. To change them, run the <u>Startup Applications</u> program and turn off any unwanted startup programs.</p>
 
 <h4 id="double-lock-screen-passwords">Double Lock Screen Passwords</h4>
 
-<p>Sometimes the GNOME screensaver presents a second password unlock screen after suspending or locking the screen. It can be disabled with this command:</p>
+<p>GNOME does not use a screensaver (only a lock screen), but other desktop environments may install the classic GNOME screensaver package as a dependency. If you’re being prompted for a password twice after suspending or locking the screen, disable the second prompt with this command:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings set org.gnome.desktop.screensaver lock-enabled false
 </code></pre></div></div>
 
-<p>Or, if that doesn’t stop the 2nd prompt, the screensaver can be removed with this command:</p>
+<p>Or, if that doesn’t stop the second prompt, uninstall the redundant screensaver with this command:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt purge gnome-screensaver
 </code></pre></div></div>
-
-<p>When using GNOME, the lock screens will still function normally even with the screensaver disabled.</p>
 
 <h4 id="enable-cinnamon-lock-screen">Enable Cinnamon Lock Screen</h4>
 
@@ -440,40 +400,21 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings set org.cinnamon.desktop.lockdown disable-lock-screen false
 </code></pre></div></div>
 
-<h4 id="managing-multiple-desktop-environments">Managing Multiple Desktop Environments</h4>
-
-<p>Ubuntu’s unity greeter signin screen will only accommodate a certain number of desktop environments. If the list is too large, then extra options can be deleted from this folder:</p>
-
-<p><code class="language-plaintext highlighter-rouge">/usr/share/xsessions/</code></p>
-
-<p>Another solution is to switch to the lightdm-gtk-greeter following the instructions above. This secondary greeter is installed with GNOME, or can be installed manually with this command:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install lightdm-gtk-greeter
-</code></pre></div></div>
-
 <h4 id="removing-desktop-environments">Removing Desktop Environments</h4>
 
 <p>If you no longer want to use a desktop environment, it can be removed by using:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt purge ...
-sudo apt autoremove
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt autoremove --purge ...
 </code></pre></div></div>
 
 <p>For example, to remove KDE:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt purge kde-*
-sudo apt autoremove
-</code></pre></div></div>
-
-<p>Or to remove Unity:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt purge ubuntu-desktop
-sudo apt autoremove
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt autoremove --purge kde-standard
 </code></pre></div></div>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-06-18</p>
+        <p>Article last modified: 2021-02-15</p>
     </div>
 </div>
 
