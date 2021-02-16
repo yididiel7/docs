@@ -213,7 +213,8 @@
     <div class="small-12 small-centered medium-10 large-8 columns">
         <p>Pop!_OS 20.10 was released October 23, 2020.</p>
 
-<h3 id="upgrading-pop_os-to-2010-from-2004-for-all-other-operating-system-versions-scroll-down-to-the-instructions-for-upgrading-from-an-earlier-release">Upgrading Pop!_OS to 20.10 from 20.04 (For all other operating system versions, scroll down to the instructions for upgrading from an earlier release)</h3>
+<h1 id="upgrading-pop_os-to-2010-from-2004">Upgrading Pop!_OS to 20.10 from 20.04</h1>
+<h3 id="for-all-other-operating-system-versions-scroll-down-to-the-instructions-for-upgrading-from-an-earlier-release">(For all other operating system versions, scroll down to the instructions for upgrading from an earlier release)</h3>
 
 <p>First, make sure you have applied all updates to your system. You can do this through the Pop!_Shop, or through the terminal:</p>
 
@@ -275,44 +276,47 @@ sudo apt full-upgrade
 
 <p>Once restarted, the computer will be on the newly upgraded system! If you run into any issues, check out our troubleshooting section below.</p>
 
-<h3 id="upgrading-older-releases">Upgrading older releases</h3>
+<h1 id="upgrading-older-releases">Upgrading older releases</h1>
 
-<p>Upgrading Pop!_OS 18.10, 19.04 or 19.10 will require upgrading to Pop!_OS 20.04 LTS before upgrading to 20.10.</p>
+<p>Upgrading Pop!_OS 17.10 (artful) 18.10 (cosmic), 19.04 (disco) or 19.10 (eoan) will require upgrading to Pop!_OS 20.04 (focal) LTS before upgrading to the current Pop!_OS 20.10 (groovy).</p>
 
 <p>These older Pop!_OS releases are now unsupported and no new updates are available. After unsupported versions have been removed from the archive and mirror network, you will need to change where your system checks for un-applied updates to be able to upgrade. Open a terminal and follow the next set of instructions to upgrade from Pop!_OS 18.10, 19.04, or 19.10.</p>
 
-<p>1) Get your current system fully updated:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/us.archive/old-releases/g' /etc/apt/sources.list
-sudo apt update -m
-sudo dpkg --configure -a
-sudo apt install -f
-sudo apt full-upgrade
-sudo apt install pop-desktop
+<h3 id="1-get-your-current-system-fully-updated">1. Get your current system fully updated:</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo sed</span> <span class="nt">-i</span> <span class="s1">'s/us.archive/old-releases/g'</span> /etc/apt/sources.list
+<span class="nb">sudo </span>apt update <span class="nt">-m</span>
+<span class="nb">sudo </span>dpkg <span class="nt">--configure</span> <span class="nt">-a</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-f</span>
+<span class="nb">sudo </span>apt full-upgrade
+<span class="nb">sudo </span>apt <span class="nb">install </span>pop-desktop
 </code></pre></div></div>
 
-<p>2) Move any PPA additions out of the way, and get all of the sources pointed at the 20.04 versions:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mkdir -p /etc/apt/sources.list.d/backup
-sudo mv /etc/apt/sources.list.d/* /etc/apt/sources.list.d/backup
-sudo apt-add-repository -yn ppa:system76-dev/stable
-sudo apt-add-repository -yn ppa:system76/pop
-sudo sed -i 's/old-releases/us.archive/g' /etc/apt/sources.list
-sudo sed -Ei 's/cosmic|eoan|disco/focal/g' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
+<h3 id="2-move-any-ppa-additions-out-of-the-way-and-get-all-of-the-sources-pointed-at-the-2004-versions">2. Move any PPA additions out of the way, and get all of the sources pointed at the 20.04 versions:</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /etc/apt/backup
+<span class="nb">sudo mv</span> /etc/apt/sources.list.d/<span class="k">*</span> /etc/apt/backup
+<span class="nb">sudo </span>apt-add-repository <span class="nt">-yn</span> ppa:system76-dev/stable
+<span class="nb">sudo </span>apt-add-repository <span class="nt">-yn</span> ppa:system76/pop
+<span class="nb">sudo sed</span> <span class="nt">-i</span> <span class="s1">'s/old-releases/us.archive/g'</span> /etc/apt/sources.list
+<span class="nb">sudo sed</span> <span class="nt">-Ei</span> <span class="s1">'s/cosmic|eoan|disco/focal/g'</span> /etc/apt/sources.list /etc/apt/sources.list.d/<span class="k">*</span>.list
+</code></pre></div></div>
+<p><em>Note to change ‘disco’ to your release that you are trying to update</em></p>
+
+<h3 id="3-now-do-the-upgrade">3. Now, do the upgrade!</h3>
+<p>This will have a three phases and once the download is complete, you can’t change your mind. This works from a new install of 19.04, but some packages may add complications, so make sure you have a backup of important data before moving forward. There may be a question about restarting services, and it is safe to answer “Yes”. There may be some questions about using “maintainer” version of configuration files and using the that new version is also very likely what you want to do (and the default answer will work):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>dpkg apt
+<span class="nb">sudo </span>apt full-upgrade | <span class="nb">tee</span> ~/upgrade.log
 </code></pre></div></div>
 
-<p>3) Now, do the upgrade! This will have three phases, and once the download is complete, you can’t change your mind. This works from a fresh installation, but some packages may add complications, so make sure you have a backup of important data before moving forward. There may be a question about restarting services, and it is safe to answer “Yes”. There may be some questions about using the “maintainer’s” version of configuration files, and using that new version is also very likely what you want to do (and the default answer will work):</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
-sudo apt install dpkg apt
-sudo apt full-upgrade | tee ~/upgrade.log
+<h3 id="4-now-put-the-ppas-back">4. Now put the PPAs back</h3>
+<p>You will want to take a look at the files that end in “list” in “/etc/apt/sources.list.d/backup” to see if you want to enable that again by moving them back to the /etc/apt/sources.list.d/ directory.</p>
+
+<h3 id="5-after-the-2004-pop-upgrade-is-complete-reboot">5. After the 20.04 Pop upgrade is complete, <strong>reboot</strong>.</h3>
+
+<h3 id="6-run-the-command-to-upgrade-to-pop-2010">6. Run the command to upgrade to Pop 20.10</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pop-upgrade release upgrade
 </code></pre></div></div>
-
-<p>4) Now put the PPAs back; you will want to take a look at the files that end in “list” in <code class="language-plaintext highlighter-rouge">/etc/apt/sources.list.d/backup</code> to see if you want to enable them again by moving them back to the <code class="language-plaintext highlighter-rouge">/etc/apt/sources.list.d/</code> directory.</p>
-
-<p>5) After the 20.04 Pop upgrade is complete, reboot.</p>
-
-<p>6) Run the command to upgrade to Pop 20.10:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pop-upgrade release upgrade
-</code></pre></div></div>
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h1 id="troubleshooting">Troubleshooting</h1>
 
 <p>Most upgrades proceed without a hitch, but occasionally things go wrong. If your system hangs on the upgrade process or if it reboots and won’t start, then the following steps can help repair your broken OS.</p>
 
@@ -322,7 +326,7 @@ sudo apt full-upgrade | tee ~/upgrade.log
 
 <h3 id="broken-upgrade">Broken Upgrade</h3>
 
-<p>If the upgrade fails it will most likely be due to a package manager issue.  First, run the upgrade again with this command, and see if it will get further:</p>
+<p>If the upgrade fails it will most likely be due to a package manager issue.  First, run an alternative upgrade manager with this command, and see if it will manage further:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do-release-upgrade
 </code></pre></div></div>
@@ -337,7 +341,7 @@ sudo apt full-upgrade | tee ~/upgrade.log
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-01-20</p>
+        <p>Article last modified: 2021-02-15</p>
     </div>
 </div>
 
