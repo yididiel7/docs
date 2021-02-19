@@ -240,7 +240,7 @@ Any troubleshooting or software support questions not covered in this article ar
 
 <h3 id="if-pop_os-is-installed-first">If Pop!_OS is installed first</h3>
 
-<p>To dual boot Pop!_OS alongside another OS, install Pop!_OS first. After completing the installation of Pop!_OS, boot your computer in Recovery mode by holding down the spacebar during boot and selecting <strong>Pop!_OS Recovery</strong> in the systemd-boot menu. (Alternatively, you can boot into your Pop!_OS installation media, such as a USB flash drive.) Once booted into Pop!_OS Recovery (or the live USB environment), use GParted to resize the root partition (the largest partition) to make room for Windows 10 (35GB is the minimum required).</p>
+<p>To dual boot Pop!_OS alongside another OS, install Pop!_OS first. After completing the installation of Pop!_OS, boot your computer in Recovery mode by holding down the spacebar during boot and selecting <strong>Pop!_OS Recovery</strong> in the systemd-boot menu. (Alternatively, you can boot into your Pop!_OS installation media, such as a USB flash drive.) Once booted into Pop!_OS Recovery (or the live USB environment), use GParted to resize the root partition (the largest partition) to make room for Windows 10 (35GB is the minimum required). Resizing the partition will only work if Pop!_OS is not encrypted. If the OS is encrypted then it will need to be reinstalled with encryption not enabled.</p>
 
 <p><img src="/images/dual-booting/gparted.png" alt="GParted" /></p>
 
@@ -272,7 +272,7 @@ Any troubleshooting or software support questions not covered in this article ar
 
 <p>The Windows drivers for some of our laptop systems <a href="https://github.com/system76/windows-drivers">here</a>. We recommend downloading all of the drivers for your model and make sure to follow the steps for installing the driver below the driver link.</p>
 
-<p>NOTE: The Windows Device Manager may show that some devices are missing drivers, that is normal, and can be disregarded.</p>
+<p>NOTE: The Windows Device Manager may show that some devices are missing drivers, that is normal, and can be disregarded. That includes the Thelio I/O board. It doesn’t need any Windows drivers. It is a simple pass-through for the drives when using Windows. There are also no ACPI table entries.</p>
 
 <h3 id="windows-caveats">Windows Caveats</h3>
 
@@ -304,7 +304,7 @@ If you need to revert it, just set it to 0:</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-02-15</p>
+        <p>Article last modified: 2021-02-19</p>
     </div>
 </div>
 
