@@ -215,7 +215,7 @@
 
 <p>If your system is running Pop!_OS 19.10, see the <a href="/articles/use-tensorman/">Tensorman documentation</a> for managing TensorFlow containers.</p>
 
-<h2 id="install-on-pop_os">Install on Pop!_OS</h2>
+<h2 id="install-on-pop_os-2004-lts-and-pop_os-2010">Install on Pop!_OS 20.04 LTS and Pop!_OS 20.10</h2>
 
 <h3 id="installing-tensorflow-with-cuda">Installing TensorFlow with CUDA</h3>
 
@@ -226,7 +226,7 @@
 
 <p>This will install the following packages:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-cuda-9.2 system76-cudnn-9.2 tensorflow-1.9-cuda-9.2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-cuda-10.2 system76-cudnn-10.2 
 </code></pre></div></div>
 
 <p>When the package with ‘-latest’ is installed then when a new version if packaged and released an update will be available. When the system is updated these packages will be updated as well.</p>
@@ -235,9 +235,18 @@
 
 <p>The previous instructions will work with Pop!_OS out of the box but for Ubuntu and other Debian derivatives the following commands will need to be ran first:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo echo "deb http://apt.pop-os.org/proprietary bionic main" | sudo tee -a /etc/apt/sources.list.d/pop-proprietary.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 204DD8AEC33A7AFF
-sudo apt update
+<p>Ubuntu 20.04 LTS based:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo echo</span> <span class="s2">"deb http://apt.pop-os.org/proprietary focal main"</span> | <span class="nb">sudo tee</span> <span class="nt">-a</span> /etc/apt/sources.list.d/pop-proprietary.list
+<span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> keyserver.ubuntu.com <span class="nt">--recv-key</span> 204DD8AEC33A7AFF
+<span class="nb">sudo </span>apt update
+</code></pre></div></div>
+
+<p>Ubuntu 20.10 based:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo echo</span> <span class="s2">"deb http://apt.pop-os.org/proprietary groovy main"</span> | <span class="nb">sudo tee</span> <span class="nt">-a</span> /etc/apt/sources.list.d/pop-proprietary.list
+<span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> keyserver.ubuntu.com <span class="nt">--recv-key</span> 204DD8AEC33A7AFF
+<span class="nb">sudo </span>apt update
 </code></pre></div></div>
 
 <p>*These packages have been tested with the System76 NVIDIA driver only.</p>
@@ -250,7 +259,7 @@ sudo apt update
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-10-18</p>
+        <p>Article last modified: 2021-02-19</p>
     </div>
 </div>
 
