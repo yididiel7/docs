@@ -240,12 +240,20 @@
 
 <p>Next, run this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
-</code></pre></div></div>
-<p>OR for NVMe drives:</p>
+<table>
+  <tbody>
+    <tr>
+      <td><strong>SATA Drives</strong></td>
+      <td><strong>NVMe Drives</strong></td>
+    </tr>
+    <tr>
+      <td>sudo mount /dev/sda3 /mnt</td>
+      <td>sudo mount /dev/nvme0n1p3 /mnt</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p3 /mnt
-</code></pre></div></div>
+<p><strong>Note:</strong> Each box is one single command.</p>
 
 <p>If the command fails and says <code class="language-plaintext highlighter-rouge">mount: /mnt: unknown filesystem type 'crypto_LUKS'</code>, then the hard drive has been encrypted, and additional commands are needed to unlock it.</p>
 
@@ -253,18 +261,28 @@
 
 <p>To get access to an encrypted disk, these additional commands need to be run in order to unlock the disk.  Please use the <code class="language-plaintext highlighter-rouge">lsblk</code> command described above to determine the correct drive and partition.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/sda3 cryptdata
-sudo lvscan
-sudo vgchange -ay
-</code></pre></div></div>
-<p>OR for NVMe drives:</p>
+<table>
+  <tbody>
+    <tr>
+      <td><strong>SATA Drives</strong></td>
+      <td><strong>NVMe Drives</strong></td>
+    </tr>
+    <tr>
+      <td>sudo cryptsetup luksOpen /dev/sda3 cryptdata</td>
+      <td>sudo cryptsetup luksOpen /dev/nvme0n1p3 cryptdata</td>
+    </tr>
+    <tr>
+      <td>sudo lvscan</td>
+      <td>sudo lvscan</td>
+    </tr>
+    <tr>
+      <td>sudo vgchange -ay</td>
+      <td>sudo vgchange -ay</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/nvme0n1p3 cryptdata
-sudo lvscan
-sudo vgchange -ay
-</code></pre></div></div>
-
-<p><strong>Note</strong> Pay attention to what the cryptdata group is called. If it is named something other than ‘data-root’ Substitute the correct info into this next command.  Make sure that <code class="language-plaintext highlighter-rouge">-root</code> is on the end:</p>
+<p><strong>Note:</strong> Pay attention to what the cryptdata group is called. If it is named something other than ‘data-root’ Substitute the correct info into this next command.  Make sure that <code class="language-plaintext highlighter-rouge">-root</code> is on the end:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/mapper/data-root /mnt
 </code></pre></div></div>
@@ -277,18 +295,30 @@ sudo vgchange -ay
 
 <p>The EFI partition is usually around 512MB so that would be the partition that we replace in the next command. The Recovery Partition is around 4GB as well.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
-sudo chroot /mnt
-</code></pre></div></div>
-<p>OR for NVMe drives:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
-sudo chroot /mnt
-</code></pre></div></div>
+<table>
+  <tbody>
+    <tr>
+      <td><strong>SATA Drives</strong></td>
+      <td><strong>NVMe Drives</strong></td>
+    </tr>
+    <tr>
+      <td>sudo mount /dev/sda1 /mnt/boot/efi</td>
+      <td>sudo mount /dev/nvme0n1p1 /mnt/boot/efi</td>
+    </tr>
+    <tr>
+      <td>for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done</td>
+      <td>for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done</td>
+    </tr>
+    <tr>
+      <td>sudo cp -n /etc/resolv.conf /mnt/etc/</td>
+      <td>sudo cp -n /etc/resolv.conf /mnt/etc/</td>
+    </tr>
+    <tr>
+      <td>sudo chroot /mnt</td>
+      <td>sudo chroot /mnt</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>To exit from the <u>chroot</u> and reboot the computer, run these commands:</p>
 
@@ -310,7 +340,7 @@ reboot
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-01-28</p>
+        <p>Article last modified: 2021-02-23</p>
     </div>
 </div>
 
