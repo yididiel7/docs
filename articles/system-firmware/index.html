@@ -254,7 +254,24 @@ sudo apt install system76-firmware
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-firmware-cli schedule
 </code></pre></div></div>
 
-<p>Reboot the system using <code class="language-plaintext highlighter-rouge">sudo systemctl reboot</code> to proceed with the update, or use <code class="language-plaintext highlighter-rouge">sudo system76-firmware-cli unschedule</code> to cancel the update.</p>
+<p>If you are able not able to schedule the update and receive error messages similar to these:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>configuring bootloader error: command failed with exit status: exit code: 5
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>errored while installing system: command failed with exit status: exit code: 5
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>calling Schedule method failed: "failed to add boot entry: exit code: 5
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-firmware: failed to schedule: failed to add boot entry: exit code: 5
+</code></pre></div></div>
+
+<p>Please refer to this <a href="/articles/open-firmware-smmstore">support article</a>. If you see the message below then you can reboot the system using <code class="language-plaintext highlighter-rouge">sudo systemctl reboot</code> to proceed with the update, or use <code class="language-plaintext highlighter-rouge">sudo system76-firmware-cli unschedule</code> to cancel the update.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Firmware update scheduled. Reboot your machine to install.
+</code></pre></div></div>
 
 <h3 id="performing-the-update">Performing the Update</h3>
 
@@ -346,7 +363,7 @@ gnome-control-center firmware
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-09-30</p>
+        <p>Article last modified: 2021-02-26</p>
     </div>
 </div>
 
