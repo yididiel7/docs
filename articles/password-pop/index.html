@@ -210,7 +210,7 @@
 
 <p><img src="/images/password/systemd-boot.png" alt="systemd-boot" /></p>
 
-<p>Once the recovery operating system has opened, click <strong>Install Pop!_OS</strong> in the top left, and choose <strong>quit</strong>.  Then, press <kbd><span class="fl-pop-key"></span></kbd>+<kbd>T</kbd>/<kbd><i class="fl-ubuntu"></i></kbd> to open a terminal, and type in these commands:</p>
+<p>Once the recovery operating system boots, close out of the installation window or choose <strong>“try demo mode”</strong> (be sure not to choose any install or repair options, as this could result in data loss).   Then, press <kbd><span class="fl-pop-key"></span></kbd>/<kbd><i class="fl-ubuntu"></i></kbd>+<kbd>T</kbd> to open a terminal, and type in these commands:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
 </code></pre></div></div>
@@ -253,85 +253,9 @@ reboot
 
 <p>Now, enter the original passphrase. Here you will be prompted for the new passphrase, and then to confirm the new passphrase.</p>
 
-<h3 id="grub">GRUB</h3>
-
-<p>There are two ways to enter into the GRUB boot menu. The first is to restart your computer and tap <kbd>ESC</kbd> while the computer starts. The second is to power it off while it is starting up, which will make the menu show up on the next boot. Make sure to stop tapping <kbd>ESC</kbd> when the menu appears:</p>
-
-<p><img src="/images/password/grub1.png" alt="Grub1" /></p>
-
-<p>If you do tap <kbd>ESC</kbd> when the menu appears, a GRUB command prompt will appear:</p>
-
-<p><img src="/images/password/prompt.png" alt="Prompt" /></p>
-
-<p>If you get to the GRUB command prompt, type in <code class="language-plaintext highlighter-rouge">normal</code>, then press <kbd>ENTER</kbd> and immediately press <kbd>ESC</kbd>.</p>
-
-<p>Once in the GRUB menu, choose the second option <strong>Advanced options for Ubuntu</strong>, then, choose the 3rd option <strong>Ubuntu, with Linux &lt;current kernel number&gt; (recovery mode)</strong>.</p>
-
-<p><img src="/images/password/grub2.png" alt="Grub2" /></p>
-
-<p>At the recovery menu, choose the <strong>root</strong> option, then press <kbd>Enter</kbd> to drop to a root prompt.</p>
-
-<p><img src="/images/password/recovery.png" alt="Recovery" /></p>
-
-<h3 id="root-prompt">Root Prompt</h3>
-
-<p><strong>A note on the root prompt:</strong> Since the system is operating with only a single console, all output is printed to the screen. This can be really confusing, but nothing has changed – it’s just output. <strong>If your screen looks like the image below, with a timeout notice or similar,</strong> press Ctrl+C to return to the prompt and continue working. You will need to re-enter the command you were typing.</p>
-
-<p><img src="/images/password/timeout.png" alt="Timeout in recovery mode" /></p>
-
-<p>Now, type this command to make your hard drive editable:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount -o rw,remount /
-</code></pre></div></div>
-
-<p>Then type this command to show what usernames are present on the computer:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls /home
-</code></pre></div></div>
-
-<p>Then, to change your password, type in this command:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd april
-</code></pre></div></div>
-
-<p>(Change <code class="language-plaintext highlighter-rouge">april</code> to the actual user whose password you would like to reset, as seen in the output of <code class="language-plaintext highlighter-rouge">ls /home</code>)</p>
-
-<p>Enter a new password, then press <kbd>Enter</kbd>. Even though you are typing, no text will be displayed as seen in the image below.</p>
-
-<p><img src="/images/password/example.png" alt="Full commands to reset password" /></p>
-
-<p>Enter the same password again to confirm, then press <kbd>Enter</kbd>.</p>
-
-<p>If successful, you will see a message confirming `passwd: password updated successfully</p>
-
-<p>You can now reboot:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reboot
-</code></pre></div></div>
-
-<h3 id="change-the-encryption-passphrase-using-the-terminal">Change the encryption passphrase using the Terminal:</h3>
-
-<p>This can be done in the operating system or in the recovery mode/partition.</p>
-
-<p>First list the drives and partitions with this command:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
-</code></pre></div></div>
-
-<p>Then to change the passphrase:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksChangeKey /dev/sda3 -S 0
-</code></pre></div></div>
-
-<h3 id="change-the-encryption-passphrase-using-disks">Change the encryption passphrase using Disks:</h3>
-
-<p>Click on the drive that has the OS installed on it on the left side of the <u>Disks</u> application. Then click on the LUKS partition (where the root partition is) and then click on the gear icon under the ‘Volumes’ section.</p>
-
-<p><img src="/images/password/disks-change-passphrase.png" alt="GNOME Disks" /></p>
-
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-17</p>
+        <p>Article last modified: 2021-04-08</p>
     </div>
 </div>
 
