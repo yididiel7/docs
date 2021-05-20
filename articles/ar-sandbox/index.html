@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Setup your new AR Sandbox - System76 Support</title>
-    <meta property="og:title" content="Setup your new AR Sandbox - System76 Support">
-    <meta itemprop="name" content="Setup your new AR Sandbox - System76 Support">
-    <meta name="twitter:title" content="Setup your new AR Sandbox - System76 Support">
+    <title>Set Up Your New AR Sandbox - System76 Support</title>
+    <meta property="og:title" content="Set Up Your New AR Sandbox - System76 Support">
+    <meta itemprop="name" content="Set Up Your New AR Sandbox - System76 Support">
+    <meta name="twitter:title" content="Set Up Your New AR Sandbox - System76 Support">
 
     <meta name="description" content="Calibrate and use your new AR Sandbox">
     <meta property="og:description" content="Calibrate and use your new AR Sandbox">
@@ -187,7 +187,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Setup your new AR Sandbox
+        Set Up Your New AR Sandbox
         <a href="https://github.com/system76/docs/edit/master/_articles/ar-sandbox.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -262,6 +262,17 @@ sudo apt-get install arsandbox
   <li>Reboot your computer so all of the above changes take effect.</li>
 </ul>
 
+<h2 id="enable-touchpad-while-typing">Enable Touchpad While Typing</h2>
+
+<p>During the setup process there will be times when you will need to hold down a key while moving your cursor, however by default the touchpad is disabled while typing. In order for this to work correctly, you will want to go ahead and modify that setting.</p>
+
+<p>To do this, please install the <u>GNOME Tweaks tool</u> from the Pop!_Shop or Ubuntu Software Center, or from the Terminal by running:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install gnome-tweak-tool
+</code></pre></div></div>
+
+<p>After that, open the <u>Tweaks</u> app from the Activities overview, then navigate to ‘Keyboard &amp; Mouse’ -&gt; ‘Touchpad’, then disable the switch marked ‘Disable While Typing’</p>
+
 <h2 id="calibrate-kinect">Calibrate Kinect</h2>
 
 <ul>
@@ -272,6 +283,8 @@ sudo apt-get install arsandbox
 </code></pre></div></div>
 
 <p>This will download the intrinsic calibration parameters directly from your Kinect’s firmware and then write the result to a file in <code class="language-plaintext highlighter-rouge">/etc/Vrui-3.1/Kinect-2.8/.</code></p>
+
+<p>Note: if you receive a “Kinect Error 13” message, you may need to power-cycle the Kinect, the computer, or both.</p>
 
 <h2 id="align-kinect-above-sandbox">Align Kinect above sandbox</h2>
 
@@ -333,14 +346,14 @@ sudo apt-get install arsandbox
 <p><img src="/images/ar-sandbox/4-B-average-frames-1ba827544a.png" alt="Right Click Menu" /></p>
 
 <ul>
-  <li>Press and hold the 1 key, move your cursor over Extract Planes, then release the 1 key:</li>
+  <li>Press and hold the 1 key, move your cursor over Extract Planes, then release the 1 key (releasing this key will trigger this action, so clicking with the mouse is not necessary):</li>
 </ul>
 
 <p><img src="/images/ar-sandbox/4-C-extract-plane-1cbd8abb5e.png" alt="Extract Planes" /></p>
 
 <ul>
   <li>You now need to draw a rectangle that fits within the interior of your flat surface (in the depth view). You want some space between your rectangle and the edges of your flat surface.
-Start with your cursor near the top-left corner of your flat surface. Press and hold the 1 key, drag out a rectangle toward the bottom-right corner, then release the 1 key:</li>
+Start with your cursor near the top-left corner of your flat surface. Press and hold the 1 key, drag out a rectangle toward the bottom-right corner using the right mouse button, then release the 1 key:</li>
 </ul>
 
 <p><img src="/images/ar-sandbox/4-D-drag-rectangle-a8b53ecc87.png" alt="Kinect Area View" /></p>
@@ -374,7 +387,12 @@ Start with your cursor near the top-left corner of your flat surface. Press and 
 <p><img src="/images/ar-sandbox/4-F-gedit-eb460dffb4.png" alt="Gedit BoxLayout.txt" /></p>
 
 <ul>
-  <li>Save the file and close <code class="language-plaintext highlighter-rouge">gedit</code>.</li>
+  <li>
+    <p>Save the file and close <code class="language-plaintext highlighter-rouge">gedit</code>.</p>
+  </li>
+  <li>
+    <p>NOTE: If you receive an error message regarding an “invalid taken character,” please double-check to make sure the equal sign in <code class="language-plaintext highlighter-rouge">BoxLayout.txt</code> has been replaced with a comma as described above.</p>
+  </li>
 </ul>
 
 <h2 id="measure-3d-extents-of-sand-surface">Measure 3D extents of sand surface</h2>
@@ -448,7 +466,7 @@ Start with your cursor near the top-left corner of your flat surface. Press and 
     <p>Hit Esc to exit <code class="language-plaintext highlighter-rouge">RawKinectViewer</code>.</p>
   </li>
   <li>
-    <p>In the terminal you’ll see four lines printed. You need to highlight these four lines as shown below, then right click and select Copy:</p>
+    <p>In the terminal you’ll see four lines printed (if you don’t see this output, repeat this step, making sure to choose points within the green rectangle). You need to highlight these four lines as shown below, then right click and select Copy:</p>
   </li>
 </ul>
 
@@ -478,7 +496,7 @@ Start with your cursor near the top-left corner of your flat surface. Press and 
     <p>If you haven’t already, turn on your projector and plug it into your computer.</p>
   </li>
   <li>
-    <p>If you have a dedicated display in addition to the projector, you’ll find it easier if you setup the two displays to be mirrored:</p>
+    <p>If you have a dedicated display in addition to the projector, you’ll find it easier if you set up the two displays to be mirrored:</p>
   </li>
 </ul>
 
@@ -704,7 +722,7 @@ As long as you don’t change the physical setup of your sandbox (in particular,
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-05-13</p>
+        <p>Article last modified: 2021-05-20</p>
     </div>
 </div>
 
