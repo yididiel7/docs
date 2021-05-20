@@ -235,34 +235,28 @@
 
 <p>To determine whether configuration in your home directory is causing the issue, you can create a new user account for testing purposes:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo adduser test
-sudo systemctl reboot
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>adduser <span class="nb">test
+sudo </span>systemctl reboot
 </code></pre></div></div>
 
 <p>If you’re able to log in with the test user, the issue is somewhere in your regular user’s home folder. Log into the full-screen terminal with your regular user again, and move some of the common configuration files out of the way:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv ~/.config ~/.config.old
-mv ~/.local ~/.local.old
-mv ~/.cache ~/.cache.old
-mv ~/.nvidia-settings-rc ~/.nvidia-settings-rc.old
-mv ~/.nv ~/.nv.old
-sudo systemctl reboot
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv</span> ~/.config ~/.config.old
+<span class="nb">mv</span> ~/.local ~/.local.old
+<span class="nb">mv</span> ~/.cache ~/.cache.old
+<span class="nb">mv</span> ~/.nvidia-settings-rc ~/.nvidia-settings-rc.old
+<span class="nb">mv</span> ~/.nv ~/.nv.old
+<span class="nb">sudo </span>systemctl reboot
 </code></pre></div></div>
 
 <p>After moving those files and rebooting, try logging in again. (There may be files you need to move other than the common ones listed above.)</p>
 
 <h3 id="reinstall-the-login-manager">Reinstall the login manager</h3>
 
-<p>You can reinstall GNOME Display Manager (which handles the login screen), along with the desktop environment. On Pop!_OS:</p>
+<p>You can reinstall GNOME Display Manager (which handles the login screen), along with the desktop environment by running the below commands in :</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall gdm3 pop-desktop gnome-shell
-sudo systemctl reboot
-</code></pre></div></div>
-
-<p>Or on Ubuntu:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall gdm3 ubuntu-desktop gnome-shell
-sudo systemctl reboot
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">--reinstall</span> gdm3 ubuntu-desktop gnome-shell
+<span class="nb">sudo </span>systemctl reboot
 </code></pre></div></div>
 
 <p>After reinstalling those packages and rebooting, try logging in again.</p>
@@ -302,17 +296,17 @@ sudo systemctl reboot
     </tr>
     <tr>
       <td style="text-align: left">Leopard WS</td>
-      <td style="text-align: left">Thelio Major</td>
+      <td style="text-align: left">Thelio Mira</td>
       <td style="text-align: left">Darter Pro</td>
     </tr>
     <tr>
       <td style="text-align: left">Silverback WS</td>
-      <td style="text-align: left">Thelio Massive</td>
+      <td style="text-align: left">Thelio Major</td>
       <td style="text-align: left">Pangolin</td>
     </tr>
     <tr>
       <td style="text-align: left">Thelio Mega</td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">Thelio Massive</td>
       <td style="text-align: left"> </td>
     </tr>
   </tbody>
@@ -320,18 +314,18 @@ sudo systemctl reboot
 
 <p>To remove the NVIDIA driver, run the following:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt purge ~nnvidia
-sudo apt autoremove
-sudo apt clean
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt purge ~nnvidia
+<span class="nb">sudo </span>apt autoremove
+<span class="nb">sudo </span>apt clean
 </code></pre></div></div>
 
 <p><img src="/images/login-loop/purge-nvidia.png" alt="Removing NVIDIA" /></p>
 
 <p>After the NVIDIA driver has been removed, add it back using the following commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
-sudo apt full-upgrade
-sudo apt install system76-driver-nvidia
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt full-upgrade
+<span class="nb">sudo </span>apt <span class="nb">install </span>system76-driver-nvidia
 </code></pre></div></div>
 
 <p>After the installation has completed, type <code class="language-plaintext highlighter-rouge">sudo systemctl reboot</code> and try logging in again.</p>
@@ -342,8 +336,8 @@ sudo apt install system76-driver-nvidia
 
 <p>Open <code class="language-plaintext highlighter-rouge">/etc/modprobe.d/blacklist.conf</code> for editing and add <code class="language-plaintext highlighter-rouge">blacklist radeon</code> to the file. Then run:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo update-initramfs -c -k all
-sudo shutdown -r now
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>update-initramfs <span class="nt">-c</span> <span class="nt">-k</span> all
+<span class="nb">sudo </span>shutdown <span class="nt">-r</span> now
 </code></pre></div></div>
 
 <h3 id="if-these-steps-dont-work">If these steps don’t work…</h3>
@@ -352,7 +346,7 @@ sudo shutdown -r now
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-12-24</p>
+        <p>Article last modified: 2021-05-20</p>
     </div>
 </div>
 
