@@ -9,21 +9,21 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Install the System76 Driver - System76 Support</title>
-    <meta property="og:title" content="Install the System76 Driver - System76 Support">
-    <meta itemprop="name" content="Install the System76 Driver - System76 Support">
-    <meta name="twitter:title" content="Install the System76 Driver - System76 Support">
+    <title>Creating Log Files - System76 Support</title>
+    <meta property="og:title" content="Creating Log Files - System76 Support">
+    <meta itemprop="name" content="Creating Log Files - System76 Support">
+    <meta name="twitter:title" content="Creating Log Files - System76 Support">
 
-    <meta name="description" content="Learn how to add the System76 Driver to your System76 computer after reinstalling Ubuntu
+    <meta name="description" content="Learn how to create log files for sending to System76 support
 ">
-    <meta property="og:description" content="Learn how to add the System76 Driver to your System76 computer after reinstalling Ubuntu
+    <meta property="og:description" content="Learn how to create log files for sending to System76 support
 ">
-    <meta itemprop="description" content="Learn how to add the System76 Driver to your System76 computer after reinstalling Ubuntu
+    <meta itemprop="description" content="Learn how to create log files for sending to System76 support
 ">
-    <meta name="twitter:description" content="Learn how to add the System76 Driver to your System76 computer after reinstalling Ubuntu
+    <meta name="twitter:description" content="Learn how to create log files for sending to System76 support
 ">
 
-    <meta name="keywords" content="system76 driver NVIDIA support">
+    <meta name="keywords" content="system76 driver logs syslog support">
 
     
     <meta property="og:image" content="http://support.system76.com/images/system76.png" />
@@ -191,8 +191,8 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Install the System76 Driver
-        <a href="https://github.com/system76/docs/edit/master/_articles/system76-driver.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+        Creating Log Files
+        <a href="https://github.com/system76/docs/edit/master/_articles/log-files.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
   </header>
@@ -200,53 +200,55 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h3 id="system76-driver">System76 Driver</h3>
+        <h3 id="creating-log-files">Creating Log Files</h3>
 
-<p>This guide will show you how to add the System76 software repository and install the driver on Ubuntu.</p>
+<p>Log files help our support team learn more about your system, and can be a great benefit during troubleshooting.</p>
 
-<p>Please note these steps are not necessary in Pop!_OS, which includes the repository and the appropriate drivers installed by default.</p>
+<p>Among the information collected by the log files includes:</p>
 
-<h4 id="adding-the-apt-preferences-file">Adding the Apt Preferences File</h4>
+<ul>
+  <li>The installed operating system and active kernel version</li>
+  <li>A listing of the filesystems connected to your system, and the space used</li>
+  <li>Information about your firmware</li>
+  <li>A list of disks connected to your system, as well as connected USB devices</li>
+  <li>Sensors information showing temperatures and fanspeeds</li>
+  <li>Comprehensive output from <code class="language-plaintext highlighter-rouge">syslog</code> and <code class="language-plaintext highlighter-rouge">journalctl</code></li>
+</ul>
 
-<p>If you are running Ubuntu 19.10 or later, you will need to manually add an apt preferences file to “pin” the System76 repository. This will tell apt to prefer System76 packages over standard Ubuntu packages. Installing the System76 Driver will not be possible until this step is completed.</p>
+<h4 id="generating-log-files-using-the-system76-driver-application">Generating Log Files Using the System76 Driver Application</h4>
 
-<p>Create the apt preferences file here:</p>
+<p>The System76 Driver can be opened by clicking the <u>Activities</u> button in the top left (or pressing the Ubuntu or Pop key), then searching for ‘System76.’ Among the applications listed should be the <u>System76 Driver</u> application. Go ahead and click the icon to launch the application, and enter your password when prompted to do so.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /etc/apt/preferences.d/system76-apt-preferences
+<p>Next click on the button outlined in red in the <u>System76 Driver</u> application and there will be a file called <code class="language-plaintext highlighter-rouge">system76-logs.tgz</code> placed in your Home directory (/home/username)</p>
+
+<p><img src="/images/system76-driver/CreateLogFiles.png" alt="CreateLogFiles" /></p>
+
+<h4 id="manually-generating-log-files">Manually Generating Log Files</h4>
+
+<p>If for some reason you are unable to access the <u>System76 Driver</u> application, you can manually create a set of logs files by running a series of commands via the Terminal application. To do this, click <u>Activities</u> in the top left of your system, search for <u>Terminal</u>, then open the application that appears.</p>
+
+<p>From there, you can enter the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/
+<span class="nb">mkdir</span> ~/system76
+journalctl <span class="o">&gt;</span> ~/system76/journal.log
+dmesg <span class="o">&gt;</span> ~/system76/dmesg.log
+<span class="nb">cp</span> ~/.local/share/xorg/Xorg.0.log ~/system76/Xorg.0.log
+<span class="nb">sudo </span>dmidecode <span class="o">&gt;</span> ~/system76/demidecode
+<span class="nb">sudo </span>lspci <span class="nt">-vv</span> <span class="o">&gt;</span> ~/system76/lscpi.log
+<span class="nb">sudo </span>lsusb <span class="nt">-vv</span> <span class="o">&gt;</span> ~/system76/lsusb.log
+<span class="nb">uname</span> <span class="nt">-a</span> <span class="o">&gt;</span> ~/system76/uname.log
+<span class="nb">cp</span> /etc/os-release ~/system76/os-release
+<span class="nb">tar </span>czf system76-log.tgz ~/system76/<span class="k">*</span>
+<span class="nb">rm</span> ~/system76/<span class="k">*</span>
+<span class="nb">rmdir</span> ~/system76
 </code></pre></div></div>
 
-<p>Add the following six lines (seven if you count the space in the middle):</p>
+<p>As with the <u>System76 Driver</u> application, the log files will be stored within your home directory.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Package: *
-Pin: release o=LP-PPA-system76-dev-stable
-Pin-Priority: 1001
+<h4 id="sending-the-logs-to-the-support-team">Sending the Logs to the Support Team</h4>
 
-Package: *
-Pin: release o=LP-PPA-system76-dev-pre-stable
-Pin-Priority: 1001
-</code></pre></div></div>
-
-<p>Save the file. Now you should be able to install the System76 Driver as described below.</p>
-
-<h4 id="installing-the-driver">Installing the Driver</h4>
-
-<p>To install our Driver you need to run the following commands in the Terminal:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-add-repository -y ppa:system76-dev/stable
-sudo apt-get update
-sudo apt install system76-driver
-</code></pre></div></div>
-
-<p>This installs the System76 driver and related utilities which are needed to enable full functionality for your system.</p>
-
-<h4 id="installing-the-system76-nvidia-driver-for-systems-with-nvidia-gpus">Installing the System76 NVIDIA Driver for Systems with NVIDIA GPUs</h4>
-
-<p>If your system has an NVIDIA graphics card, you will want to go ahead and use this command to install the System76 Driver with NVIDIA graphics drivers built-in:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install system76-driver-nvidia
-</code></pre></div></div>
-
-<p>In addition to the standard packages, that will pull in the latest NVIDIA drivers as packaged by System76, and all related packages needed to take full advantage of your dedicated NVIDIA graphics card.</p>
+<p>Once the logs are created, you can either attach them directly to the support case, or you can email them to <a href="mailto:info@system76.com">info@system76.com</a> and reference your case number.</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
