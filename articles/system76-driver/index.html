@@ -251,6 +251,14 @@ git clone https://aur.archlinux.org/system76-driver.git
 makepkg <span class="nt">-srcif</span>
 <span class="nb">sudo </span>systemctl <span class="nb">enable</span> <span class="nt">--now</span> system76
 </code></pre></div></div>
+
+<h4 id="fedora">Fedora</h4>
+<p>Run these commands in a <u>Terminal</u> to enable the <a href="https://copr.fedorainfracloud.org/coprs/szydell/system76/">community Fedora COPR</a> and install the <u>System76 Driver</u> :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf copr <span class="nb">enable </span>szydell/system76
+<span class="nb">sudo </span>dnf <span class="nb">install </span>system76-driver
+</code></pre></div></div>
+
 <h4 id="installing-the-system76-nvidia-driver-for-systems-with-nvidia-gpus">Installing the System76 NVIDIA Driver for Systems with NVIDIA GPUs</h4>
 
 <p>If your system has an NVIDIA graphics card, you will want to go ahead and use this command to install the System76 Driver with NVIDIA graphics drivers built-in:</p>
@@ -262,7 +270,7 @@ makepkg <span class="nt">-srcif</span>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-05-20</p>
+        <p>Article last modified: 2021-05-26</p>
     </div>
 </div>
 
