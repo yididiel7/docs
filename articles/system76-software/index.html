@@ -9,21 +9,21 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Install the System76 Driver - System76 Support</title>
-    <meta property="og:title" content="Install the System76 Driver - System76 Support">
-    <meta itemprop="name" content="Install the System76 Driver - System76 Support">
-    <meta name="twitter:title" content="Install the System76 Driver - System76 Support">
+    <title>Install System76 Software in other OSes - System76 Support</title>
+    <meta property="og:title" content="Install System76 Software in other OSes - System76 Support">
+    <meta itemprop="name" content="Install System76 Software in other OSes - System76 Support">
+    <meta name="twitter:title" content="Install System76 Software in other OSes - System76 Support">
 
-    <meta name="description" content="Learn how to add the System76 Driver to your System76 computer after reinstalling Ubuntu
+    <meta name="description" content="Learn what software is needed to use other OSes and install them
 ">
-    <meta property="og:description" content="Learn how to add the System76 Driver to your System76 computer after reinstalling Ubuntu
+    <meta property="og:description" content="Learn what software is needed to use other OSes and install them
 ">
-    <meta itemprop="description" content="Learn how to add the System76 Driver to your System76 computer after reinstalling Ubuntu
+    <meta itemprop="description" content="Learn what software is needed to use other OSes and install them
 ">
-    <meta name="twitter:description" content="Learn how to add the System76 Driver to your System76 computer after reinstalling Ubuntu
+    <meta name="twitter:description" content="Learn what software is needed to use other OSes and install them
 ">
 
-    <meta name="keywords" content="system76 driver NVIDIA support">
+    <meta name="keywords" content="system76 support">
 
     
     <meta property="og:image" content="http://support.system76.com/images/system76.png" />
@@ -191,8 +191,8 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Install the System76 Driver
-        <a href="https://github.com/system76/docs/edit/master/_articles/system76-driver.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+        Install System76 Software in other OSes
+        <a href="https://github.com/system76/docs/edit/master/_articles/system76-software.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
   </header>
@@ -200,84 +200,132 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h3 id="system76-driver">System76 Driver</h3>
+        <h1 id="notes-about-these-instructions">Notes about these instructions</h1>
 
-<p>This guide will show you how to add the System76 software repository and install the driver on Ubuntu.</p>
+<p>NOTE: These instructions were tested on a Galago Pro (galp3-b) and Pangolin (pang10). Neither system have NVIDIA GPUs, so this process doesn’t go over installing the NVIDIA driver (system76-driver-nvidia). Due to these limitations, switchable graphics may not work on NVIDIA systems.</p>
 
-<p>Please note these steps are not necessary in Pop!_OS, which includes the repository and the appropriate drivers installed by default.</p>
+<h2 id="arch">Arch</h2>
 
-<h4 id="adding-the-apt-preferences-file">Adding the Apt Preferences File</h4>
+<p>Be sure to install the <u>System76 Driver</u> first. The steps to do that are <a href="/articles/system76-driver">here</a>.</p>
 
-<p>If you are running Ubuntu 19.10 or later, you will need to manually add an apt preferences file to “pin” the System76 repository. This will tell apt to prefer System76 packages over standard Ubuntu packages. Installing the System76 Driver will not be possible until this step is completed.</p>
-
-<p>Create the apt preferences file here:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /etc/apt/preferences.d/system76-apt-preferences
-</code></pre></div></div>
-
-<p>Add the following six lines (seven if you count the space in the middle):</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Package: *
-Pin: release o=LP-PPA-system76-dev-stable
-Pin-Priority: 1001
-
-Package: *
-Pin: release o=LP-PPA-system76-dev-pre-stable
-Pin-Priority: 1001
-</code></pre></div></div>
-
-<p>Save the file. Now you should be able to install the System76 Driver as described below.</p>
-
-<h4 id="installing-the-driver">Installing the Driver</h4>
-
-<p>To install our Driver you need to run the following commands in the Terminal:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-add-repository -y ppa:system76-dev/stable
-sudo apt-get update
-sudo apt install system76-driver
-</code></pre></div></div>
-
-<p>This installs the System76 driver and related utilities which are needed to enable full functionality for your system.</p>
-
-<h3 id="install-system76-driver-on-other-oses">Install System76 Driver on Other OSes</h3>
-
-<h4 id="arch">Arch</h4>
-
-<p>First let’s install some packages needed for the build process of the <u>System76 Firmware Daemon</u> and the <u>System76 Driver</u>:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pacman <span class="nt">-S</span> <span class="nt">--needed</span> base-devel git linux-headers
-</code></pre></div></div>
-
-<p>Run these commands in a <u>Terminal</u> to clone, build and install the <u>System76 Firmware Daemon</u>:</p>
+<h3 id="system76-firmware-daemon">System76 Firmware Daemon</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/system76-firmware.git
+<span class="nb">cd </span>system76-firmware-daemon
 makepkg <span class="nt">-srcif</span>
 <span class="nb">sudo </span>systemctl <span class="nb">enable</span> <span class="nt">--now</span> system76-firmware-daemon
+<span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> adm
 </code></pre></div></div>
 
-<p>Now the <u>System76 Driver</u> can be cloned, built and installed using these commands:</p>
+<h3 id="system76-firmware-manager">System76 Firmware Manager</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/system76-driver.git
-<span class="nb">cd </span>system76-driver
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/firmware-manager.git
+<span class="nb">cd </span>firmware-manager
 makepkg <span class="nt">-srcif</span>
-<span class="nb">sudo </span>systemctl <span class="nb">enable</span> <span class="nt">--now</span> system76
 </code></pre></div></div>
 
-<h4 id="fedora">Fedora</h4>
-<p>Run these commands in a <u>Terminal</u> to enable the <a href="https://copr.fedorainfracloud.org/coprs/szydell/system76/">community Fedora COPR</a> and install the <u>System76 Driver</u> :</p>
+<h3 id="system76-dkms">System76 DKMS</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf copr <span class="nb">enable </span>szydell/system76
-<span class="nb">sudo </span>dnf <span class="nb">install </span>system76-driver
+<p>This package is needed for hotkeys and fan(s) on Closed Firmware systems:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/system76-dkms.git
+<span class="nb">cd </span>system76-dkms
+makepkg <span class="nt">-srcif</span>
 </code></pre></div></div>
 
-<h4 id="installing-the-system76-nvidia-driver-for-systems-with-nvidia-gpus">Installing the System76 NVIDIA Driver for Systems with NVIDIA GPUs</h4>
+<h3 id="system76-acpi-dkms">System76 ACPI DKMS</h3>
 
-<p>If your system has an NVIDIA graphics card, you will want to go ahead and use this command to install the System76 Driver with NVIDIA graphics drivers built-in:</p>
+<p>This package is needed for hotkeys and fan(s) on Open Firmware systems:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install system76-driver-nvidia
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/system76-acpi-dkms.git
+<span class="nb">cd </span>system76-acpi-dkms
+makepkg <span class="nt">-srcif</span>
 </code></pre></div></div>
 
-<p>In addition to the standard packages, that will pull in the latest NVIDIA drivers as packaged by System76, and all related packages needed to take full advantage of your dedicated NVIDIA graphics card.</p>
+<h3 id="system76-power">System76 Power</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/system76-power.git
+<span class="nb">cd </span>system76-power
+makepkg <span class="nt">-srcif</span>
+<span class="nb">sudo </span>systemctl <span class="nb">enable</span> <span class="nt">--now</span> system76-power
+<span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> adm
+</code></pre></div></div>
+
+<h4 id="system76-power-gnome-shell-extension">System76 Power GNOME Shell Extension</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/gnome-shell-extension-system76-power-git.git
+<span class="nb">cd </span>gnome-shell-extension-system76-power
+makepkg <span class="nt">-srcif</span>
+</code></pre></div></div>
+
+<p>NOTE: As of this writing the GNOME Shell Extension doesn’t support GNOME 40.</p>
+
+<h3 id="system76-thelio-io-dkms">System76 Thelio Io DKMS</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/system76-io-dkms.git
+<span class="nb">cd </span>system76-io-dkms
+makepkg <span class="nt">-srcif</span>
+</code></pre></div></div>
+
+<p>NOTE: This package is only needed for Thelio desktops.</p>
+
+<h3 id="system76-oled">System76 OLED</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/system76-oled.git
+<span class="nb">cd </span>system76-acpi-oled
+makepkg <span class="nt">-srcif</span>
+</code></pre></div></div>
+
+<p>NOTE: This package is only needed for systems with OLED displays to control the brightness.</p>
+
+<h2 id="fedora">Fedora</h2>
+
+<p>Be sure to install the <u>System76 Driver</u> first and the steps to do that are <a href="/articles/system76-driver">here</a>.</p>
+
+<h3 id="system76-firmware-manager-1">System76 Firmware Manager</h3>
+
+<p>Then install the <u>System76 Firmware Manager</u> and the <u>System76 Firmware Daemon</u>,enable the service and add your user to the adm group:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>firmware-manager
+<span class="nb">sudo </span>systemctl <span class="nb">enable</span> <span class="nt">--now</span> system76-firmware-daemon
+<span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> adm
+</code></pre></div></div>
+
+<h3 id="system76-power-1">System76 Power</h3>
+
+<p>Use these commands to install the <u>System76 Power</u> package and enable the service:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl <span class="nb">enable </span>system76-power system76-power-wake 
+<span class="nb">sudo </span>systemctl start system76-power
+</code></pre></div></div>
+
+<h3 id="system76-dkms-1">System76 DKMS</h3>
+
+<p>This command will be used to install the <u>System76 DKMS</u> package which is for Proprietary Firmware systems:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>system76-dkms
+</code></pre></div></div>
+
+<h3 id="system76-acpi-dkms-1">System76 ACPI DKMS</h3>
+
+<p>This command will be used to install the <u>System76 ACPI DKMS<u> package which is for Open Firmware systems:</u></u></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>system76-acpi-dkms
+</code></pre></div></div>
+
+<h3 id="system76-thelio-io-dkms-1">System76 Thelio Io DKMS</h3>
+
+<p>This command will be used to install the <u>System76 Io DKMS</u> which is used for the Thelio Io board:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>system76-io-dkms
+</code></pre></div></div>
+
+<h3 id="system76-oled-1">System76 OLED</h3>
+
+<p>This command will be used to install the <u>System76 OLED</u> which is used for systems with OLED panels:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>system76-oled
+</code></pre></div></div>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
