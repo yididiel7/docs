@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Install OpenVPN - System76 Support</title>
-    <meta property="og:title" content="Install OpenVPN - System76 Support">
-    <meta itemprop="name" content="Install OpenVPN - System76 Support">
-    <meta name="twitter:title" content="Install OpenVPN - System76 Support">
+    <title>Install and Use VPNs - System76 Support</title>
+    <meta property="og:title" content="Install and Use VPNs - System76 Support">
+    <meta itemprop="name" content="Install and Use VPNs - System76 Support">
+    <meta name="twitter:title" content="Install and Use VPNs - System76 Support">
 
     <meta name="description" content="This page will go over setting up and using OpenVPN to browse the internet more securely in places like airports, cafe shops and more.
 ">
@@ -191,8 +191,8 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Install OpenVPN
-        <a href="https://github.com/system76/docs/edit/master/_articles/use-openvpn.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+        Install and Use VPNs
+        <a href="https://github.com/system76/docs/edit/master/_articles/use-vpn-software.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
   </header>
@@ -200,21 +200,75 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h3 id="open-a-terminal">Open A Terminal</h3>
+        <h2 id="install-protonvpn-graphcial-client">Install ProtonVPN Graphcial Client</h2>
 
-<h4 id="pop_os">Pop!_OS</h4>
+<h3 id="download-the-deb-package-from-their-website">Download the .deb package from their website</h3>
+
+<p><img src="/images/use-openvpn/Logged-In.png" alt="Log into ProtonVPN website" /></p>
+
+<p>Once signed in click the <strong>Downloads</strong> tab on the left side of the website and click on the <strong>Download</strong> button for GNU/Linux.</p>
+
+<p><img src="/images/use-openvpn/Debian-file-download.png" alt="Download debian file part 1" /></p>
+
+<p>Click the <strong>Download .deb</strong> button for Ubuntu and Pop!_OS.</p>
+
+<p><img src="/images/use-openvpn/Downloaded-debian-file.png" alt="Download debian file part 2" /></p>
+
+<p>Next be sure to leave <strong>Open with Eddy (default)</strong> selected so that the next window pops up.</p>
+
+<h3 id="installing-the-deb-package">Installing the .deb package</h3>
+
+<p><img src="/images/use-openvpn/Installing-debian-file.png" alt="Installing the debian file" /></p>
+
+<p>Now click the <strong>Install</strong> button to install <u>ProtonVPN</u> using <u>Eddy</u>. Once that is down close the <u>Eddy</u> window.</p>
+
+<h3 id="install-the-package">Install the package:</h3>
+
+<p>Open a <u>Terminal</u> window to install the actual package as the .deb file that we installed added the repository so that our system knows where to find the real <u>ProtonVPN</u> package.</p>
+
+<h3 id="pop_os">Pop!_OS</h3>
 
 <p>Press <kbd><span class="fl-pop-key"></span></kbd>+<kbd>t</kbd> on your keyboard. A Terminal window should open.</p>
 
-<h4 id="ubuntu">Ubuntu</h4>
+<h3 id="ubuntu">Ubuntu</h3>
 
 <p>Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>t</kbd> on your keyboard. A Terminal window should open.</p>
 
-<h3 id="install-packages">Install Packages</h3>
+<p>Next enter the following commands followed by <kbd>Enter</kbd>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>protonvpn
+</code></pre></div></div>
+
+<h3 id="using-the-graphical-client">Using the Graphical Client</h3>
+
+<p><img src="/images/use-openvpn/ProtonVPN-main-window.png" alt="ProtonVPN Main Window" /></p>
+
+<p>Open the <u>ProtonVPN</u> client by clicking Activites on the top left of your desktop and search for <u>ProtonVPN</u> in the search box. Enter your login information which should be the same as the information that you used to sign into the ProtonVPN website. If that doesn’t work you will need to reach out to ProtonVPN support.</p>
+
+<p><img src="/images/use-openvpn/ProtonVPN-signed-in.png" alt="ProtonVPN signed in" /></p>
+
+<p>Now that we are signed into the service with the <u>ProtonVPN</u> client we can connect to any server that we have access to in our plan though ProtonVPN.</p>
+
+<p><img src="/images/use-openvpn/ProtonVPN-connected.png" alt="ProtonVPN connected to a server" /></p>
+
+<p>From this window we can see our Upload and Download speeds including the load that the server is under (how much it is being used currently) and our IP address.</p>
+
+<h2 id="install-a-vpn-using-openvpn-files">Install a VPN using OpenVPN files</h2>
+
+<h3 id="pop_os-1">Pop!_OS</h3>
+
+<p>Press <kbd><span class="fl-pop-key"></span></kbd>+<kbd>t</kbd> on your keyboard. A Terminal window should open.</p>
+
+<h3 id="ubuntu-1">Ubuntu</h3>
+
+<p>Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>t</kbd> on your keyboard. A Terminal window should open.</p>
+
+<h4 id="install-packages">Install Packages</h4>
 
 <p>Enter the following command followed by <kbd>Enter</kbd>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install network-manager-openvpn-gnome
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>network-manager-openvpn-gnome
 </code></pre></div></div>
 
 <h3 id="open-network-settings">Open Network Settings</h3>
@@ -243,7 +297,7 @@
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-02-05</p>
+        <p>Article last modified: 2021-05-28</p>
     </div>
 </div>
 
