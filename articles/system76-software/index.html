@@ -304,6 +304,7 @@ makepkg <span class="nt">-srcif</span>
 <p>This command will be used to install the <u>System76 DKMS</u> package which is for Proprietary Firmware systems:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>system76-dkms
+<span class="nb">sudo </span>systemctl <span class="nb">enable </span>dkms
 </code></pre></div></div>
 
 <h3 id="system76-acpi-dkms-1">System76 ACPI DKMS</h3>
@@ -311,6 +312,12 @@ makepkg <span class="nt">-srcif</span>
 <p>This command will be used to install the <u>System76 ACPI DKMS<u> package which is for Open Firmware systems:</u></u></p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>system76-acpi-dkms
+<span class="nb">sudo </span>systemctl <span class="nb">enable </span>dkms
+</code></pre></div></div>
+
+<p>NOTE: After enabling the dkms systemd service for either the <u>System76 DKMS</u> or the <u>System76 ACPI DKMS</u> package you will need to reboot the system:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl reboot
 </code></pre></div></div>
 
 <h3 id="system76-thelio-io-dkms-1">System76 Thelio Io DKMS</h3>
@@ -329,7 +336,7 @@ makepkg <span class="nt">-srcif</span>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-05-27</p>
+        <p>Article last modified: 2021-05-28</p>
     </div>
 </div>
 
