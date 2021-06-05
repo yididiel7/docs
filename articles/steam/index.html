@@ -23,7 +23,7 @@
     <meta name="twitter:description" content="Want to game on your super awesome new System76 machine?  Take a look at these instructions to install Steam, a marketplace for hundreds of Linux games.
 ">
 
-    <meta name="keywords" content="gaming support steam">
+    <meta name="keywords" content="gaming support steam proton">
 
     
     <meta property="og:image" content="http://support.system76.com/images/system76.png" />
@@ -240,9 +240,34 @@
 
 <p><img src="/images/steam/enable-steam-play_proton.png" alt="Steam Settings" /></p>
 
+<h4 id="install-protonup-to-manage-custom-proton-versions">Install Protonup to Manage Custom Proton Versions</h4>
+<p><u>Protonup</u> is an easy tool, written in Python, to install the newest-available version of ProtonGE into Steam’s proton directory. <u>ProtonGE</u> is a fork of <u>Proton</u>, maintained by GloriousEggroll on Github <a href="https://github.com/GloriousEggroll/proton-ge-custom">here</a>. <u>Protonup</u> is maintained by Naseef in the PyPi project directory <a href="https://pypi.org/project/protonup/">here</a>.</p>
+
+<p>First, we’ll need the Python package manager, pip.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>python3-pip
+</code></pre></div></div>
+
+<p>Now, let’s install protonup via pip.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 <span class="nb">install </span>protonup
+</code></pre></div></div>
+
+<p>Now, after <u>Steam</u> is installed, you can run protonup in terminal, and it will grab the newest ProtonGE build. This tool will also pull hotfixes. Below is an example of the tools output:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜  ~ protonup 
+Ready to download Proton-6.9-GE-2-github-actions-test 
+Size      : 370.27 MiB 
+Published : 2021-05-30
+Continue? <span class="o">(</span>Y/N<span class="o">)</span>: y
+Downloaded 100.0% - 370.31 MiB/370.27 MiB
+<span class="o">[</span>INFO] Installed <span class="k">in</span>: /home/s31bz/.steam/root/compatibilitytools.d/Proton-6.9-GE-2-github-actions-test
+</code></pre></div></div>
+
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-17</p>
+        <p>Article last modified: 2021-06-04</p>
     </div>
 </div>
 
