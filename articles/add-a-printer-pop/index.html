@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Add a Printer in Pop!_OS - System76 Support</title>
-    <meta property="og:title" content="Add a Printer in Pop!_OS - System76 Support">
-    <meta itemprop="name" content="Add a Printer in Pop!_OS - System76 Support">
-    <meta name="twitter:title" content="Add a Printer in Pop!_OS - System76 Support">
+    <title>Printer Setup (Pop!_OS) - System76 Support</title>
+    <meta property="og:title" content="Printer Setup (Pop!_OS) - System76 Support">
+    <meta itemprop="name" content="Printer Setup (Pop!_OS) - System76 Support">
+    <meta name="twitter:title" content="Printer Setup (Pop!_OS) - System76 Support">
 
     <meta name="description" content="Here is how to add a printer in Pop!_OS.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Add a Printer in Pop!_OS
+        Printer Setup (Pop!_OS)
         <a href="https://github.com/system76/docs/edit/master/_articles/add-a-printer-pop.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Most printers will be automatically added to the computer.  If not, to add a printer to your System76 Computer, press the super key and type the word <em>Printers</em>, then choose the <u>Printers</u> application in the search box. In the <u>Printers</u> Application, click the <strong>Add a Printer…</strong> button and a box will pop up with different options. Wait a few seconds for printers to appear in the Device List.</p>
+        <h1 id="printer-setup-pop_os">Printer Setup (Pop!_OS)</h1>
+
+<p>Most printers will be automatically added to the computer.  If not, to add a printer to your System76 Computer, press the super key and type the word <em>Printers</em>, then choose the <u>Printers</u> application in the search box. In the <u>Printers</u> Application, click the <strong>Add a Printer…</strong> button and a box will pop up with different options. Wait a few seconds for printers to appear in the Device List.</p>
 
 <p><img src="/images/add-a-printer-pop/printer-settings.png" alt="Add Printer" /></p>
 
@@ -210,21 +212,21 @@
 
 <p>HP printers are supported with the <strong>hplip</strong> package, which is installed by default in Pop!<em>OS</em></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install hplip
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>hplip
 </code></pre></div></div>
 <p>If you would like to use a guided GUI application from HP, you will need to install a python dependency:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install python3-pyqt5
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>python3-pyqt5
 hp-setup
 </code></pre></div></div>
 
 <p>Epson printer drivers are in the <strong>printer-driver-escpr</strong> package and is also installed by default. You may need to install the <strong>lsb</strong> package for some printer versions:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install lsb printer-driver-escpr
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>lsb printer-driver-escpr
 </code></pre></div></div>
 <p>Automatically installed printers will work fine, but if you need to make changes to the configuration of the printers, you will need to add your user to the ‘lpadmin’ group. To do that run the following command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo usermod -aG lpadmin $USER
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>usermod <span class="nt">-aG</span> lpadmin <span class="nv">$USER</span>
 </code></pre></div></div>
 
 <h4 id="brother-printers">Brother Printers</h4>
@@ -273,19 +275,19 @@ Note that your installer version may differ from this guide. It is best to type 
 
 <h2 id="useful-commands">Useful Commands:</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall cups cups-client
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">--reinstall</span> cups cups-client
 </code></pre></div></div>
 
 <p>This will reinstall <u>CUPS</u>, the main printing software, which can help with generic issues.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall ~n^system-config-printer
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">--reinstall</span> ~n^system-config-printer
 </code></pre></div></div>
 
 <p>This will reinstall the system control panel if the settings are not available.</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-05-20</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

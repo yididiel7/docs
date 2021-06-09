@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Fix Pop!_OS 20.10 Incomplete Upgrade - System76 Support</title>
-    <meta property="og:title" content="Fix Pop!_OS 20.10 Incomplete Upgrade - System76 Support">
-    <meta itemprop="name" content="Fix Pop!_OS 20.10 Incomplete Upgrade - System76 Support">
-    <meta name="twitter:title" content="Fix Pop!_OS 20.10 Incomplete Upgrade - System76 Support">
+    <title>Pop!_OS 20.10 Incomplete Upgrade - System76 Support</title>
+    <meta property="og:title" content="Pop!_OS 20.10 Incomplete Upgrade - System76 Support">
+    <meta itemprop="name" content="Pop!_OS 20.10 Incomplete Upgrade - System76 Support">
+    <meta name="twitter:title" content="Pop!_OS 20.10 Incomplete Upgrade - System76 Support">
 
     <meta name="description" content="What to do if you get an FStab error or if your upgrade is incomplete.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Fix Pop!_OS 20.10 Incomplete Upgrade
+        Pop!_OS 20.10 Incomplete Upgrade
         <a href="https://github.com/system76/docs/edit/master/_articles/pop-20.10-upgrade-help.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,33 +200,36 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h3 id="backup-your-files">Backup Your Files</h3>
+        <h1 id="pop_os-2010-incomplete-upgrade">Pop!_OS 20.10 Incomplete Upgrade</h1>
+
+<h3 id="backup-your-files">Backup Your Files</h3>
 <p>The upgrade process will leave your files intact, but it’s always a good idea to play it safe and create a backup of any important files. Please read our article on <a href="/articles/backup-files/">how to backup your files</a> for helpful instructions.</p>
 
 <h3 id="fstab-error-message">FStab Error Message</h3>
 
 <p>This can be caused by the <code class="language-plaintext highlighter-rouge">pop-upgrade</code> command checking for an <code class="language-plaintext highlighter-rouge">/etc/fstab</code> file and finding an entry that it does not understand. If you have manually added drives to your fstab, adding a ‘#’ to comment out the drive while the upgrade is ongoing should work.  You would then remove the comment after the upgrade is complete to have access to those drive paths again. To edit this file, run the following command in a terminal:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /etc/fstab
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gedit /etc/fstab
 </code></pre></div></div>
+
 <p>For example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/disk/by-id/usb-ST1000LM_02123AD2-0:0-part1 /media/system76/game_drive auto nosuid,nodev,nofail,x-gvfs-show 0 0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/disk/by-id/usb-ST1000LM_02123AD2-0:0-part1 /media/system76/game_drive auto nosuid,nodev,nofail,x-gvfs-show 0 0
 </code></pre></div></div>
 
 <p>would become:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#/dev/disk/by-id/usb-ST1000LM_02123AD2-0:0-part1 /media/system76/game_drive auto nosuid,nodev,nofail,x-gvfs-show 0 0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#/dev/disk/by-id/usb-ST1000LM_02123AD2-0:0-part1 /media/system76/game_drive auto nosuid,nodev,nofail,x-gvfs-show 0 0</span>
 </code></pre></div></div>
 
 <p>If it is showing by UUID, the example would change from:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/disk/by-uuid/ed6c6976-973f-40e5-969b-9d4238fb7e00 /media/system76/ExtraDrive auto nosuid,nodev,nofail,x-gvfs-show 0 0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/disk/by-uuid/ed6c6976-973f-40e5-969b-9d4238fb7e00 /media/system76/ExtraDrive auto nosuid,nodev,nofail,x-gvfs-show 0 0
 </code></pre></div></div>
 
 <p>To:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#/dev/disk/by-uuid/ed6c6976-973f-40e5-969b-9d4238fb7e00 /media/system76/ExtraDrive auto nosuid,nodev,nofail,x-gvfs-show 0 0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#/dev/disk/by-uuid/ed6c6976-973f-40e5-969b-9d4238fb7e00 /media/system76/ExtraDrive auto nosuid,nodev,nofail,x-gvfs-show 0 0</span>
 </code></pre></div></div>
 
 <p>After you have made the edit, save the file and start the upgrade again.</p>
@@ -239,12 +242,12 @@
 
 <p><strong>If this is your first time running commands, just a heads up- after each command, press the enter key. When the system prompts you for your password, type it in the terminal and press the enter key. The password will not show in the terminal, but it is taking the password)</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt clean
-sudo apt update -m
-sudo dpkg --configure -a
-sudo apt install -f
-sudo apt dist-upgrade
-sudo apt autoremove --purge
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt clean
+<span class="nb">sudo </span>apt update <span class="nt">-m</span>
+<span class="nb">sudo </span>dpkg <span class="nt">--configure</span> <span class="nt">-a</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-f</span>
+<span class="nb">sudo </span>apt dist-upgrade
+<span class="nb">sudo </span>apt autoremove <span class="nt">--purge</span>
 </code></pre></div></div>
 
 <p>If you are not able to get to the desktop to run those commands, try to get to a TTY (Ctrl+Alt+F5). Enter the username and password as requested and proceed with the commands above.</p>
@@ -268,7 +271,7 @@ sudo apt autoremove --purge
 
 <p>To mount the OS, make note of what type of drive your OS is installed on. Is it an NVME or a SATA drive? You can run the following command to confirm:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo parted -ls
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>parted <span class="nt">-ls</span>
 </code></pre></div></div>
 
 <p>Look for the name of your main hard drive. It could be <code class="language-plaintext highlighter-rouge">/dev/sda</code> or <code class="language-plaintext highlighter-rouge">/dev/nvme0n1</code>, depending on if you have a standard SATA drive, or an NVMe drive, respectively. Input the following commands based on your drive type:</p>
@@ -276,70 +279,80 @@ sudo apt autoremove --purge
 <p><strong>If disk is encrypted, start with these first 3 commands using the correct drive name in the /dev filepath</strong>:</p>
 
 <p><strong>For SATA Drives</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/sda3 /mnt
 </code></pre></div></div>
 
 <p><strong>For NVMe Drives</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p3 /mnt
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/nvme0n1p3 /mnt
 </code></pre></div></div>
 
 <p>If the command fails and says <code class="language-plaintext highlighter-rouge">mount: /mnt: unknown filesystem type 'crypto_LUKS'</code>, then the hard drive has been encrypted, and additional commands are needed to unlock it.</p>
 
 <p><strong>For SATA Drives</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/sda3 cryptdata
-sudo lvscan
-sudo vgchange -ay
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>cryptsetup luksOpen /dev/sda3 cryptdata
+<span class="nb">sudo </span>lvscan
+<span class="nb">sudo </span>vgchange <span class="nt">-ay</span>
 </code></pre></div></div>
 
 <p><strong>For NVMe Drives</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/nvme0n1p3 cryptdata
-sudo lvscan
-sudo vgchange -ay
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>cryptsetup luksOpen /dev/nvme0n1p3 cryptdata
+<span class="nb">sudo </span>lvscan
+<span class="nb">sudo </span>vgchange <span class="nt">-ay</span>
 </code></pre></div></div>
 <p>Next we will mount the now decrypted drive:</p>
 
 <p><strong>NOTE:</strong> Pay attention to what the cryptdata group is called. If it is named something other than ‘data-root’ then you will need to substitute the correct info into this next command. Make sure that -root is on the end.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/mapper/data-root /mnt
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/mapper/data-root /mnt
 </code></pre></div></div>
 
 <p>Next we will need to mount the required paths for the chroot to function.</p>
 
 <p><strong>For SATA Drives</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
-sudo chroot /mnt
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/sda1 /mnt/boot/efi
+<span class="k">for </span>i <span class="k">in</span> /dev /dev/pts /proc /sys /run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt<span class="nv">$i</span><span class="p">;</span> <span class="k">done
+</span><span class="nb">sudo cp</span> <span class="nt">-n</span> /etc/resolv.conf /mnt/etc/
+<span class="nb">sudo chroot</span> /mnt
 </code></pre></div></div>
 
 <p><strong>For NVMe Drives</strong>:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
-sudo chroot /mnt
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/nvme0n1p1 /mnt/boot/efi
+<span class="k">for </span>i <span class="k">in</span> /dev /dev/pts /proc /sys /run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt<span class="nv">$i</span><span class="p">;</span> <span class="k">done
+</span><span class="nb">sudo cp</span> <span class="nt">-n</span> /etc/resolv.conf /mnt/etc/
+<span class="nb">sudo chroot</span> /mnt
 </code></pre></div></div>
 
 <p><strong>If you get an error about the <code class="language-plaintext highlighter-rouge">/etc/resolv/conf</code> file being the same, you can safely ignore it.</strong></p>
 
 <ol>
-  <li>Once the installed OS is mounted, we can attempt to repair it by running the following commands:
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt clean
-sudo apt update -m
-sudo dpkg --configure -a
-sudo apt install -f
-sudo apt dist-upgrade
-sudo apt autoremove --purge
-</code></pre></div>    </div>
-  </li>
+  <li>Once the installed OS is mounted, we can attempt to repair it by running the following commands:</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt clean
+<span class="nb">sudo </span>apt update <span class="nt">-m</span>
+<span class="nb">sudo </span>dpkg <span class="nt">--configure</span> <span class="nt">-a</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-f</span>
+<span class="nb">sudo </span>apt dist-upgrade
+<span class="nb">sudo </span>apt autoremove <span class="nt">--purge</span>
+</code></pre></div></div>
+
+<ol>
   <li>If there are no errors, run the next commands to exit the terminal and reboot.</li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
-reboot
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit
+</span>reboot
 </code></pre></div></div>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-12-24</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

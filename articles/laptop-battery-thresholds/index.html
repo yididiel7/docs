@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Laptop Battery Thresholds - System76 Support</title>
-    <meta property="og:title" content="Laptop Battery Thresholds - System76 Support">
-    <meta itemprop="name" content="Laptop Battery Thresholds - System76 Support">
-    <meta name="twitter:title" content="Laptop Battery Thresholds - System76 Support">
+    <title>Battery Thresholds - System76 Support</title>
+    <meta property="og:title" content="Battery Thresholds - System76 Support">
+    <meta itemprop="name" content="Battery Thresholds - System76 Support">
+    <meta name="twitter:title" content="Battery Thresholds - System76 Support">
 
     <meta name="description" content="Set battery charging thresholds on your System76 laptop.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Laptop Battery Thresholds
+        Battery Thresholds
         <a href="https://github.com/system76/docs/edit/master/_articles/laptop-battery-thresholds.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Charging thresholds allow your System76 laptop to avoid charging the battery until it has dropped below a lower bound (the start threshold), and to stop charging when it reaches an upper bound (the end threshold). This is useful when your laptop is plugged into an AC power adapter for extended periods of time, as it prevents unnecessary micro-charging that would reduce battery longevity.</p>
+        <h1 id="battery-thresholds">Battery Thresholds</h1>
+
+<p>Charging thresholds allow your System76 laptop to avoid charging the battery until it has dropped below a lower bound (the start threshold), and to stop charging when it reaches an upper bound (the end threshold). This is useful when your laptop is plugged into an AC power adapter for extended periods of time, as it prevents unnecessary micro-charging that would reduce battery longevity.</p>
 
 <p>To determine if your laptop has Open Firmware or proprietary firmware, see <a href="/articles/open-firmware-systems">this article</a>. (If a system has Open Firmware, then it must also have Open EC to work with charging thresholds.) See <a href="#configuring-charging-thresholds-open-firmware">Charging Thresholds</a> for Open Firmware systems or <a href="#configuring-flexicharger-proprietary-firmware">FlexiCharger</a> for proprietary firmware systems.</p>
 
@@ -212,24 +214,24 @@
 
 <p>You can see the thresholds that are currently set using this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power charge-thresholds
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power charge-thresholds
 </code></pre></div></div>
 
 <p>You can list the available charging profiles using this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power charge-thresholds --list-profiles
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power charge-thresholds <span class="nt">--list-profiles</span>
 </code></pre></div></div>
 
 <p>Then, you can select a profile using one of these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power charge-thresholds --profile full_charge
-system76-power charge-thresholds --profile balanced
-system76-power charge-thresholds --profile max_lifespan
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power charge-thresholds <span class="nt">--profile</span> full_charge
+system76-power charge-thresholds <span class="nt">--profile</span> balanced
+system76-power charge-thresholds <span class="nt">--profile</span> max_lifespan
 </code></pre></div></div>
 
 <p>You can also set custom thresholds without using a profile. For example, this command will set the start threshold to <code class="language-plaintext highlighter-rouge">40</code> and the end threshold to <code class="language-plaintext highlighter-rouge">80</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power charge-thresholds 40 80
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power charge-thresholds 40 80
 </code></pre></div></div>
 
 <h3 id="via-sysfs">Via sysfs:</h3>
@@ -255,7 +257,7 @@ system76-power charge-thresholds --profile max_lifespan
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-02-10</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

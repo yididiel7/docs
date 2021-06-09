@@ -204,17 +204,17 @@
 
 <p><u>Tensorman</u> is a tool for managing TensorFlow toolchains in Pop!_OS. It can be installed with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install tensorman
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>tensorman
 </code></pre></div></div>
 
 <p>For NVIDIA CUDA support, the following package must be installed:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install nvidia-container-runtime
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>nvidia-container-runtime
 </code></pre></div></div>
 
 <p>The user account working with Tensorman must be added to the <code class="language-plaintext highlighter-rouge">docker</code> group if that hasn’t been done already:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo usermod -aG docker $USER
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
 </code></pre></div></div>
 
 <p>If Docker was just installed, then a reboot will be needed before Tensorman can be used.</p>
@@ -231,14 +231,14 @@
 
 <p>Take the following Docker invocation as an example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -u $UID:$UID -v $PWD:/project -w /project \
-    --runtime=nvidia --init --rm tensorflow/tensorflow:latest-gpu \
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-u</span> <span class="nv">$UID</span>:<span class="nv">$UID</span> <span class="nt">-v</span> <span class="nv">$PWD</span>:/project <span class="nt">-w</span> /project <span class="se">\</span>
+    <span class="nt">--runtime</span><span class="o">=</span>nvidia <span class="nt">--init</span> <span class="nt">--rm</span> tensorflow/tensorflow:latest-gpu <span class="se">\</span>
     python ./script.py
 </code></pre></div></div>
 
 <p>This designates for the latest version of Tensorflow with GPU support to be used, mounting the working directory to <code class="language-plaintext highlighter-rouge">/project</code>, launching the container with the current user account, and and executing <code class="language-plaintext highlighter-rouge">script.py</code> with the Python binary in the container. With <code class="language-plaintext highlighter-rouge">tensorman</code>, we can achieve the same with:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman run --gpu python -- ./script.py
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman run <span class="nt">--gpu</span> python <span class="nt">--</span> ./script.py
 </code></pre></div></div>
 
 <p>Which defaults to the latest version, and whose version and tag variants can be set as defaults per-run, per-project, or user-wide.</p>
@@ -247,7 +247,7 @@
 
 <p>The following commands can be used for installing either the latest version of a container or a certain version:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman pull latest
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman pull latest
 tensorman pull 1.14.0
 </code></pre></div></div>
 
@@ -255,17 +255,17 @@ tensorman pull 1.14.0
 
 <p>Commands are executed within the container using the <code class="language-plaintext highlighter-rouge">run</code> command.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Default container version with Bash prompt
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Default container version with Bash prompt</span>
 tensorman run bash
 
-# Default container version with Python script
-tensorman run python -- script.py
+<span class="c"># Default container version with Python script</span>
+tensorman run python <span class="nt">--</span> script.py
 
-# Default container version with GPU support
-tensorman run --gpu bash
+<span class="c"># Default container version with GPU support</span>
+tensorman run <span class="nt">--gpu</span> bash
 
-# With GPU, Python3, and Juypyter support
-tensorman run --gpu --python3 --jupyter bash
+<span class="c"># With GPU, Python3, and Juypyter support</span>
+tensorman run <span class="nt">--gpu</span> <span class="nt">--python3</span> <span class="nt">--jupyter</span> bash
 </code></pre></div></div>
 
 <h3 id="python-api-example">Python API example</h3>
@@ -293,12 +293,12 @@ tf.print(c)
 
 <p>If a certain version is specified with the <code class="language-plaintext highlighter-rouge">+</code> argument, Tensorman will use that version instead.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman +1.14.0 run --python3 --gpu bash
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman +1.14.0 run <span class="nt">--python3</span> <span class="nt">--gpu</span> bash
 </code></pre></div></div>
 
 <p>Custom images may be specified with an <code class="language-plaintext highlighter-rouge">=</code> argument.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman =custom-image run --gpu bash
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman <span class="o">=</span>custom-image run <span class="nt">--gpu</span> bash
 </code></pre></div></div>
 
 <h1 id="setting-per-project">Setting per-project</h1>
@@ -309,12 +309,12 @@ tf.print(c)
 
 <p>This file overrides the tensorflow image, defined in either <code class="language-plaintext highlighter-rouge">Tensorman.toml</code> or the user-wide configuration file.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.14.0 gpu python3
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.14.0 gpu python3
 </code></pre></div></div>
 
 <p>Or specifying a custom image:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=custom-image gpu
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">=</span>custom-image gpu
 </code></pre></div></div>
 
 <h2 id="tensormantoml">Tensorman.toml</h2>
@@ -339,10 +339,10 @@ tf.print(c)
 
 <p>The default version user-wide can be changed using the <code class="language-plaintext highlighter-rouge">default</code> subcommand. This version of <u>TensorFlow</u> will be launched whenever the <code class="language-plaintext highlighter-rouge">tensorman run</code> command is used:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman default 1.14.0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman default 1.14.0
 tensorman default latest gpu python3
 tensorman default nightly
-tensorman default =custom-image gpu
+tensorman default <span class="o">=</span>custom-image gpu
 </code></pre></div></div>
 
 <p><small>* By default, Tensorman will use the latest as the default per-user version tag.</small></p>
@@ -351,7 +351,7 @@ tensorman default =custom-image gpu
 
 <p>If the active containers from the current working directory need to be listed, the <code class="language-plaintext highlighter-rouge">show</code> command can be used:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman show
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman show
 </code></pre></div></div>
 
 <h1 id="removing-containers">Removing containers</h1>
@@ -368,7 +368,7 @@ tensorman remove =custom-image
 
 <p>To find installed containers, the <code class="language-plaintext highlighter-rouge">list</code> command can be used:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman list
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman list
 </code></pre></div></div>
 
 <h1 id="creating-a-custom-image">Creating a custom image</h1>
@@ -381,19 +381,19 @@ tensorman remove =custom-image
 
 <p>First, launch a terminal where you will begin configuring the Docker image:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman run --gpu --python3 --root --name CONTAINER_NAME bash
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman run <span class="nt">--gpu</span> <span class="nt">--python3</span> <span class="nt">--root</span> <span class="nt">--name</span> CONTAINER_NAME bash
 </code></pre></div></div>
 
 <p>Once you’ve made the changes needed, open another terminal and save it as a new image:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman save CONTAINER_NAME IMAGE_NAME
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman save CONTAINER_NAME IMAGE_NAME
 </code></pre></div></div>
 
 <h2 id="running-the-custom-image">Running the custom image</h2>
 
 <p>You should then be able to specify that container with Tensorman, like so:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman =IMAGE_NAME run --gpu bash
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman <span class="o">=</span>IMAGE_NAME run <span class="nt">--gpu</span> bash
 </code></pre></div></div>
 
 <blockquote>
@@ -404,7 +404,7 @@ tensorman remove =custom-image
 
 <p>Images saved through Tensorman are manageable through Tensorman. Listing and removing work the same way:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman remove IMAGE_NAME
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tensorman remove IMAGE_NAME
 </code></pre></div></div>
 
 <h1 id="pull-requests-welcome">Pull requests welcome!</h1>
@@ -413,7 +413,7 @@ tensorman remove =custom-image
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-04-09</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

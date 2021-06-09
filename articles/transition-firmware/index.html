@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Switching Between Proprietary Firmware and System76 Open Firmware - System76 Support</title>
-    <meta property="og:title" content="Switching Between Proprietary Firmware and System76 Open Firmware - System76 Support">
-    <meta itemprop="name" content="Switching Between Proprietary Firmware and System76 Open Firmware - System76 Support">
-    <meta name="twitter:title" content="Switching Between Proprietary Firmware and System76 Open Firmware - System76 Support">
+    <title>Firmware Switching (Proprietary Firmware or System76 Open Firmware) - System76 Support</title>
+    <meta property="og:title" content="Firmware Switching (Proprietary Firmware or System76 Open Firmware) - System76 Support">
+    <meta itemprop="name" content="Firmware Switching (Proprietary Firmware or System76 Open Firmware) - System76 Support">
+    <meta name="twitter:title" content="Firmware Switching (Proprietary Firmware or System76 Open Firmware) - System76 Support">
 
     <meta name="description" content="How to transition from proprietary firmware to System76 Open Firmware on supported models.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Switching Between Proprietary Firmware and System76 Open Firmware
+        Firmware Switching (Proprietary Firmware or System76 Open Firmware)
         <a href="https://github.com/system76/docs/edit/master/_articles/transition-firmware.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,7 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h2 id="switching-between-proprietary-firmware-and-system76-open-firmware">Switching Between Proprietary Firmware and System76 Open Firmware</h2>
+        <h2 id="firmware-switching-proprietary-firmware-or-system76-open-firmware">Firmware Switching (Proprietary Firmware or System76 Open Firmware)</h2>
 
 <p>Some models shipped with proprietary firmware, but later received support for <a href="https://github.com/system76/firmware-open">System76 Open Firmware</a> and <a href="https://github.com/system76/ec">System76 Open EC</a>. Below is a list of these models:</p>
 
@@ -253,7 +253,7 @@
 
 <p>You can check your current firmware version using this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /sys/class/dmi/id/bios_version
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /sys/class/dmi/id/bios_version
 </code></pre></div></div>
 
 <p>If the output is a short, decimal-separated number such as <code class="language-plaintext highlighter-rouge">1.07.05</code>, then you are running proprietary firmware. If the output is a longer, date-based number such as <code class="language-plaintext highlighter-rouge">2020-09-03_9c310f0</code>, then you are running System76 Open Firmware.</p>
@@ -262,15 +262,15 @@
 
 <p>Before switching between proprietary firmware and System76 Open Firmware, the command line updater must be installed by running the following commands in a terminal:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
-sudo apt install system76-firmware
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>system76-firmware
 </code></pre></div></div>
 
 <h3 id="transitioning-to-system76-open-firmware">Transitioning to System76 Open Firmware</h3>
 
 <p>If you are running proprietary firmware and would like to transition to System76 Open Firmware, follow the <a href="#installing-the-command-line-updater">steps above</a> to install the updater from the command line, then run the following command to schedule the update:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-firmware-cli schedule --open
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-firmware-cli schedule <span class="nt">--open</span>
 </code></pre></div></div>
 
 <p>You may then follow the <a href="#performing-the-update">steps below</a> to perform the update.</p>
@@ -279,7 +279,7 @@ sudo apt install system76-firmware
 
 <p>If you are running System76 Open Firmware and need to revert to proprietary firmware (for example, if you require a specific feature not yet present in System76 Open Firmware), follow the <a href="#installing-the-command-line-updater">steps above</a> to install the updater from the command line, then run the following command to schedule the update:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-firmware-cli schedule --proprietary
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-firmware-cli schedule <span class="nt">--proprietary</span>
 </code></pre></div></div>
 
 <p>You may then follow the <a href="#performing-the-update">steps below</a> to perform the update.</p>
@@ -290,7 +290,7 @@ sudo apt install system76-firmware
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-05-14</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

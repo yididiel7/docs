@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Install CUDA and cuDNN - System76 Support</title>
-    <meta property="og:title" content="Install CUDA and cuDNN - System76 Support">
-    <meta itemprop="name" content="Install CUDA and cuDNN - System76 Support">
-    <meta name="twitter:title" content="Install CUDA and cuDNN - System76 Support">
+    <title>CUDA and cuDNN (Install) - System76 Support</title>
+    <meta property="og:title" content="CUDA and cuDNN (Install) - System76 Support">
+    <meta itemprop="name" content="CUDA and cuDNN (Install) - System76 Support">
+    <meta name="twitter:title" content="CUDA and cuDNN (Install) - System76 Support">
 
     <meta name="description" content="Complete instructions on setting up the NVIDIA CUDA toolkit and cuDNN libraries
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Install CUDA and cuDNN
+        CUDA and cuDNN (Install)
         <a href="https://github.com/system76/docs/edit/master/_articles/cuda.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,86 +200,88 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h2 id="install-on-pop_os">Install on Pop!_OS</h2>
+        <h1 id="cuda-and-cudnn-install">CUDA and cuDNN (Install)</h1>
+
+<h2 id="install-on-pop_os">Install on Pop!_OS</h2>
 
 <h3 id="install-the-latest-nvidia-cuda-toolkit">Install The latest NVIDIA CUDA Toolkit</h3>
 
 <p>To install the CUDA toolkit, please run this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cuda-latest
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cuda-latest
 </code></pre></div></div>
 
 <p>To install the cuDNN library, please run this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cudnn-10.2
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cudnn-10.2
 </code></pre></div></div>
 
 <h3 id="for-older-releases-of-the-nvidia-cuda-toolkit">For older releases of The NVIDIA CUDA Toolkit</h3>
 
 <p>To install CUDA 10.0:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cuda-10.0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cuda-10.0
 </code></pre></div></div>
 
 <p>For the respective cuDNN library:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cudnn-10.0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cudnn-10.0
 </code></pre></div></div>
 
 <p>To install CUDA 9.2:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cuda-9.2
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cuda-9.2
 </code></pre></div></div>
 
 <p>For the respective cuDNN library:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cudnn-9.2
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cudnn-9.2
 </code></pre></div></div>
 
 <p>To install CUDA 9.1:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cuda-9.1
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cuda-9.1
 </code></pre></div></div>
 
 <p>For the respective cuDNN library:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cudnn-9.1
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cudnn-9.1
 </code></pre></div></div>
 
 <p>To install CUDA 9.0:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cuda-9.0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cuda-9.0
 </code></pre></div></div>
 
 <p>For the respective cuDNN library:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-cudnn-9.0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-cudnn-9.0
 </code></pre></div></div>
 
 <h3 id="switch-between-different-versions">Switch between different versions:</h3>
 
 <p>You can switch between each CUDA version with the following command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo update-alternatives --config cuda
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>update-alternatives <span class="nt">--config</span> cuda
 </code></pre></div></div>
 
 <p>To verify installation, run this command to see the current version of the NVIDIA CUDA compiler:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvcc -V
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvcc <span class="nt">-V</span>
 </code></pre></div></div>
 
 <p>You can also check the version of the installer and patches installed with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /usr/lib/cuda/version.txt
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /usr/lib/cuda/version.txt
 </code></pre></div></div>
 
 <h2 id="not-running-pop_os">Not running Pop!_OS?</h2>
 
 <p>The previous instructions will work with Pop!_OS out of the box but for Ubuntu and other Debian derivatives the following commands will need to be run first:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo echo "deb http://apt.pop-os.org/proprietary bionic main" | sudo tee -a /etc/apt/sources.list.d/pop-proprietary.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 204DD8AEC33A7AFF
-sudo apt update
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo echo</span> <span class="s2">"deb http://apt.pop-os.org/proprietary bionic main"</span> | <span class="nb">sudo tee</span> <span class="nt">-a</span> /etc/apt/sources.list.d/pop-proprietary.list
+<span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> keyserver.ubuntu.com <span class="nt">--recv-key</span> 204DD8AEC33A7AFF
+<span class="nb">sudo </span>apt update
 </code></pre></div></div>
 
 <p>*These packages have been tested with the System76 NVIDIA driver only.</p>
@@ -288,7 +290,7 @@ sudo apt update
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-05-21</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Solve Wireless Issues - System76 Support</title>
-    <meta property="og:title" content="Solve Wireless Issues - System76 Support">
-    <meta itemprop="name" content="Solve Wireless Issues - System76 Support">
-    <meta name="twitter:title" content="Solve Wireless Issues - System76 Support">
+    <title>Wireless Troubleshooting - System76 Support</title>
+    <meta property="og:title" content="Wireless Troubleshooting - System76 Support">
+    <meta itemprop="name" content="Wireless Troubleshooting - System76 Support">
+    <meta name="twitter:title" content="Wireless Troubleshooting - System76 Support">
 
     <meta name="description" content="If you’re having problems with your wireless Internet connection, take a look at the suggestions in this article.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Solve Wireless Issues
+        Wireless Troubleshooting
         <a href="https://github.com/system76/docs/edit/master/_articles/wireless.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>WiFi issues are influenced by many different factors, including:</p>
+        <h1 id="wireless-troubleshooting">Wireless Troubleshooting</h1>
+
+<p>WiFi issues are influenced by many different factors, including:</p>
 
 <ul>
   <li>Hardware (WiFi card, access point)</li>
@@ -232,7 +234,7 @@
 
 <p>If the issues started after you applied updates, try running this command to make sure a bad WiFi driver has not been installed, then reboot your computer:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt remove backport-iwlwifi-dkms
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt remove backport-iwlwifi-dkms
 </code></pre></div></div>
 
 <h3 id="advanced-troubleshooting">Advanced Troubleshooting</h3>
@@ -243,14 +245,14 @@
 
 <p>In many cases, it’s recommended to explicitly set the WiFi regulatory domain. Check yours with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo iw reg get
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>iw reg get
 </code></pre></div></div>
 
 <p>If you get 00, that is a one-size-maybe-fits-all setting. Find yours here: <a href="http://wikipedia.org/wiki/ISO_3166-1">ISO_3166</a>.</p>
 
 <p>And set it permanently with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /etc/default/crda
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gedit /etc/default/crda
 </code></pre></div></div>
 
 <p>Change the last line to read:</p>
@@ -269,13 +271,13 @@
 
 <p>If these changes do not help, you can try enabling antenna aggregation:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo modprobe -r iwlwifi
-sudo modprobe iwlwifi 11n_disable=8
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>modprobe <span class="nt">-r</span> iwlwifi
+<span class="nb">sudo </span>modprobe iwlwifi <span class="nv">11n_disable</span><span class="o">=</span>8
 </code></pre></div></div>
 
 <p>Then, test to see if that helps. To make it permanent:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /etc/modprobe.d/iwlwifi.conf
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gedit /etc/modprobe.d/iwlwifi.conf
 </code></pre></div></div>
 
 <p>Then, add this line to the bottom (effective upon reboot):</p>
@@ -312,54 +314,54 @@ wifi.powersave = 2</p>
 
 <p>If <code class="language-plaintext highlighter-rouge">tlp</code> is installed, take a look at the settings file found here for additional Wifi power saving being enabled:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /etc/default/tlp
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gedit /etc/default/tlp
 </code></pre></div></div>
 
 <h2 id="useful-programs">Useful Programs</h2>
 
 <p>The program <u>wavemon</u> can be used to see info about nearby access points, such as power levels, channels, and BSSIDs.  It can be installed with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install wavemon
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>wavemon
 </code></pre></div></div>
 
 <p>And run with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo wavemon
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>wavemon
 </code></pre></div></div>
 
 <h2 id="useful-commands">Useful Commands</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iwevent
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iwevent
 </code></pre></div></div>
 
 <p>Run this command to watch what the Wifi hardware is doing.  Pay attention to the disconnect reasons, and ignore the scans.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart NetworkManager
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart NetworkManager
 </code></pre></div></div>
 
 <p>This command will restart the service that manages all Internet traffic on the computer, which is usually easier than restarting the computer.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dmesg | grep iwlwifi
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dmesg | <span class="nb">grep </span>iwlwifi
 </code></pre></div></div>
 
 <p>This will check the hardware startup and driver loading messages.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lspci | grep Network
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lspci | <span class="nb">grep </span>Network
 </code></pre></div></div>
 
 <p>This will check if the hardware is being detected by the kernel.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsmod | grep iwlwifi
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsmod | <span class="nb">grep </span>iwlwifi
 </code></pre></div></div>
 
 <p>This will check to see if the device driver (module) is loaded.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /etc/NetworkManager/system-connections/*
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo rm</span> /etc/NetworkManager/system-connections/<span class="k">*</span>
 </code></pre></div></div>
 
 <p>This will erase the stored information about all wireless access points.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall network-manager
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">--reinstall</span> network-manager
 </code></pre></div></div>
 
 <p>This will reinstall network-manager, which can fix some network issues.</p>
@@ -390,7 +392,7 @@ wifi.powersave = 2</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-11-19</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

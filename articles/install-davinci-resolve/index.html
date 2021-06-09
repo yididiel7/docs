@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Install DaVinci Resolve - System76 Support</title>
-    <meta property="og:title" content="Install DaVinci Resolve - System76 Support">
-    <meta itemprop="name" content="Install DaVinci Resolve - System76 Support">
-    <meta name="twitter:title" content="Install DaVinci Resolve - System76 Support">
+    <title>DaVinci Resolve (Install) - System76 Support</title>
+    <meta property="og:title" content="DaVinci Resolve (Install) - System76 Support">
+    <meta itemprop="name" content="DaVinci Resolve (Install) - System76 Support">
+    <meta name="twitter:title" content="DaVinci Resolve (Install) - System76 Support">
 
     <meta name="description" content="Want to up your video editing skills? Try DaVinci Resolve
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Install DaVinci Resolve
+        DaVinci Resolve (Install)
         <a href="https://github.com/system76/docs/edit/master/_articles/install-davinci-resolve.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -208,7 +208,7 @@
 
 <p>The following packages will be needed to build and install DaVinci Resolve:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install libssl1.1 ocl-icd-opencl-dev fakeroot xorriso
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>libssl1.1 ocl-icd-opencl-dev fakeroot xorriso
 </code></pre></div></div>
 
 <h3 id="download-davinci-resolve-and-the-makeresolvedeb-script">Download DaVinci Resolve and the MakeResolveDeb script</h3>
@@ -235,13 +235,20 @@
 
 <p>Open the DaVinci Resolve directory, right click on an empty space between/below the file icons, and select ‘Open in Terminal.’</p>
 
-<p>In the new <strong>Terminal</strong> window, run this command to convert the <code class="language-plaintext highlighter-rouge">.run</code> file into a <code class="language-plaintext highlighter-rouge">.deb</code> package:</p>
+<p>In the new <strong>Terminal</strong> window, run this command if you are using the free-of-cost version of DaVinci Resolve:</p>
 
-<p><code class="language-plaintext highlighter-rouge">./makeresolvedeb*.sh DaVinci_Resolve_*_Linux.run</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./makeresolvedeb<span class="k">*</span>.sh lite
+</code></pre></div></div>
+
+<p>Or this command if you are using the paid Studio version of DaVinci Resolve:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./makeresolvedeb<span class="k">*</span>.sh studio
+</code></pre></div></div>
 
 <p>Once the script finishes running and the terminal prompt returns, run this command to install DaVinci Resolve:</p>
 
-<p><code class="language-plaintext highlighter-rouge">sudo dpkg -i davinci-resolve*_amd64.deb</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg <span class="nt">-i</span> davinci-resolve<span class="k">*</span>_amd64.deb
+</code></pre></div></div>
 
 <p>After installing, DaVinci Resolve will be ready to launch from your Activities menu:</p>
 
@@ -253,7 +260,7 @@
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-02-24</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

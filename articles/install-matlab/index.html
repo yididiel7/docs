@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Install MATLAB on Pop!_OS 20.04 LTS - System76 Support</title>
-    <meta property="og:title" content="Install MATLAB on Pop!_OS 20.04 LTS - System76 Support">
-    <meta itemprop="name" content="Install MATLAB on Pop!_OS 20.04 LTS - System76 Support">
-    <meta name="twitter:title" content="Install MATLAB on Pop!_OS 20.04 LTS - System76 Support">
+    <title>MATLAB (Install - Pop!_OS 20.04 LTS) - System76 Support</title>
+    <meta property="og:title" content="MATLAB (Install - Pop!_OS 20.04 LTS) - System76 Support">
+    <meta itemprop="name" content="MATLAB (Install - Pop!_OS 20.04 LTS) - System76 Support">
+    <meta name="twitter:title" content="MATLAB (Install - Pop!_OS 20.04 LTS) - System76 Support">
 
     <meta name="description" content="How to install MATLAB
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Install MATLAB on Pop!_OS 20.04 LTS
+        MATLAB (Install - Pop!_OS 20.04 LTS)
         <a href="https://github.com/system76/docs/edit/master/_articles/install-matlab.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,23 +200,21 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Visit the MatLab website with this <a href="https://www.mathworks.com/downloads/web_downloads/7318751?elqsid=1588205421341&amp;potential_use=Home&amp;s_tid=tfa_packageTrial_download.html">link</a> and click the blue box titled Linux.Save the file.</p>
+        <h1 id="matlab-install---pop_os-2004-lts">MATLAB (Install - Pop!_OS 20.04 LTS)</h1>
+
+<p>Visit the MatLab website with this <a href="https://www.mathworks.com/downloads/web_downloads/7318751?elqsid=1588205421341&amp;potential_use=Home&amp;s_tid=tfa_packageTrial_download.html">link</a> and click the blue box titled Linux.Save the file.</p>
 
 <p><img src="/images/MATLAB/downloadedmatlab.png" alt="Downloaded file prompt to save Matlab installation file" /></p>
 
 <p>Create a new directory to install MATLAB. Open a terminal and execute the following commands. The second command is the file name of the MATLAB download.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-$ mkdir matlab
-$ unzip -q matlab_R2020a_glnxa64.zip -d matlab
-
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>matlab
+unzip <span class="nt">-q</span> matlab_R2020a_glnxa64.zip <span class="nt">-d</span> matlab
 </code></pre></div></div>
 
 <p>Create an installation directory for MATLAB.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-$ sudo mkdir -p /usr/local/MATLAB/R2020a
-
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /usr/local/MATLAB/R2020a
 </code></pre></div></div>
 
 <p>Navigate to the main MATLAB directory and begin the installation process. Do not close the terminal until the installation is complete.</p>
@@ -261,9 +259,7 @@ $ sudo mkdir -p /usr/local/MATLAB/R2020a
 
 <p>Open a terminal to launch MATLAB</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-$ matlab
-
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matlab
 </code></pre></div></div>
 
 <p><img src="/images/MATLAB/matlabexample.png" alt="MATLAB installed on Pop!_OS 20.04 LTS" /></p>
@@ -271,7 +267,7 @@ $ matlab
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-30</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

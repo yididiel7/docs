@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>First, we recommend having Ubuntu installation media (a DVD or USB drive) handy before starting any upgrades in case something goes wrong. You’ll need to download a copy of Ubuntu from <a href="http://www.ubuntu.com/download/desktop">ubuntu.com</a>.</p>
+        <h1 id="upgrade-ubuntu">Upgrade Ubuntu</h1>
+
+<p>First, we recommend having Ubuntu installation media (a DVD or USB drive) handy before starting any upgrades in case something goes wrong. You’ll need to download a copy of Ubuntu from <a href="http://www.ubuntu.com/download/desktop">ubuntu.com</a>.</p>
 
 <h3 id="create-install-media">Create Install Media</h3>
 
@@ -286,14 +288,14 @@
 
 <p>Once you’ve upgraded Ubuntu, you’ll need to download and install the current System76 Driver. Open the Terminal app (search <u>Terminal</u> from the Activities Overview or press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>), then enter the following commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-add-repository ppa:system76-dev/stable
-sudo apt update
-sudo apt install system76-driver
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-add-repository ppa:system76-dev/stable
+<span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>system76-driver
 </code></pre></div></div>
 
 <p>For NVIDIA Graphics: If you ordered a system with a discrete NVIDIA graphics card, you will need to manually install the closed source drivers for your card to get the optimum performance. Please run the following command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-driver-nvidia
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-driver-nvidia
 </code></pre></div></div>
 
 <p>Once the process is finished, restart your computer for the changes to take effect.</p>
@@ -342,14 +344,14 @@ sudo apt install system76-driver
 
 <p>And continue the upgrade with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do-release-upgrade
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span><span class="nt">-release-upgrade</span>
 </code></pre></div></div>
 
 <p>After that, if all of the grub, apt package manager, and release upgrade commands successfully complete, the computer should be able to boot normally.</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-12-24</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

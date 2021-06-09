@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Stop DAC Clicking on the Serval - System76 Support</title>
-    <meta property="og:title" content="Stop DAC Clicking on the Serval - System76 Support">
-    <meta itemprop="name" content="Stop DAC Clicking on the Serval - System76 Support">
-    <meta name="twitter:title" content="Stop DAC Clicking on the Serval - System76 Support">
+    <title>Serval DAC Clicking - System76 Support</title>
+    <meta property="og:title" content="Serval DAC Clicking - System76 Support">
+    <meta itemprop="name" content="Serval DAC Clicking - System76 Support">
+    <meta name="twitter:title" content="Serval DAC Clicking - System76 Support">
 
     <meta name="description" content="Certain models of the Serval WS will "click" when the DAC turns on and off, but the frequency can be decreased.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Stop DAC Clicking on the Serval
+        Serval DAC Clicking
         <a href="https://github.com/system76/docs/edit/master/_articles/serval-dac.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,19 +200,21 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>On some versions of the Serval WS (including the <code class="language-plaintext highlighter-rouge">serw11</code>), you may notice a “clicking” sound when the machine powers on and when you begin playing audio. This sound is the DAC (Digital-to-Analog Converter) powering on, and is not an indication that anything is wrong with the hardware.</p>
+        <h1 id="serval-dac-clicking">Serval DAC Clicking</h1>
+
+<p>On some versions of the Serval WS (including the <code class="language-plaintext highlighter-rouge">serw11</code>), you may notice a “clicking” sound when the machine powers on and when you begin playing audio. This sound is the DAC (Digital-to-Analog Converter) powering on, and is not an indication that anything is wrong with the hardware.</p>
 
 <p>You can’t stop the DAC from clicking when the machine powers on, but you <em>can</em> stop it from clicking every time you begin playing audio. To do this, you’ll need to configure the DAC not to power itself off when it’s idle. (This way, the DAC will already be powered on when you begin playing audio, and will not need to click.)</p>
 
 <p>These two commands will make the necessary configuration change and restart PulseAudio so it goes into effect immediately:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/load-module module-suspend-on-idle/#load-module module-suspend-on-idle/' /etc/pulse/default.pa
-pulseaudio -k
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo sed</span> <span class="nt">-i</span> <span class="s1">'s/load-module module-suspend-on-idle/#load-module module-suspend-on-idle/'</span> /etc/pulse/default.pa
+pulseaudio <span class="nt">-k</span>
 </code></pre></div></div>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-01-23</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

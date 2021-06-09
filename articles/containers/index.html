@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Using Containers on Linux - System76 Support</title>
-    <meta property="og:title" content="Using Containers on Linux - System76 Support">
-    <meta itemprop="name" content="Using Containers on Linux - System76 Support">
-    <meta name="twitter:title" content="Using Containers on Linux - System76 Support">
+    <title>Containers on Linux - System76 Support</title>
+    <meta property="og:title" content="Containers on Linux - System76 Support">
+    <meta itemprop="name" content="Containers on Linux - System76 Support">
+    <meta name="twitter:title" content="Containers on Linux - System76 Support">
 
     <meta name="description" content="How to setup and use LXC/LXD
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Using Containers on Linux
+        Containers on Linux
         <a href="https://github.com/system76/docs/edit/master/_articles/containers.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Sometimes an older version of a library or libraries for an application is needed for development. It is faster and easier to use LXC/LXD to setup a Container of that release and work in that Container.</p>
+        <h1 id="containers-on-linux">Containers on Linux</h1>
+
+<p>Sometimes an older version of a library or libraries for an application is needed for development. It is faster and easier to use LXC/LXD to setup a Container of that release and work in that Container.</p>
 
 <h3 id="software">Software</h3>
 
@@ -212,67 +214,67 @@
 
 <p>Install the software with this command in the terminal.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install lxd lxd-client
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>lxd lxd-client
 </code></pre></div></div>
 
 <h3 id="setup">Setup</h3>
 
 <p>Tell LXD what storage and network is needed with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo lxd init
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>lxd init
 </code></pre></div></div>
 
 <h3 id="create-a-container">Create a container</h3>
 
 <p>Now create our first container with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc launch ubuntu:16.04 first
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc launch ubuntu:16.04 first
 </code></pre></div></div>
 
 <p>This will create a container based on Ubuntu 16.04 with the name ‘first’.</p>
 
 <p>List and confirm that the container was created with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc list
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc list
 </code></pre></div></div>
 
 <p>The container can be stopped with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc stop first
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc stop first
 </code></pre></div></div>
 
 <p>Or the container can be deleted:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc delete first
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc delete first
 </code></pre></div></div>
 
 <h3 id="enter-the-container">Enter the container</h3>
 
 <p>Enter the container with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc exec first -- /bin/bash
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc <span class="nb">exec </span>first <span class="nt">--</span> /bin/bash
 </code></pre></div></div>
 
 <p>Or just one command can be issued without entering the container:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc exec first -- apt update
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc <span class="nb">exec </span>first <span class="nt">--</span> apt update
 </code></pre></div></div>
 
 <h3 id="sharing-files">Sharing files</h3>
 
 <p>For pushing a file to the container:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc file push filename first/tmp/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc file push filename first/tmp/
 </code></pre></div></div>
 
 <p>For pulling a file from the container:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc file pull first/tmp/filename .
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lxc file pull first/tmp/filename <span class="nb">.</span>
 </code></pre></div></div>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-02-12</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Repair the Bootloader - System76 Support</title>
-    <meta property="og:title" content="Repair the Bootloader - System76 Support">
-    <meta itemprop="name" content="Repair the Bootloader - System76 Support">
-    <meta name="twitter:title" content="Repair the Bootloader - System76 Support">
+    <title>Bootloader Repair - System76 Support</title>
+    <meta property="og:title" content="Bootloader Repair - System76 Support">
+    <meta itemprop="name" content="Bootloader Repair - System76 Support">
+    <meta name="twitter:title" content="Bootloader Repair - System76 Support">
 
     <meta name="description" content="How to repair and reinstall the bootloader.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Repair the Bootloader
+        Bootloader Repair
         <a href="https://github.com/system76/docs/edit/master/_articles/bootloader.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Systemd-boot is the bootloader for Pop!_OS 18.04 and above while GRUB is the bootloader for Ubuntu. It takes care of getting the operating system started up. It is also responsible for allowing the user to select between multiple operating systems at boot. Sometimes, GRUB/systemd-boot can break, and it may not let you boot into your computer to fix the problem.</p>
+        <h1 id="bootloader-repair">Bootloader Repair</h1>
+
+<p>Systemd-boot is the bootloader for Pop!_OS 18.04 and above while GRUB is the bootloader for Ubuntu. It takes care of getting the operating system started up. It is also responsible for allowing the user to select between multiple operating systems at boot. Sometimes, GRUB/systemd-boot can break, and it may not let you boot into your computer to fix the problem.</p>
 
 <h4 id="important-note">Important Note</h4>
 
@@ -233,7 +235,7 @@
 
 <p>Once the desktop is shown, connect the computer to the Internet.  Next, open a terminal (search <u>Terminal</u> after pressing the Super Key) and run the following command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo parted -ls
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>parted <span class="nt">-ls</span>
 </code></pre></div></div>
 
 <p>And then look for the name of your main hard drive. It could be <code class="language-plaintext highlighter-rouge">/dev/sda</code> or <code class="language-plaintext highlighter-rouge">/dev/nvme0n1</code>, depending on if you have a standard SATA drive, or an NVMe drive, respectively. If you have multiple drives, look at the sizes of the partitions and for the <code class="language-plaintext highlighter-rouge">linux-swap</code> partition to help identify the main OS drive. Here are some OS partition layout examples:</p>
@@ -262,34 +264,34 @@ root   3      4819MB  496GB   491GB
 
 <p>Most computers sold after 2014 use UEFI mode.  If <code class="language-plaintext highlighter-rouge">boot, esp</code> is listed under <code class="language-plaintext highlighter-rouge">flags</code>, the system is installed in UEFI mode. You can also use this command to see if the OS is installed in UEFI mode:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ -d /sys/firmware/efi ] &amp;&amp; echo "Installed in UEFI mode" || echo "Installed in Legacy mode"
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span> <span class="nt">-d</span> /sys/firmware/efi <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"Installed in UEFI mode"</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"Installed in Legacy mode"</span>
 </code></pre></div></div>
 <p>Run these commands based on what type of disk you have:</p>
 
 <h4 id="for-nvme-drives">For NVMe Drives:</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p2 /mnt
-sudo mount /dev/nvme0n1p1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/nvme0n1p2 /mnt
+<span class="nb">sudo </span>mount /dev/nvme0n1p1 /mnt/boot/efi
+<span class="k">for </span>i <span class="k">in</span> /dev /dev/pts /proc /sys /run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt<span class="nv">$i</span><span class="p">;</span> <span class="k">done
+</span><span class="nb">sudo cp</span> <span class="nt">-n</span> /etc/resolv.conf /mnt/etc/
 
-sudo chroot /mnt
-apt install --reinstall grub-efi-amd64 linux-generic linux-headers-generic
-update-initramfs -c -k all
-sudo update-grub
+<span class="nb">sudo chroot</span> /mnt
+apt <span class="nb">install</span> <span class="nt">--reinstall</span> grub-efi-amd64 linux-generic linux-headers-generic
+update-initramfs <span class="nt">-c</span> <span class="nt">-k</span> all
+<span class="nb">sudo </span>update-grub
 </code></pre></div></div>
 
 <h4 id="for-sata-drives">For SATA Drives:</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda2 /mnt
-sudo mount /dev/sda1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/sda2 /mnt
+<span class="nb">sudo </span>mount /dev/sda1 /mnt/boot/efi
+<span class="k">for </span>i <span class="k">in</span> /dev /dev/pts /proc /sys /run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt<span class="nv">$i</span><span class="p">;</span> <span class="k">done
+</span><span class="nb">sudo cp</span> <span class="nt">-n</span> /etc/resolv.conf /mnt/etc/
 
-sudo chroot /mnt
-apt install --reinstall grub-efi-amd64 linux-generic linux-headers-generic
-update-initramfs -c -k all
-sudo update-grub
+<span class="nb">sudo chroot</span> /mnt
+apt <span class="nb">install</span> <span class="nt">--reinstall</span> grub-efi-amd64 linux-generic linux-headers-generic
+update-initramfs <span class="nt">-c</span> <span class="nt">-k</span> all
+<span class="nb">sudo </span>update-grub
 </code></pre></div></div>
 
 <hr />
@@ -298,33 +300,33 @@ sudo update-grub
 
 <p>If <code class="language-plaintext highlighter-rouge">bios_grub</code> is listed under <code class="language-plaintext highlighter-rouge">flags</code>, the system is installed in BIOS mode. You can also use this command to see if the OS is installed in BIOS mode:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ -d /sys/firmware/efi ] &amp;&amp; echo "Installed in UEFI mode" || echo "Installed in Legacy mode"
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span> <span class="nt">-d</span> /sys/firmware/efi <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"Installed in UEFI mode"</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"Installed in Legacy mode"</span>
 </code></pre></div></div>
 
 <p>Run these commands based on what type of disk you have:</p>
 
 <h4 id="for-nvme-drives-1">For NVMe Drives:</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p2 /mnt
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/nvme0n1p2 /mnt
+<span class="k">for </span>i <span class="k">in</span> /dev /dev/pts /proc /sys /run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt<span class="nv">$i</span><span class="p">;</span> <span class="k">done
+</span><span class="nb">sudo cp</span> <span class="nt">-n</span> /etc/resolv.conf /mnt/etc/
 
-sudo chroot /mnt
-apt install --reinstall grub-efi-amd64 linux-generic linux-headers-generic
-update-initramfs -c -k all
-sudo update-grub
+<span class="nb">sudo chroot</span> /mnt
+apt <span class="nb">install</span> <span class="nt">--reinstall</span> grub-efi-amd64 linux-generic linux-headers-generic
+update-initramfs <span class="nt">-c</span> <span class="nt">-k</span> all
+<span class="nb">sudo </span>update-grub
 </code></pre></div></div>
 
 <h4 id="for-sata-drives-1">For SATA Drives:</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda2 /mnt
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/sda2 /mnt
+<span class="k">for </span>i <span class="k">in</span> /dev /dev/pts /proc /sys /run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt<span class="nv">$i</span><span class="p">;</span> <span class="k">done
+</span><span class="nb">sudo cp</span> <span class="nt">-n</span> /etc/resolv.conf /mnt/etc/
 
-sudo chroot /mnt
-apt install --reinstall grub-efi-amd64 linux-generic linux-headers-generic
-update-initramfs -c -k all
-sudo update-grub
+<span class="nb">sudo chroot</span> /mnt
+apt <span class="nb">install</span> <span class="nt">--reinstall</span> grub-efi-amd64 linux-generic linux-headers-generic
+update-initramfs <span class="nt">-c</span> <span class="nt">-k</span> all
+<span class="nb">sudo </span>update-grub
 </code></pre></div></div>
 
 <h2 id="systemd-boot">systemd-boot</h2>
@@ -333,37 +335,37 @@ sudo update-grub
 
 <p>Most computers sold after 2014 use UEFI mode.  If <code class="language-plaintext highlighter-rouge">boot, esp</code> is listed under <code class="language-plaintext highlighter-rouge">flags</code>, the system is installed in UEFI mode. You can also use this command to see if the OS is installed in UEFI mode:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ -d /sys/firmware/efi ] &amp;&amp; echo "Installed in UEFI mode" || echo "Installed in Legacy mode"
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span> <span class="nt">-d</span> /sys/firmware/efi <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"Installed in UEFI mode"</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">"Installed in Legacy mode"</span>
 </code></pre></div></div>
 
 <p>Run these commands based on what type of disk you have:</p>
 
 <h4 id="for-nvme-drives-2">For NVMe Drives:</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/nvme0n1p3 /mnt
-sudo mount /dev/nvme0n1p1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/nvme0n1p3 /mnt
+<span class="nb">sudo </span>mount /dev/nvme0n1p1 /mnt/boot/efi
+<span class="k">for </span>i <span class="k">in</span> /dev /dev/pts /proc /sys /run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt<span class="nv">$i</span><span class="p">;</span> <span class="k">done
+</span><span class="nb">sudo cp</span> <span class="nt">-n</span> /etc/resolv.conf /mnt/etc/
 
-sudo chroot /mnt
-apt install --reinstall linux-generic linux-headers-generic
-update-initramfs -c -k all
-exit
-sudo bootctl --path=/mnt/boot/efi install
+<span class="nb">sudo chroot</span> /mnt
+apt <span class="nb">install</span> <span class="nt">--reinstall</span> linux-generic linux-headers-generic
+update-initramfs <span class="nt">-c</span> <span class="nt">-k</span> all
+<span class="nb">exit
+sudo </span>bootctl <span class="nt">--path</span><span class="o">=</span>/mnt/boot/efi <span class="nb">install</span>
 </code></pre></div></div>
 
 <h4 id="for-sata-drives-2">For SATA Drives:</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
-sudo mount /dev/sda1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo cp -n /etc/resolv.conf /mnt/etc/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/sda3 /mnt
+<span class="nb">sudo </span>mount /dev/sda1 /mnt/boot/efi
+<span class="k">for </span>i <span class="k">in</span> /dev /dev/pts /proc /sys /run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt<span class="nv">$i</span><span class="p">;</span> <span class="k">done
+</span><span class="nb">sudo cp</span> <span class="nt">-n</span> /etc/resolv.conf /mnt/etc/
 
-sudo chroot /mnt
-apt install --reinstall linux-generic linux-headers-generic
-update-initramfs -c -k all
-exit
-sudo bootctl --path=/mnt/boot/efi install
+<span class="nb">sudo chroot</span> /mnt
+apt <span class="nb">install</span> <span class="nt">--reinstall</span> linux-generic linux-headers-generic
+update-initramfs <span class="nt">-c</span> <span class="nt">-k</span> all
+<span class="nb">exit
+sudo </span>bootctl <span class="nt">--path</span><span class="o">=</span>/mnt/boot/efi <span class="nb">install</span>
 </code></pre></div></div>
 
 <hr />
@@ -373,20 +375,22 @@ sudo bootctl --path=/mnt/boot/efi install
 <p>To get access to an encrypted disk, these additional commands need run to unlock the disk.  Please use the <code class="language-plaintext highlighter-rouge">lsblk</code> command described above to determine the correct drive and partition.</p>
 
 <h4 id="for-nvme-drives-3">For NVMe Drives:</h4>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/nvme0n1p3 cryptdata
-sudo lvscan
-sudo vgchange -ay
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>cryptsetup luksOpen /dev/nvme0n1p3 cryptdata
+<span class="nb">sudo </span>lvscan
+<span class="nb">sudo </span>vgchange <span class="nt">-ay</span>
 </code></pre></div></div>
 
 <h4 id="for-sata-drives-3">For SATA Drives:</h4>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/sda3 cryptdata
-sudo lvscan
-sudo vgchange -ay
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>cryptsetup luksOpen /dev/sda3 cryptdata
+<span class="nb">sudo </span>lvscan
+<span class="nb">sudo </span>vgchange <span class="nt">-ay</span>
 </code></pre></div></div>
 
 <p>And take note as to what the volume group is called.  Substitute the correct info into this next command.  Make sure that <code class="language-plaintext highlighter-rouge">-root</code> is on the end:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/mapper/data-root /mnt
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/mapper/data-root /mnt
 </code></pre></div></div>
 
 <p>And now the existing hard drive can be accessed by going to the <code class="language-plaintext highlighter-rouge">/mnt</code> folder.  To use the <u>Files</u> program, go to ‘+ Other Locations’ -&gt; ‘Computer’ and then click on the <code class="language-plaintext highlighter-rouge">/mnt</code> folder.</p>
@@ -397,15 +401,15 @@ sudo vgchange -ay
 
 <p>The EFI partition is usually around 512MB so that would be the partition that we replace in the next command. The Recovery Partition is around 4GB as well.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda1 /mnt/boot/efi
-for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
-sudo chroot /mnt
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/sda1 /mnt/boot/efi
+<span class="k">for </span>i <span class="k">in</span> /dev /dev/pts /proc /sys /run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt<span class="nv">$i</span><span class="p">;</span> <span class="k">done
+</span><span class="nb">sudo chroot</span> /mnt
 </code></pre></div></div>
 
 <p>To exit from the <u>chroot</u> and reboot the computer, run these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
-reboot
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit
+</span>reboot
 </code></pre></div></div>
 
 <hr />
@@ -432,7 +436,7 @@ reboot
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-12-24</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

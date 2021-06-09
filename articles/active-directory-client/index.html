@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Join an Active Directory Domain - System76 Support</title>
-    <meta property="og:title" content="Join an Active Directory Domain - System76 Support">
-    <meta itemprop="name" content="Join an Active Directory Domain - System76 Support">
-    <meta name="twitter:title" content="Join an Active Directory Domain - System76 Support">
+    <title>Active Directory Domain - System76 Support</title>
+    <meta property="og:title" content="Active Directory Domain - System76 Support">
+    <meta itemprop="name" content="Active Directory Domain - System76 Support">
+    <meta name="twitter:title" content="Active Directory Domain - System76 Support">
 
     <meta name="description" content="Learn how to join Pop!_OS to an Active Directory domain">
     <meta property="og:description" content="Learn how to join Pop!_OS to an Active Directory domain">
@@ -187,7 +187,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Join an Active Directory Domain
+        Active Directory Domain
         <a href="https://github.com/system76/docs/edit/master/_articles/active-directory-client.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -196,7 +196,7 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h4 id="join-an-active-directory-domain">Join an Active Directory Domain</h4>
+        <h1 id="join-an-active-directory-domain">Join an Active Directory Domain</h1>
 
 <p>Pop!_OS and Ubuntu can be joined to an Active Directory domain, which allows users to log in with their existing network credentials.</p>
 
@@ -204,21 +204,21 @@
   <li>
     <p>Install the necessary packages:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo apt install sssd heimdal-clients msktutil
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt <span class="nb">install </span>sssd heimdal-clients msktutil
 </code></pre></div>    </div>
 
     <p>While installing those packages, you will be prompted for the following information. These are sample responses. Our domain is called “system76.local” and our Active Directory server is called “adserver” in this example:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Forest name: SYSTEM76
- Domain controller hostname: ADSERVER.system76.local
- Administrative server for your Kerberos realm: ADSERVER.system76.local
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Forest name: SYSTEM76
+ Domain controller <span class="nb">hostname</span>: ADSERVER.system76.local
+ Administrative server <span class="k">for </span>your Kerberos realm: ADSERVER.system76.local
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Move the default Kerberos configuration file to a backup, and create a fresh file to use:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo mv /etc/krb5.conf /etc/krb5.conf.default
- sudo nano /etc/krb5.conf
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo mv</span> /etc/krb5.conf /etc/krb5.conf.default
+ <span class="nb">sudo </span>nano /etc/krb5.conf
 </code></pre></div>    </div>
 
     <p>Edit the /etc/krb5.conf file with the following contents:</p>
@@ -249,8 +249,8 @@
   <li>
     <p>Move the keytab to the /etc/sssd directory, and configure SSSD:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo mv my-keytab.keytab /etc/sssd/my-keytab.keytab
- sudo nano /etc/sssd/sssd.conf
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo mv </span>my-keytab.keytab /etc/sssd/my-keytab.keytab
+ <span class="nb">sudo </span>nano /etc/sssd/sssd.conf
 </code></pre></div>    </div>
 
     <p>The SSSD configuration file should contain the following:</p>
@@ -290,13 +290,13 @@
 
     <p>After saving, set the appropriate permissions on that configuration file:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo chmod 0600 /etc/sssd/sssd.conf
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo chmod </span>0600 /etc/sssd/sssd.conf
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Configure PAM:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo nano /etc/pam.d/common-session
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>nano /etc/pam.d/common-session
 </code></pre></div>    </div>
 
     <p>Look for the line that contains “session required pam_unix.so” and add this line immediately below it:</p>
@@ -306,18 +306,18 @@
 
     <p>After saving that file, restart SSSD:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo systemctl restart sssd
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>systemctl restart sssd
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Add the domain administrator to the local sudo group:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo adduser administrator sudo
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>adduser administrator <span class="nb">sudo</span>
 </code></pre></div>    </div>
 
     <p>Then, test a login with the domain administrator:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> su -l administrator
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> su <span class="nt">-l</span> administrator
 </code></pre></div>    </div>
   </li>
   <li>
@@ -329,7 +329,7 @@
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-17</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

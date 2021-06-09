@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Install Numba  on Python3 - System76 Support</title>
-    <meta property="og:title" content="Install Numba  on Python3 - System76 Support">
-    <meta itemprop="name" content="Install Numba  on Python3 - System76 Support">
-    <meta name="twitter:title" content="Install Numba  on Python3 - System76 Support">
+    <title>Numba (Install - Python3) - System76 Support</title>
+    <meta property="og:title" content="Numba (Install - Python3) - System76 Support">
+    <meta itemprop="name" content="Numba (Install - Python3) - System76 Support">
+    <meta name="twitter:title" content="Numba (Install - Python3) - System76 Support">
 
     <meta name="description" content="Complete instructions on setting up the Numba library in Python for fast, parallel computing using the NVIDIA CUDA toolkit.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Install Numba  on Python3
+        Numba (Install - Python3)
         <a href="https://github.com/system76/docs/edit/master/_articles/numba.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -210,7 +210,7 @@
 
 <p>To install Numba, please run this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install python3-numba
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>python3-numba
 </code></pre></div></div>
 
 <h3 id="environmental-variable-setup">Environmental Variable setup</h3>
@@ -218,23 +218,25 @@
 To make changes on user level (assuming you have the default bash shell), add in ~/.bashrc.
 Note the system level approach is not dependendent on your choice of shell.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># path to CUDA driver shared library file.
-export NUMBAPRO_CUDA_DRIVER=/usr/lib/x86_64-linux-gnu/libcuda.so
-# path to CUDA libNVVM shared library file
-export NUMBAPRO_NVVM=/usr/lib/cuda/nvvm/lib64/libnvvm.so
-# path to CUDA libNVVM libdevice directory which contains .bc files.
-export NUMBAPRO_LIBDEVICE=/usr/lib/cuda/nvvm/libdevice
-# path to CUDA libraries
-export NUMBAPRO_CUDALIB=/usr/lib/cuda/lib64
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># path to CUDA driver shared library file.</span>
+<span class="nb">export </span><span class="nv">NUMBAPRO_CUDA_DRIVER</span><span class="o">=</span>/usr/lib/x86_64-linux-gnu/libcuda.so
+<span class="c"># path to CUDA libNVVM shared library file</span>
+<span class="nb">export </span><span class="nv">NUMBAPRO_NVVM</span><span class="o">=</span>/usr/lib/cuda/nvvm/lib64/libnvvm.so
+<span class="c"># path to CUDA libNVVM libdevice directory which contains .bc files.</span>
+<span class="nb">export </span><span class="nv">NUMBAPRO_LIBDEVICE</span><span class="o">=</span>/usr/lib/cuda/nvvm/libdevice
+<span class="c"># path to CUDA libraries</span>
+<span class="nb">export </span><span class="nv">NUMBAPRO_CUDALIB</span><span class="o">=</span>/usr/lib/cuda/lib64
 </code></pre></div></div>
+
 <p>Finally, restart your computer to complete setup.</p>
 
 <h3 id="test-installation">Test installation</h3>
 
 <p>To test your new Numba installation, from the commandline type:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numba -s
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numba <span class="nt">-s</span>
 </code></pre></div></div>
+
 <p>Details of the installation should be returned.</p>
 
 <h3 id="further-information">Further information</h3>
@@ -244,7 +246,7 @@ export NUMBAPRO_CUDALIB=/usr/lib/cuda/lib64
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2019-07-31</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

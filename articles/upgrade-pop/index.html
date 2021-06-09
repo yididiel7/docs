@@ -200,15 +200,17 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Pop!_OS 20.10 was released October 23, 2020.</p>
+        <h1 id="upgrade-pop_os">Upgrade Pop!_OS</h1>
+
+<p>Pop!_OS 20.10 was released October 23, 2020.</p>
 
 <h1 id="upgrading-pop_os-to-2010-from-2004">Upgrading Pop!_OS to 20.10 from 20.04</h1>
 <h3 id="for-all-other-operating-system-versions-scroll-down-to-the-instructions-for-upgrading-from-an-earlier-release">(For all other operating system versions, scroll down to the instructions for upgrading from an earlier release)</h3>
 
 <p>First, make sure you have applied all updates to your system. You can do this through the Pop!_Shop, or through the terminal:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
-sudo apt full-upgrade
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt full-upgrade
 </code></pre></div></div>
 
 <p>Once the updates are applied, a notification should appear at the top of your screen saying that an upgrade is available. Click on this notification, or go to Settings -&gt; OS Upgrade.</p>
@@ -235,16 +237,16 @@ sudo apt full-upgrade
 
 <p>Users wishing to use the Terminal to apply the upgrade may do so by running the following commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
 </code></pre></div></div>
 <p>You’ll be prompted to enter your system password, but when you type it, the letters won’t show. Just continue typing the password and press <kbd>Enter</kbd>.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt full-upgrade
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt full-upgrade
 </code></pre></div></div>
 
 <p>Once any updates are applied, initiate the upgrade with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pop-upgrade release upgrade
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pop-upgrade release upgrade
 </code></pre></div></div>
 
 <p>Please check the terminal window at different times during the update process to make sure you answer any prompts asking you to type <kbd>Y</kbd> or <kbd>Enter</kbd>. Some of the prompts to expect are described below.</p>
@@ -272,6 +274,7 @@ sudo apt full-upgrade
 <p>These older Pop!_OS releases are now unsupported and no new updates are available. After unsupported versions have been removed from the archive and mirror network, you will need to change where your system checks for un-applied updates to be able to upgrade. Open a terminal and follow the next set of instructions to upgrade from Pop!_OS 18.10, 19.04, or 19.10.</p>
 
 <h3 id="1-get-your-current-system-fully-updated">1. Get your current system fully updated:</h3>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo sed</span> <span class="nt">-i</span> <span class="s1">'s/us.archive/old-releases/g'</span> /etc/apt/sources.list
 <span class="nb">sudo </span>apt update <span class="nt">-m</span>
 <span class="nb">sudo </span>dpkg <span class="nt">--configure</span> <span class="nt">-a</span>
@@ -281,6 +284,7 @@ sudo apt full-upgrade
 </code></pre></div></div>
 
 <h3 id="2-move-any-ppa-additions-out-of-the-way-and-get-all-of-the-sources-pointed-at-the-2004-versions">2. Move any PPA additions out of the way, and get all of the sources pointed at the 20.04 versions:</h3>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /etc/apt/backup
 <span class="nb">sudo mv</span> /etc/apt/sources.list.d/<span class="k">*</span> /etc/apt/backup
 <span class="nb">sudo </span>apt-add-repository <span class="nt">-yn</span> ppa:system76-dev/stable
@@ -292,6 +296,7 @@ sudo apt full-upgrade
 
 <h3 id="3-now-do-the-upgrade">3. Now, do the upgrade!</h3>
 <p>This will have a three phases and once the download is complete, you can’t change your mind. This works from a new install of 19.04, but some packages may add complications, so make sure you have a backup of important data before moving forward. There may be a question about restarting services, and it is safe to answer “Yes”. There may be some questions about using “maintainer” version of configuration files and using the that new version is also very likely what you want to do (and the default answer will work):</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
 <span class="nb">sudo </span>apt <span class="nb">install </span>dpkg apt
 <span class="nb">sudo </span>apt full-upgrade | <span class="nb">tee</span> ~/upgrade.log
@@ -303,8 +308,10 @@ sudo apt full-upgrade
 <h3 id="5-after-the-2004-pop-upgrade-is-complete-reboot">5. After the 20.04 Pop upgrade is complete, <strong>reboot</strong>.</h3>
 
 <h3 id="6-run-the-command-to-upgrade-to-pop-2010">6. Run the command to upgrade to Pop 20.10</h3>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pop-upgrade release upgrade
 </code></pre></div></div>
+
 <h1 id="troubleshooting">Troubleshooting</h1>
 
 <p>Most upgrades proceed without a hitch, but occasionally things go wrong. If your system hangs on the upgrade process or if it reboots and won’t start, then the following steps can help repair your broken OS.</p>
@@ -317,7 +324,7 @@ sudo apt full-upgrade
 
 <p>If the upgrade fails it will most likely be due to a package manager issue.  First, run an alternative upgrade manager with this command, and see if it will manage further:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do-release-upgrade
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span><span class="nt">-release-upgrade</span>
 </code></pre></div></div>
 
 <p>If it fails again, the package manager will need to be repaired manually.  Please follow the steps as outlined in this document about <a href="/articles/package-manager-pop/">repairing the package manager</a></p>
@@ -330,7 +337,7 @@ sudo apt full-upgrade
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-02-17</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Move or Customize the Dock - System76 Support</title>
-    <meta property="og:title" content="Move or Customize the Dock - System76 Support">
-    <meta itemprop="name" content="Move or Customize the Dock - System76 Support">
-    <meta name="twitter:title" content="Move or Customize the Dock - System76 Support">
+    <title>Dock (Move or Customize) - System76 Support</title>
+    <meta property="og:title" content="Dock (Move or Customize) - System76 Support">
+    <meta itemprop="name" content="Dock (Move or Customize) - System76 Support">
+    <meta name="twitter:title" content="Dock (Move or Customize) - System76 Support">
 
     <meta name="description" content="How to move the Dock to different areas of the screen and customize other settings.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Move or Customize the Dock
+        Dock (Move or Customize)
         <a href="https://github.com/system76/docs/edit/master/_articles/dash-to-dock.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Pop!_OS and Ubuntu both contain an application dock on the left side of the screen. In Pop!_OS, the dock is only visible when the Activities menu is open. In Ubuntu, the dock is always visible. By installing a GNOME extension called Dash to Dock, you can adjust this preference, move the dock to the bottom of the screen, and more.</p>
+        <h1 id="dock-move-or-customize">Dock (Move or Customize)</h1>
+
+<p>Pop!_OS and Ubuntu both contain an application dock on the left side of the screen. In Pop!_OS, the dock is only visible when the Activities menu is open. In Ubuntu, the dock is always visible. By installing a GNOME extension called Dash to Dock, you can adjust this preference, move the dock to the bottom of the screen, and more.</p>
 
 <h1 id="dash-to-dock-on-pop_os">Dash to Dock on Pop!_OS</h1>
 
@@ -244,7 +246,7 @@
 
 <p>To install Dash to Dock on Ubuntu, you will first need to install the “native host connector,” which allows Firefox to install and remove GNOME Shell extensions. This component is installed by default in Pop!_OS, but it is not installed by default in Ubuntu. Open a terminal and run this command to install the native host connector:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install chrome-gnome-shell
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>chrome-gnome-shell
 </code></pre></div></div>
 
 <p>Enter your password and press “y” to confirm if necessary.</p>
@@ -287,7 +289,7 @@
 
 <p>Ubuntu 16.04 LTS includes its own dock as part of the Unity desktop environment. If you’d like to put the dock at the bottom of the screen in 16.04, enter this command in a terminal:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings set com.canonical.Unity.Launcher launcher-position 'Bottom'
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings <span class="nb">set </span>com.canonical.Unity.Launcher launcher-position <span class="s1">'Bottom'</span>
 </code></pre></div></div>
 
 <p><img src="/images/dash-to-dock/unity1.png" alt="Setting the Launcher to the bottom" /></p>
@@ -298,14 +300,14 @@
 
 <p>To reset the position of the dock to the left, run this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings set com.canonical.Unity.Launcher launcher-position 'Left'
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gsettings <span class="nb">set </span>com.canonical.Unity.Launcher launcher-position <span class="s1">'Left'</span>
 </code></pre></div></div>
 
 <p><img src="/images/dash-to-dock/unity3.png" alt="Resetting the Launcher" /></p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-29</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

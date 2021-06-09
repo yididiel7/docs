@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Getting Started with Bitesize Bugs - System76 Support</title>
-    <meta property="og:title" content="Getting Started with Bitesize Bugs - System76 Support">
-    <meta itemprop="name" content="Getting Started with Bitesize Bugs - System76 Support">
-    <meta name="twitter:title" content="Getting Started with Bitesize Bugs - System76 Support">
+    <title>Bitesize Bugs - System76 Support</title>
+    <meta property="og:title" content="Bitesize Bugs - System76 Support">
+    <meta itemprop="name" content="Bitesize Bugs - System76 Support">
+    <meta name="twitter:title" content="Bitesize Bugs - System76 Support">
 
     <meta name="description" content="Get started contributing quickly with bitesize bugs!
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Getting Started with Bitesize Bugs
+        Bitesize Bugs
         <a href="https://github.com/system76/docs/edit/master/_articles/bite-sized-bugs.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Some bugs are determined by the maintainer of Pop! projects to be easy to fix, these bugs are referred to as “bitesize” bugs and will show up in the project’s issue tracker as such.</p>
+        <h1 id="bitesize-bugs">Bitesize Bugs</h1>
+
+<p>Some bugs are determined by the maintainer of Pop! projects to be easy to fix, these bugs are referred to as “bitesize” bugs and will show up in the project’s issue tracker as such.</p>
 
 <p><img src="/images/bite-sized-bugs/bsb-github-screenshot.png" alt="Bitesize Bugs" /></p>
 
@@ -238,7 +240,8 @@
 
 <p>See the name there? Since this is my account (Ryan), you see the repo is beside my name, and under it says “forked from system76/pop-default-settings”. Now we can clone the repository down to our own computer and make the necessary changes. First, you should install git.</p>
 
-<p><code class="language-plaintext highlighter-rouge">sudo apt install git</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>git
+</code></pre></div></div>
 
 <p>Once you’ve done that take a look at the “Clone or Download” button, give it a click and copy the link it displays. If you don’t have an SSH key associated with your GitHub account <a href="https://help.github.com/articles/connecting-to-github-with-ssh/">here’s how</a>. If you don’t want to do that right now, you can pull down the code with HTTPS, you’ll have to enter your username and password - to do that click the “Use HTTPS in the corner of the Clone box” (pictured below).</p>
 
@@ -246,7 +249,8 @@
 
 <p>Once you have copied the link in the clone box, run the following command(shown with https).</p>
 
-<p><code class="language-plaintext highlighter-rouge">git clone https://github.com/ryanleesipes/pop-default-settings.git</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/ryanleesipes/pop-default-settings.git
+</code></pre></div></div>
 
 <p>Enter any information requested (with HTTPS it should just be your GitHub username and password). Following that it should download the files for the project and put them in a folder in the directory you are currently sitting in within your terminal.</p>
 
@@ -268,7 +272,8 @@
 
 <p>I’ll run the following command:</p>
 
-<p><code class="language-plaintext highlighter-rouge">git commit -am "Updated the default palette settings in terminal, changed a color for better visibility."</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-am</span> <span class="s2">"Updated the default palette settings in terminal, changed a color for better visibility."</span>
+</code></pre></div></div>
 
 <p>If you’d like to know why the commit command has the arguments, the Git/GitHub documentation can explain that better than most. You can go through a <a href="https://try.github.io/levels/1/challenges/1">Git tutorial here</a>.</p>
 
@@ -278,7 +283,8 @@
 
 <p>Now you can run the following command to push your changes from your local machine to your forked repository on GitHub:</p>
 
-<p><code class="language-plaintext highlighter-rouge">git push</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push
+</code></pre></div></div>
 
 <p>If it’s your first time pushing to a remote repository, you might be asked to setup who you are. That’s fine, follow the instructions in your terminal.</p>
 
@@ -296,7 +302,7 @@
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-17</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

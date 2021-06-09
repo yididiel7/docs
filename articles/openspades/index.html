@@ -199,7 +199,8 @@
 
 <p>To install on Ubuntu/Pop OS using snaps:</p>
 
-<p><code class="language-plaintext highlighter-rouge">sudo snap install openspades</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>snap <span class="nb">install </span>openspades
+</code></pre></div></div>
 
 <p>To build and install from source (terminal):</p>
 
@@ -207,7 +208,8 @@
   <li>Install the necessary dependencies:</li>
 </ol>
 
-<p><code class="language-plaintext highlighter-rouge">sudo apt-get install pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev libopusfile-dev libjpeg-dev libxinerama-dev libxft-dev git cmake imagemagick</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>pkg-config libglew-dev libcurl3-openssl-dev libsdl2-dev libsdl2-image-dev libalut-dev xdg-utils libfreetype6-dev libopus-dev libopusfile-dev libjpeg-dev libxinerama-dev libxft-dev git cmake imagemagick
+</code></pre></div></div>
 
 <p>Enter your password when prompted.</p>
 
@@ -217,21 +219,19 @@
   <li>Clone the GitHub repiository:</li>
 </ol>
 
-<p><code class="language-plaintext highlighter-rouge">git clone https://github.com/yvt/openspades</code></p>
-
-<p><code class="language-plaintext highlighter-rouge">cd openspades</code></p>
-
-<p><code class="language-plaintext highlighter-rouge">mkdir openspades.mk</code></p>
-
-<p><code class="language-plaintext highlighter-rouge">cd openspades.mk</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/yvt/openspades
+<span class="nb">cd </span>openspades
+<span class="nb">mkdir </span>openspades.mk
+<span class="nb">cd </span>openspades.mk
+</code></pre></div></div>
 
 <ol>
   <li>Build OpenSpades:</li>
 </ol>
 
-<p><code class="language-plaintext highlighter-rouge">cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo</code></p>
-
-<p><code class="language-plaintext highlighter-rouge">make</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake .. <span class="nt">-DCMAKE_BUILD_TYPE</span><span class="o">=</span>RelWithDebInfo
+make
+</code></pre></div></div>
 
 <ol>
   <li>Copy the <strong>Resources</strong> folder into <strong>bin</strong>:</li>
@@ -243,7 +243,8 @@
   <li>Install OpenSpades:</li>
 </ol>
 
-<p><code class="language-plaintext highlighter-rouge">sudo make install</code></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>make <span class="nb">install</span>
+</code></pre></div></div>
 
 <ol>
   <li>Launch OpenSpades:</li>
@@ -271,7 +272,7 @@
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2018-10-16</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

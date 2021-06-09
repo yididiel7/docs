@@ -9,25 +9,25 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Install Pop!_OS On Your Computer - System76 Support</title>
-    <meta property="og:title" content="Install Pop!_OS On Your Computer - System76 Support">
-    <meta itemprop="name" content="Install Pop!_OS On Your Computer - System76 Support">
-    <meta name="twitter:title" content="Install Pop!_OS On Your Computer - System76 Support">
+    <title>TensorFlow (Install) - System76 Support</title>
+    <meta property="og:title" content="TensorFlow (Install) - System76 Support">
+    <meta itemprop="name" content="TensorFlow (Install) - System76 Support">
+    <meta name="twitter:title" content="TensorFlow (Install) - System76 Support">
 
-    <meta name="description" content="Full instructions on installing Pop!_OS your computer.
+    <meta name="description" content="Complete instructions on installing TensorFlow
 ">
-    <meta property="og:description" content="Full instructions on installing Pop!_OS your computer.
+    <meta property="og:description" content="Complete instructions on installing TensorFlow
 ">
-    <meta itemprop="description" content="Full instructions on installing Pop!_OS your computer.
+    <meta itemprop="description" content="Complete instructions on installing TensorFlow
 ">
-    <meta name="twitter:description" content="Full instructions on installing Pop!_OS your computer.
+    <meta name="twitter:description" content="Complete instructions on installing TensorFlow
 ">
 
-    <meta name="keywords" content="Pop!\_OS Restore Reinstall Installation Driver system76-driver system76-driver-nvidia Release">
+    <meta name="keywords" content="NVIDIA CUDA TensorFlow">
 
     
-    <meta property="og:image" content="http://support.system76.com/images/pop-icon.png" />
-    <meta name="twitter:image:src" content="http://support.system76.com/images/pop-icon.png">
+    <meta property="og:image" content="http://support.system76.com/images/system76.png" />
+    <meta name="twitter:image:src" content="http://support.system76.com/images/system76.png">
     
 
     <meta name="twitter:card" content="summary_large_image">
@@ -191,8 +191,8 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Install Pop!_OS On Your Computer
-        <a href="https://github.com/system76/docs/edit/master/_articles/install-pop.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+        TensorFlow (Install)
+        <a href="https://github.com/system76/docs/edit/master/_articles/install-tensorflow.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
   </header>
@@ -200,61 +200,51 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h1 id="pop_os-install">Pop!_OS (Install)</h1>
+        <h1 id="tensorman">Tensorman</h1>
 
-<p>The following guide describes how to download the Pop!_OS.iso image, write it to a flash drive, and install it on the hardware of your choice.</p>
+<p>If your system is running Pop!_OS 19.10, see the <a href="/articles/use-tensorman/">Tensorman documentation</a> for managing TensorFlow containers.</p>
 
-<p>Requirements: At the time of this writing Pop!_OS only runs on 64-bit x86 architecture, 2 GB of RAM is required, 4 GB of RAM is recommended and 20 GB of storage is recommended.</p>
+<h2 id="install-on-pop_os-2004-lts-and-pop_os-2010">Install on Pop!_OS 20.04 LTS and Pop!_OS 20.10</h2>
 
-<h2 id="download-the-pop_osiso-image">Download the Pop!_OS.iso image</h2>
-<p>From https://pop.system76.com/, choose <strong>DOWNLOAD</strong>, and then choose from the current release (default), or the Long Term Support (LTS) image. The download dialog includes the current <em>Requirements</em>, and download <em>Filesize</em>, as well as the image checksums used to verify the file once downloaded.</p>
+<h3 id="installing-tensorflow-with-cuda">Installing TensorFlow with CUDA</h3>
 
-<h2 id="make-bootable-drive">Make Bootable Drive</h2>
+<p>To install the latest Tensorflow with the CUDA Toolkit, please run the command:</p>
 
-<p>Please see our instructions for making and booting from a live disk of Pop!_OS <a href="/articles/live-disk/">here</a>.</p>
-
-<h2 id="installing-pop_os">Installing Pop!_OS</h2>
-
-<p>The first step after booting from your new live disk is to select your language:</p>
-
-<p><img src="/images/install-pop/1_language-cropped.png" alt="Language" /></p>
-
-<p>Next we will select the keyboard layout for our setup and region:</p>
-
-<p><img src="/images/install-pop/2_keyboard-cropped.png" alt="Keyboard" /></p>
-
-<p>Now we can choose to install Pop!_OS or to try Demo Mode to learn your new desktop before installing:</p>
-
-<p><img src="/images/install-pop/3_try_or_install-cropped.png" alt="Try or Install" /></p>
-
-<p>We can select to erase the currently installed operating system and install Pop!_OS on the selected drive. To the left we can choose Custom Partitioning if you need to Dual Boot or want to have a separate Home partition or place the /tmp partition on a different drive:</p>
-
-<p><img src="/images/install-pop/4_disk-cropped.png" alt="Disk setup" /></p>
-
-<h3 id="full-disk-encryption">Full Disk Encryption</h3>
-
-<p>You can choose to encrypt your drive or to not encrypt your drive. If you would like to encrypt the drive then push the <strong>Choose Password</strong> button, if you don’t want to encrypt click the <strong>Don’t Encrypt</strong> button:</p>
-
-<p><img src="/images/install-pop/5_encrypt_notice-cropped.png" alt="Encrypt option" /></p>
-
-<p>At this step you choose the password that will be used to encrypt your drive and it will be requested every time the system boots:</p>
-
-<p><img src="/images/install-pop/6_encrypt_password-cropped.png" alt="Encrypt password" /></p>
-
-<p>Now Pop!_OS will begin installing!</p>
-
-<p><img src="/images/install-pop/7_progress-cropped.png" alt="Progress" /></p>
-
-<p>Pop!_OS has been successfully installed on your computer! Awesome work! You can choose to reboot your computer to create your new user for the OS or you can shut down and setup the new user later:</p>
-
-<p><img src="/images/install-pop/8_success-cropped.png" alt="Success" /></p>
-
-<h4 id="nvidia-graphics">NVIDIA Graphics</h4>
-
-<p>If you installed from the Intel/AMD ISO and your system has discrete NVIDIA graphics card or if you added one later on, you will need to manually install the drivers for your card to get the optimum performance. Please run the following command in a command terminal to install the driver:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-driver-nvidia
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>tensorflow-cuda-latest
 </code></pre></div></div>
+
+<p>This will install the following packages:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-cuda-10.2 system76-cudnn-10.2 
+</code></pre></div></div>
+
+<p>When the package with ‘-latest’ is installed then when a new version if packaged and released an update will be available. When the system is updated these packages will be updated as well.</p>
+
+<h2 id="not-running-pop_os">Not running Pop!_OS?</h2>
+
+<p>The previous instructions will work with Pop!_OS out of the box but for Ubuntu and other Debian derivatives the following commands will need to be ran first:</p>
+
+<p>Ubuntu 20.04 LTS based:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo echo</span> <span class="s2">"deb http://apt.pop-os.org/proprietary focal main"</span> | <span class="nb">sudo tee</span> <span class="nt">-a</span> /etc/apt/sources.list.d/pop-proprietary.list
+<span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> keyserver.ubuntu.com <span class="nt">--recv-key</span> 204DD8AEC33A7AFF
+<span class="nb">sudo </span>apt update
+</code></pre></div></div>
+
+<p>Ubuntu 20.10 based:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo echo</span> <span class="s2">"deb http://apt.pop-os.org/proprietary groovy main"</span> | <span class="nb">sudo tee</span> <span class="nt">-a</span> /etc/apt/sources.list.d/pop-proprietary.list
+<span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> keyserver.ubuntu.com <span class="nt">--recv-key</span> 204DD8AEC33A7AFF
+<span class="nb">sudo </span>apt update
+</code></pre></div></div>
+
+<p>*These packages have been tested with the System76 NVIDIA driver only.</p>
+
+<p>The following <a href="https://support.system76.com/articles/system76-driver/">article</a> will go over installing the System76 NVIDIA driver.</p>
+
+<h2 id="using-tensorflow">Using TensorFlow</h2>
+
+<p>The following <a href="https://support.system76.com/articles/use-tensorflow/">article</a> will go over using TensorFlow.</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">

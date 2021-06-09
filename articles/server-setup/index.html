@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Configure Your System76 Server - System76 Support</title>
-    <meta property="og:title" content="Configure Your System76 Server - System76 Support">
-    <meta itemprop="name" content="Configure Your System76 Server - System76 Support">
-    <meta name="twitter:title" content="Configure Your System76 Server - System76 Support">
+    <title>System76 Server Setup - System76 Support</title>
+    <meta property="og:title" content="System76 Server Setup - System76 Support">
+    <meta itemprop="name" content="System76 Server Setup - System76 Support">
+    <meta name="twitter:title" content="System76 Server Setup - System76 Support">
 
     <meta name="description" content="Instructions on setting up a System76 server, including initial login credentials.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Configure Your System76 Server
+        System76 Server Setup
         <a href="https://github.com/system76/docs/edit/master/_articles/server-setup.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -231,10 +231,10 @@
 
 <p>The following commands will determine the server’s IP address:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifconfig
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifconfig
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ip link show
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ip <span class="nb">link </span>show
 </code></pre></div></div>
 
 <p>In the directions below replace <code class="language-plaintext highlighter-rouge">IPADDRESS</code> with the server’s IP address.</p>
@@ -243,8 +243,8 @@
 
 <p>To configure the hostname and domain, run these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/hosts
-sudo nano /etc/hostname
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/hosts
+<span class="nb">sudo </span>nano /etc/hostname
 </code></pre></div></div>
 
 <hr />
@@ -274,39 +274,39 @@ ff02::3 ip6-allhosts</p>
 
 <p>Verify the correct hostname and domain with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hostname -f
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">hostname</span> <span class="nt">-f</span>
 </code></pre></div></div>
 
 <h3 id="configure-time-zone">Configure Time Zone</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg-reconfigure tzdata
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg-reconfigure tzdata
 </code></pre></div></div>
 
 <h3 id="configure-network-interface-for-ubuntu-server-1804">Configure Network Interface for Ubuntu Server 18.04</h3>
 
 <p>Ubuntu Server 18.04 is shipping with netplan, so the system file will need to be edited for networking. With this command, we will edit the file:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/netplan/50-cloud-int.yaml
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/netplan/50-cloud-int.yaml
 </code></pre></div></div>
 
 <p>This command will list the network interfaces:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ip link show
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ip <span class="nb">link </span>show
 </code></pre></div></div>
 
 <p>This text will need to be edited depending on what the system will label the network interfaces.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>network:
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>network:
     version: 2
     ethernets:
         eno1:
-            addresses: [ ]
-            dhcp4: true
-            optional: true
-        eno2:
-            addresses: [ ]
-            dhcp4: true
-            optional: true
+            addresses: <span class="o">[</span> <span class="o">]</span>
+            dhcp4: <span class="nb">true
+            </span>optional: <span class="nb">true
+        </span>eno2:
+            addresses: <span class="o">[</span> <span class="o">]</span>
+            dhcp4: <span class="nb">true
+            </span>optional: <span class="nb">true</span>
 </code></pre></div></div>
 
 <p>Now if the router has DHCP setup you will get an IP address for the port that has the Ethernet cable attached.</p>
@@ -315,12 +315,12 @@ ff02::3 ip6-allhosts</p>
 
 <p>To change the IP address of the server, run these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/network/interfaces
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/network/interfaces
 </code></pre></div></div>
 
 <p>Adjust as necessary &amp; press <kbd>Ctrl</kbd>+<kbd>X</kbd> → <kbd>Y</kbd> → <kbd>Enter</kbd> to save.  Next, restart network services (this will drop your ssh connection):</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart networking
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart networking
 </code></pre></div></div>
 
 <hr />
@@ -354,22 +354,22 @@ iface eth1 inet static<br />
 
 <p>To remotely administer the server, a secure shell program needs installed to accept incoming SSH connections.  Install the program with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install openssh-server
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>openssh-server
 </code></pre></div></div>
 
 <p>And then configure the program by editing its settings file with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/ssh/sshd_config
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /etc/ssh/sshd_config
 </code></pre></div></div>
 
 <p>And to use the new settings, restart the SSH daemon with this command (or restart the server):</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart sshd
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart sshd
 </code></pre></div></div>
 
 <p>Then, from another Linux client terminal:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh oem@IPADDRESS
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh oem@IPADDRESS
 </code></pre></div></div>
 
 <p>From a Windows computer:<br />
@@ -379,34 +379,34 @@ Download <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.htm
 
 <p>To add another user, enter these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh oem@IPADDRESS
-sudo adduser [new username]
-sudo adduser [new username] adm
-sudo adduser [new username] sudo
-exit
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh oem@IPADDRESS
+<span class="nb">sudo </span>adduser <span class="o">[</span>new username]
+<span class="nb">sudo </span>adduser <span class="o">[</span>new username] adm
+<span class="nb">sudo </span>adduser <span class="o">[</span>new username] <span class="nb">sudo
+exit</span>
 </code></pre></div></div>
 
 <p>Log back in by typing:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh [new username]@IPADDRESS
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh <span class="o">[</span>new username]@IPADDRESS
 </code></pre></div></div>
 
 <p>Remove the OEM User:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo deluser oem
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>deluser oem
 </code></pre></div></div>
 
 <h3 id="update-packages">Update Packages</h3>
 
 <p>Download and install updates:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
-sudo apt dist-upgrade
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt dist-upgrade
 </code></pre></div></div>
 
 <p>Reboot may be required for the changes to take effect:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo reboot
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>reboot
 </code></pre></div></div>
 
 <h3 id="configure-bmc">Configure BMC</h3>
@@ -419,7 +419,7 @@ sudo apt dist-upgrade
 
 <p>To run the jwviewer.jnlp file on the viewing computer, please install this program:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install icedtea-netx
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>icedtea-netx
 </code></pre></div></div>
 
 <p>Which will install the program ‘javaws’ (Java Web Services)</p>
@@ -444,7 +444,7 @@ sudo apt dist-upgrade
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-01-22</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

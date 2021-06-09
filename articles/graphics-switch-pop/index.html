@@ -9,18 +9,18 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Switching Graphics in Pop!_OS - System76 Support</title>
-    <meta property="og:title" content="Switching Graphics in Pop!_OS - System76 Support">
-    <meta itemprop="name" content="Switching Graphics in Pop!_OS - System76 Support">
-    <meta name="twitter:title" content="Switching Graphics in Pop!_OS - System76 Support">
+    <title>Graphics switching (Pop!_OS) - System76 Support</title>
+    <meta property="og:title" content="Graphics switching (Pop!_OS) - System76 Support">
+    <meta itemprop="name" content="Graphics switching (Pop!_OS) - System76 Support">
+    <meta name="twitter:title" content="Graphics switching (Pop!_OS) - System76 Support">
 
-    <meta name="description" content="How to switch between integrated, NVIDIA, and Hybrid graphics
+    <meta name="description" content="How to use systems with switchable graphics
 ">
-    <meta property="og:description" content="How to switch between integrated, NVIDIA, and Hybrid graphics
+    <meta property="og:description" content="How to use systems with switchable graphics
 ">
-    <meta itemprop="description" content="How to switch between integrated, NVIDIA, and Hybrid graphics
+    <meta itemprop="description" content="How to use systems with switchable graphics
 ">
-    <meta name="twitter:description" content="How to switch between integrated, NVIDIA, and Hybrid graphics
+    <meta name="twitter:description" content="How to use systems with switchable graphics
 ">
 
     <meta name="keywords" content="System76 Pop 18.04 19.1 20.04 NVIDIA Hybrid Integrated">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Switching Graphics in Pop!_OS
+        Graphics switching (Pop!_OS)
         <a href="https://github.com/system76/docs/edit/master/_articles/graphics-switch-pop.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -268,32 +268,32 @@ switching.</p>
 <p>If you are not using the GNOME Desktop Environment, you can use the system76-power 
 command line tool. You can see the options with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power help
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power <span class="nb">help</span>
 </code></pre></div></div>
 
 <p>For seeing which graphics mode the system is using:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics
 </code></pre></div></div>
 
 <p>For switching to NVIDIA graphics:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics nvidia
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics nvidia
 </code></pre></div></div>
 
 <p>For switching to integrated graphics:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics integrated
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics integrated
 </code></pre></div></div>
 
 <p>For switching to hybrid graphics:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics hybrid
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics hybrid
 </code></pre></div></div>
 
 <p>For switching to compute mode:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics compute
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics compute
 </code></pre></div></div>
 
 <h3 id="sources">Sources</h3>
@@ -307,7 +307,7 @@ command line tool. You can see the options with this command:</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-06-04</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

@@ -229,7 +229,7 @@
 
 <p>To install Deja Dup, search for it in the Pop!_Shop, or run this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install deja-dup
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>deja-dup
 </code></pre></div></div>
 
 <p>Once Deja Dup is installed, it will be labeled as “Backups” in the Activities overview.</p>
@@ -319,7 +319,7 @@ Because the process is manual, updates and changes to the data may be missed ove
 
 <p>An example of the rsync command would be:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rsync -a ~/ OUTPUT_DIRECTORY
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rsync <span class="nt">-a</span> ~/ OUTPUT_DIRECTORY
 </code></pre></div></div>
 
 <p>…where <code class="language-plaintext highlighter-rouge">-a</code> tells rsync to output as an archive, <code class="language-plaintext highlighter-rouge">~/</code> refers to your home directory as the source location, and <code class="language-plaintext highlighter-rouge">OUTPUT_DIRECTORY</code> should be replaced with the location of your external disk or your remotely mounted server.</p>
@@ -362,7 +362,7 @@ The client storing data is a single point of failure.</p>
 
 <p>Because programs are readily available online (usually through software repositories), we don’t recommend backing them up. They are spread throughout the file system and are difficult to restore properly. To back up programs, we recommend keeping a list of package names for the programs that you use so they can be reinstalled with a single package manager command, like so:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install gnome-tweak-tool mousepad aptitude thunar
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>gnome-tweak-tool mousepad aptitude thunar
 </code></pre></div></div>
 
 <h2 id="program-configuration-files">Program Configuration Files</h2>
@@ -371,7 +371,7 @@ The client storing data is a single point of failure.</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-01-21</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

@@ -234,13 +234,13 @@
 
 <p>The command-line firmware utility can be installed using these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
-sudo apt install system76-firmware
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>system76-firmware
 </code></pre></div></div>
 
 <p>Once installed, the following command can be used to schedule a firmware update for the next reboot (if the firmware is already up-to-date, this command will schedule a re-installation of the current firmware):</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-firmware-cli schedule
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-firmware-cli schedule
 </code></pre></div></div>
 
 <p>If you are able not able to schedule the update and receive error messages similar to these:</p>
@@ -309,16 +309,16 @@ sudo apt install system76-firmware
 
 <p>After creating the live disk, <a href="/articles/boot-menu/">access the boot menu</a> and select it from the list of options. Once the desktop appears, open a terminal (<kbd><span class="fl-pop-key"></span></kbd> + <kbd>T</kbd>) and use this command to list the partitions on your system:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
 </code></pre></div></div>
 
 <p>Identify the EFI partition in the list. (The EFI partition is usually the first partition on one of the drives, and is around 512MB in size or slightly smaller.) Once you have identified the EFI partition, use the following commands to set up the system for a firmware update:</p>
 
 <h4 id="for-nvme-drives">For NVMe Drives:</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-driver
-sudo mkdir -p /boot/efi
-sudo mount /dev/nvme0n1p1 /boot/efi
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-driver
+<span class="nb">sudo mkdir</span> <span class="nt">-p</span> /boot/efi
+<span class="nb">sudo </span>mount /dev/nvme0n1p1 /boot/efi
 gnome-control-center firmware
 </code></pre></div></div>
 
@@ -326,9 +326,9 @@ gnome-control-center firmware
 
 <h4 id="for-sata-drives">For SATA Drives:</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install system76-driver
-sudo mkdir -p /boot/efi
-sudo mount /dev/sda1 /boot/efi
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>system76-driver
+<span class="nb">sudo mkdir</span> <span class="nt">-p</span> /boot/efi
+<span class="nb">sudo </span>mount /dev/sda1 /boot/efi
 gnome-control-center firmware
 </code></pre></div></div>
 
@@ -352,7 +352,7 @@ gnome-control-center firmware
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-02-26</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

@@ -569,22 +569,22 @@ sudo pip3 install WoeUSB-ng
 
 <p>If you’re affected by this, the easiest solution is to fix it in Linux, forcing it to work the same way as Windows. Set the option using this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl set-local-rtc 1 --adjust-system-clock
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl set-local-rtc 1 <span class="nt">--adjust-system-clock</span>
 </code></pre></div></div>
 
 <p>You can verify that the change was successful using this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl
 </code></pre></div></div>
 
 <p>You should see <code class="language-plaintext highlighter-rouge">RTC in local TZ: yes</code> in the output. If you need to revert this setting, turn it back off with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl set-local-rtc 0 --adjust-system-clock
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl set-local-rtc 0 <span class="nt">--adjust-system-clock</span>
 </code></pre></div></div>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-02-22</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

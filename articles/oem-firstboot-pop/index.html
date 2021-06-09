@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Create a User If Initial User Setup Fails in Pop!_OS - System76 Support</title>
-    <meta property="og:title" content="Create a User If Initial User Setup Fails in Pop!_OS - System76 Support">
-    <meta itemprop="name" content="Create a User If Initial User Setup Fails in Pop!_OS - System76 Support">
-    <meta name="twitter:title" content="Create a User If Initial User Setup Fails in Pop!_OS - System76 Support">
+    <title>Guest User Only (After Initial Setup - Pop!_OS) - System76 Support</title>
+    <meta property="og:title" content="Guest User Only (After Initial Setup - Pop!_OS) - System76 Support">
+    <meta itemprop="name" content="Guest User Only (After Initial Setup - Pop!_OS) - System76 Support">
+    <meta name="twitter:title" content="Guest User Only (After Initial Setup - Pop!_OS) - System76 Support">
 
     <meta name="description" content="Sometimes, the first boot user creation fails and leaves only a Guest session. You can fix this by following the steps here.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Create a User If Initial User Setup Fails in Pop!_OS
+        Guest User Only (After Initial Setup - Pop!_OS)
         <a href="https://github.com/system76/docs/edit/master/_articles/oem-firstboot-pop.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h1 id="create-a-user-if-initial-user-setup-fails-in-pop_os">Create a User If Initial User Setup Fails in Pop!_OS</h1>
+        <h1 id="guest-user-only-after-initial-setup---pop_os">Guest User Only (After Initial Setup - Pop!_OS)</h1>
+
+<h1 id="create-a-user-if-initial-user-setup-fails-in-pop_os">Create a User If Initial User Setup Fails in Pop!_OS</h1>
 
 <ul>
   <li>Document Version: 2.0.0</li>
@@ -256,9 +258,9 @@
 
 <p>Once you’re at the root shell, identified with the prompt <code class="language-plaintext highlighter-rouge">root@ubuntu:~#</code>, enter the commands below:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /usr/local/bin/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /usr/local/bin/
 ./system76-preparetoship
-sudo reboot
+<span class="nb">sudo </span>reboot
 </code></pre></div></div>
 
 <p>The system will reboot into the first-user System Configuration.</p>
@@ -273,7 +275,7 @@ sudo reboot
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-08-28</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

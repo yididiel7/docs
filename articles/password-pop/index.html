@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Change Your Password in Pop!_OS - System76 Support</title>
-    <meta property="og:title" content="Change Your Password in Pop!_OS - System76 Support">
-    <meta itemprop="name" content="Change Your Password in Pop!_OS - System76 Support">
-    <meta name="twitter:title" content="Change Your Password in Pop!_OS - System76 Support">
+    <title>Change User Password (Pop!_OS) - System76 Support</title>
+    <meta property="og:title" content="Change User Password (Pop!_OS) - System76 Support">
+    <meta itemprop="name" content="Change User Password (Pop!_OS) - System76 Support">
+    <meta name="twitter:title" content="Change User Password (Pop!_OS) - System76 Support">
 
     <meta name="description" content="Forgot your main password?  Locked out of your computer? Need to change your encryption passphrase? Follow these instructions to change both!
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Change Your Password in Pop!_OS
+        Change User Password (Pop!_OS)
         <a href="https://github.com/system76/docs/edit/master/_articles/password-pop.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>If you can’t log into your computer, you can follow these instructions to reset the password for any user. Pop!_OS and Ubuntu allow for the root user to reset the password for any user account. In order to get to the root user, we need to restart the computer and use what’s called “single user mode”, which is the low level repair system for the computer.</p>
+        <h1 id="change-user-password-pop_os">Change User Password (Pop!_OS)</h1>
+
+<p>If you can’t log into your computer, you can follow these instructions to reset the password for any user. Pop!_OS and Ubuntu allow for the root user to reset the password for any user account. In order to get to the root user, we need to restart the computer and use what’s called “single user mode”, which is the low level repair system for the computer.</p>
 
 <h3 id="pop_os-1804-and-later">Pop!_OS 18.04 and Later</h3>
 
@@ -212,50 +214,50 @@
 
 <p>Once the recovery operating system boots, close out of the installation window or choose <strong>“try demo mode”</strong> (be sure not to choose any install or repair options, as this could result in data loss).   Then, press <kbd><span class="fl-pop-key"></span></kbd>/<kbd><i class="fl-ubuntu"></i></kbd>+<kbd>T</kbd> to open a terminal, and type in these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
 </code></pre></div></div>
 
 <p>This will show what the main internal drive is named, which will have 4 partitions on it.  We will be working with the 3rd partition.  If the main drive is an NVMe drive, it will be <code class="language-plaintext highlighter-rouge">/dev/nvme0n1p3</code> and if the drive is a SATA or regular M.2 drive, it will be <code class="language-plaintext highlighter-rouge">/dev/sda3</code>.</p>
 
 <p>Next, run this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/sda3 /mnt
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/sda3 /mnt
 </code></pre></div></div>
 
 <p>If the command fails and says <code class="language-plaintext highlighter-rouge">mount: /mnt: unknown filesystem type 'crypto_LUKS'</code>, then the hard drive has been encrypted, and additional commands are needed to unlock it.  If the command succeeds (no output), then skip these next steps:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cryptsetup luksOpen /dev/sda3 volume
-sudo lvscan
-sudo vgchange -ay
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>cryptsetup luksOpen /dev/sda3 volume
+<span class="nb">sudo </span>lvscan
+<span class="nb">sudo </span>vgchange <span class="nt">-ay</span>
 </code></pre></div></div>
 
 <p>Take note as to what the volume group is called, substituting the correct info into this command.  Make sure that ‘-root’ is on the end:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount /dev/mapper/data-root /mnt
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount /dev/mapper/data-root /mnt
 </code></pre></div></div>
 
 <p>Next, regardless of whether the drive is encrypted or not, run these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chroot /mnt
-ls /home
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chroot</span> /mnt
+<span class="nb">ls</span> /home
 </code></pre></div></div>
 
 <p>Take note of the users on this computer, then run this command to change a user’s password:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd john
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd john
 </code></pre></div></div>
 
 <p>Type in your new password, and then enter these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
-reboot
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit
+</span>reboot
 </code></pre></div></div>
 
 <p>Now, enter the original passphrase. Here you will be prompted for the new passphrase, and then to confirm the new passphrase.</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-04-08</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

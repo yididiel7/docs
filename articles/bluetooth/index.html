@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Troubleshoot Bluetooth Issues - System76 Support</title>
-    <meta property="og:title" content="Troubleshoot Bluetooth Issues - System76 Support">
-    <meta itemprop="name" content="Troubleshoot Bluetooth Issues - System76 Support">
-    <meta name="twitter:title" content="Troubleshoot Bluetooth Issues - System76 Support">
+    <title>Bluetooth Troubleshooting - System76 Support</title>
+    <meta property="og:title" content="Bluetooth Troubleshooting - System76 Support">
+    <meta itemprop="name" content="Bluetooth Troubleshooting - System76 Support">
+    <meta name="twitter:title" content="Bluetooth Troubleshooting - System76 Support">
 
     <meta name="description" content="Here is how to fix several common Bluetooth issues with your computer.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Troubleshoot Bluetooth Issues
+        Bluetooth Troubleshooting
         <a href="https://github.com/system76/docs/edit/master/_articles/bluetooth.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,59 +200,61 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>Bluetooth issues can be troubleshooted in several ways.  The first thing to check is toggling airplane mode which will sometimes get Bluetooth functioning again.  Next, make sure Bluetooth is enabled in the top bar, or in the <u>Bluetooth</u> system settings.</p>
+        <h1 id="bluetooth-troubleshooting">Bluetooth Troubleshooting</h1>
+
+<p>Bluetooth issues can be troubleshooted in several ways.  The first thing to check is toggling airplane mode which will sometimes get Bluetooth functioning again.  Next, make sure Bluetooth is enabled in the top bar, or in the <u>Bluetooth</u> system settings.</p>
 
 <p>Then, try reinstalling Bluetooth related software with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install --reinstall bluez gnome-bluetooth indicator-bluetooth pulseaudio-module-bluetooth
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">--reinstall</span> bluez gnome-bluetooth indicator-bluetooth pulseaudio-module-bluetooth
 </code></pre></div></div>
 
 <p><strong>NOTE:</strong> After reinstalling the above packages, fully shut down the machine and then power it back on, rather than rebooting. This ensures the hardware completely resets.</p>
 
 <p>If <code class="language-plaintext highlighter-rouge">tlp</code> is installed, then there may be settings interfering with Bluetooth functionality.  Edit this file and disable Wifi and Bluetooth power saving features:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /etc/default/tlp
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gedit /etc/default/tlp
 </code></pre></div></div>
 
 <h2 id="useful-programs">Useful Programs</h2>
 
 <p>There is a program called <u>Bluetooth Manager</u> which is included with <u>XFCE</u>. It can sometimes pair and trust Bluetooth devices better than the default <u>Bluetooth</u> settings. Install it with:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install blueman
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>blueman
 </code></pre></div></div>
 
 <p>Then, run <u>Bluetooth Manager</u>. Check for the device being trusted, and also try re-pairing in that program.</p>
 
 <h2 id="useful-commands">Useful Commands</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsmod | grep bluetooth
-dmesg | grep Bluetooth
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsmod | <span class="nb">grep </span>bluetooth
+dmesg | <span class="nb">grep </span>Bluetooth
 </code></pre></div></div>
 
 <p>These will show if the Bluetooth module (driver) is loaded, and what the system messages are.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl status bluetooth
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl status bluetooth
 </code></pre></div></div>
 
 <p>This will check to see if the service that handles Bluetooth is running.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rfkill list
-sudo rfkill unblock bluetooth
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rfkill list
+<span class="nb">sudo </span>rfkill unblock bluetooth
 </code></pre></div></div>
 
 <p>If both Bluetooth and Wireless are soft blocked or if the Wireless is soft blocked run this command to unblock:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rfkill unblock all
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>rfkill unblock all
 </code></pre></div></div>
 
 <p>This will check to see Bluetooth is blocked, and if so, unblock it.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pactl load-module module-bluetooth-discover
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pactl load-module module-bluetooth-discover
 </code></pre></div></div>
 
 <p>This will load the PulseAudio module responsible for Bluetooth Audio.  Typically, it’s loaded by default, but sometimes a manual loading can get Bluetooth headsets working again.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo btmon
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>btmon
 </code></pre></div></div>
 
 <p>This will show all Bluetooth related messages.  Try leaving this command running while pairing or using a device to see any error messages or failures.</p>
@@ -264,7 +266,8 @@ sudo rfkill unblock bluetooth
 <h4 id="controlling-audio">Controlling audio</h4>
 
 <p>Once you are connected to a Bluetooth speaker, you may need to change where your current audio is “routed”. You can get a more advanced interface to settings on audio with the program called PulseAudio Volume Control. To install, run this command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install pavucontrol
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>pavucontrol
 </code></pre></div></div>
 <p>There will be a drop-down in the Playback tab for each of your applications that is outputting sound that you should be able to change to your Bluetooth speaker.</p>
 
@@ -276,21 +279,21 @@ sudo rfkill unblock bluetooth
 
 <p>Then they can be installed with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg -i linux-firmware_1.167.1_all.deb
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg <span class="nt">-i</span> linux-firmware_1.167.1_all.deb
 </code></pre></div></div>
 
 <h4 id="file-transfer">File Transfer</h4>
 
 <p>Sometimes, additional programs need to be installed for mobile equipment file transfer.  Please install the transfer tool with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install obexfs obexftp
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>obexfs obexftp
 </code></pre></div></div>
 
 <p>Then connect (pair) to the device and see if send files works.  To receive files over Bluetooth you will need to enable the option in <u>Personal File Sharing</u>.</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-08-27</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

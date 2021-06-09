@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Manage Repositories in Pop!_OS - System76 Support</title>
-    <meta property="og:title" content="Manage Repositories in Pop!_OS - System76 Support">
-    <meta itemprop="name" content="Manage Repositories in Pop!_OS - System76 Support">
-    <meta name="twitter:title" content="Manage Repositories in Pop!_OS - System76 Support">
+    <title>Manage Repositories (Pop!_OS) - System76 Support</title>
+    <meta property="og:title" content="Manage Repositories (Pop!_OS) - System76 Support">
+    <meta itemprop="name" content="Manage Repositories (Pop!_OS) - System76 Support">
+    <meta name="twitter:title" content="Manage Repositories (Pop!_OS) - System76 Support">
 
     <meta name="description" content="Add, remove and edit repositories in Pop!_OS
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Manage Repositories in Pop!_OS
+        Manage Repositories (Pop!_OS)
         <a href="https://github.com/system76/docs/edit/master/_articles/manage-repos-pop.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,7 +200,9 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h3 id="accessing-repoman">Accessing Repoman</h3>
+        <h1 id="manage-repositories-pop_os">Manage Repositories (Pop!_OS)</h1>
+
+<h3 id="accessing-repoman">Accessing Repoman</h3>
 
 <p>Pop!_OS’ tool for adding, removing and editing repositiories is called <u>Repoman</u> which is a part of the Pop!_Shop.</p>
 
@@ -212,47 +214,47 @@
 
 <p><u>Repoman</u> can be also be used to add, remove and edit Flatpak Sources starting with Pop!_OS 20.04 LTS. For command-line use of Flatpak the following commands can be used:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak remotes
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak remotes
 </code></pre></div></div>
 
 <p>This is used to list the remote/sources configured on your system.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak remote-add <span class="nt">--if-not-exists</span> flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 </code></pre></div></div>
 
 <p>This command is used to add a remote/source if it doesn’t exist on your system and in this example the Flathub remove/source is being added.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak remote-delete flathub
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak remote-delete flathub
 </code></pre></div></div>
 
 <p>If we want to remove a remote/source the following command can be used.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak search inkscape
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak search inkscape
 </code></pre></div></div>
 
 <p>This command is used to search for a certain package (inkscape in this case) in the coufigured remotes/sources on this system.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak install flathub org.inkscape.Inkscape
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak <span class="nb">install </span>flathub org.inkscape.Inkscape
 </code></pre></div></div>
 
 <p>Here we are installing inkscape using the Flathub remote/source.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak uninstall org.inkscape.Inkscape
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak uninstall org.inkscape.Inkscape
 </code></pre></div></div>
 
 <p>This will remove the inkscape package from this system.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak run org.inkscape.Inkscape
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak run org.inkscape.Inkscape
 </code></pre></div></div>
 
 <p>This command will run inkscape once it is installed on the system.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak update
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak update
 </code></pre></div></div>
 
 <p>This will update all of your installed Flatpak applications and runtimes to their latest versions.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak list
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flatpak list
 </code></pre></div></div>
 
 <p>This will list all of the installed applications and runtimes.</p>
@@ -261,7 +263,7 @@
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2020-04-30</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

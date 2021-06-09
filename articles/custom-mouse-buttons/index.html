@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Customizing Your Mouse - System76 Support</title>
-    <meta property="og:title" content="Customizing Your Mouse - System76 Support">
-    <meta itemprop="name" content="Customizing Your Mouse - System76 Support">
-    <meta name="twitter:title" content="Customizing Your Mouse - System76 Support">
+    <title>Mouse Customization - System76 Support</title>
+    <meta property="og:title" content="Mouse Customization - System76 Support">
+    <meta itemprop="name" content="Mouse Customization - System76 Support">
+    <meta name="twitter:title" content="Mouse Customization - System76 Support">
 
     <meta name="description" content="How to customize the buttons on your mouse
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Customizing Your Mouse
+        Mouse Customization
         <a href="https://github.com/system76/docs/edit/master/_articles/custom-mouse-buttons.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -241,19 +241,19 @@
 
 <p>Then install the following packages:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install xbindkeys xautomation
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>xbindkeys xautomation
 </code></pre></div></div>
 
 <p>Then create the default config file for <u>xbindkeys</u> with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xbindkeys --defaults &gt; $HOME/.xbindkeysrc
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xbindkeys <span class="nt">--defaults</span> <span class="o">&gt;</span> <span class="nv">$HOME</span>/.xbindkeysrc
 </code></pre></div></div>
 
 <h3 id="setting-custom-actions">Setting custom actions</h3>
 
 <p>Now let’s open the config file with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gedit ~/.xbindkeysrc
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gedit ~/.xbindkeysrc
 </code></pre></div></div>
 
 <p>Then scroll down to the bottom of the file right below this line:</p>
@@ -290,7 +290,7 @@
 
 <p>If any changes are made to the config file then xbindkeys need to be restarted with these commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall xbindkeys
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall xbindkeys
 xbindkeys
 </code></pre></div></div>
 
@@ -308,7 +308,7 @@ xbindkeys
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-06-03</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

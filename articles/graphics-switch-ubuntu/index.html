@@ -9,18 +9,18 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Switching Graphics in Ubuntu - System76 Support</title>
-    <meta property="og:title" content="Switching Graphics in Ubuntu - System76 Support">
-    <meta itemprop="name" content="Switching Graphics in Ubuntu - System76 Support">
-    <meta name="twitter:title" content="Switching Graphics in Ubuntu - System76 Support">
+    <title>Graphics switching (Ubuntu) - System76 Support</title>
+    <meta property="og:title" content="Graphics switching (Ubuntu) - System76 Support">
+    <meta itemprop="name" content="Graphics switching (Ubuntu) - System76 Support">
+    <meta name="twitter:title" content="Graphics switching (Ubuntu) - System76 Support">
 
-    <meta name="description" content="How to switch between integrated, NVIDIA, and Hybrid graphics
+    <meta name="description" content="How to use systems with switchable graphics
 ">
-    <meta property="og:description" content="How to switch between integrated, NVIDIA, and Hybrid graphics
+    <meta property="og:description" content="How to use systems with switchable graphics
 ">
-    <meta itemprop="description" content="How to switch between integrated, NVIDIA, and Hybrid graphics
+    <meta itemprop="description" content="How to use systems with switchable graphics
 ">
-    <meta name="twitter:description" content="How to switch between integrated, NVIDIA, and Hybrid graphics
+    <meta name="twitter:description" content="How to use systems with switchable graphics
 ">
 
     <meta name="keywords" content="System76 Ubuntu 18.04 19.1 20.04 NVIDIA Hybrid Integrated">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Switching Graphics in Ubuntu
+        Graphics switching (Ubuntu)
         <a href="https://github.com/system76/docs/edit/master/_articles/graphics-switch-ubuntu.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -232,12 +232,12 @@ discrete GPU.</p>
 
 <p>Vulkan applications must be launched with the following command to be rendered on the dGPU (NVIDIA):</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__NV_PRIME_RENDER_OFFLOAD=1 &lt;application&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">__NV_PRIME_RENDER_OFFLOAD</span><span class="o">=</span>1 &lt;application&gt;
 </code></pre></div></div>
 
 <p>GLX applications must be launched with the following command to be rendered on the dGPU (NVIDIA):</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia &lt;application&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">__NV_PRIME_RENDER_OFFLOAD</span><span class="o">=</span>1 <span class="nv">__GLX_VENDOR_LIBRARY_NAME</span><span class="o">=</span>nvidia &lt;application&gt;
 </code></pre></div></div>
 
 <p>Hybrid graphics mode is available on 19.10 and later.</p>
@@ -256,13 +256,13 @@ ability to switch between integrated, NVIDIA, and hybrid graphics modes.</p>
 as our installations will include these packages by default. You can do this
 with the following commands:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-add-repository ppa:system76-dev/stable
-sudo apt install gnome-shell-extension-system76-power system76-power
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-add-repository ppa:system76-dev/stable
+<span class="nb">sudo </span>apt <span class="nb">install </span>gnome-shell-extension-system76-power system76-power
 </code></pre></div></div>
 
 <p>Then we need to load the extension with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gnome-shell-extension-prefs
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gnome-shell-extension-prefs
 </code></pre></div></div>
 
 <p>Now enable the System76 Power extension with the toggle to the right.</p>
@@ -283,32 +283,32 @@ switching.</p>
 <p>If you are not using the GNOME Desktop Environment, you can use the system76-power 
 command line tool. You can see the options with this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power help
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>system76-power <span class="nb">help</span>
 </code></pre></div></div>
 
 <p>For seeing which graphics mode the system is using:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics
 </code></pre></div></div>
 
 <p>For switching to NVIDIA Graphics:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics nvidia
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics nvidia
 </code></pre></div></div>
 
 <p>For switching to integrated Graphics:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics integrated
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics integrated
 </code></pre></div></div>
 
 <p>For switching to hybrid graphics:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics hybrid
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics hybrid
 </code></pre></div></div>
 
 <p>For switching to compute mode:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo system76-power graphics compute
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>system76-power graphics compute
 </code></pre></div></div>
 
 <h3 id="sources">Sources</h3>
@@ -322,7 +322,7 @@ command line tool. You can see the options with this command:</p>
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-06-04</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 

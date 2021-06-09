@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Fix raw image previews - System76 Support</title>
-    <meta property="og:title" content="Fix raw image previews - System76 Support">
-    <meta itemprop="name" content="Fix raw image previews - System76 Support">
-    <meta name="twitter:title" content="Fix raw image previews - System76 Support">
+    <title>Fix Raw Image Previews - System76 Support</title>
+    <meta property="og:title" content="Fix Raw Image Previews - System76 Support">
+    <meta itemprop="name" content="Fix Raw Image Previews - System76 Support">
+    <meta name="twitter:title" content="Fix Raw Image Previews - System76 Support">
 
     <meta name="description" content="Add a custom thumbnail generator to display thumbnails for raw image in Files.
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Fix raw image previews
+        Fix Raw Image Previews
         <a href="https://github.com/system76/docs/edit/master/_articles/fix-raw-image-previews.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,20 +200,22 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <p>The Files app doesn’t display thumbnails for raw images by default, but RawTherapee can handle a large array of raw image formats. We can use RawTherapee’s ability to convert raw images into PNGs to create thumbnails for other programs.</p>
+        <h1 id="fix-raw-image-previews">Fix Raw Image Previews</h1>
+
+<p>The Files app doesn’t display thumbnails for raw images by default, but RawTherapee can handle a large array of raw image formats. We can use RawTherapee’s ability to convert raw images into PNGs to create thumbnails for other programs.</p>
 
 <h2 id="install-rawtherapee">Install RawTherapee</h2>
 
 <p>First, install RawTherapee using this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install rawtherapee
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>rawtherapee
 </code></pre></div></div>
 
 <h2 id="create-a-custom-thumbnailer">Create a custom thumbnailer</h2>
 
 <p>Nautilus uses thumbnailer scripts to generate thumbnails for images. Create a thumbnailer for raw images using this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gedit /usr/share/thumbnailers/rawtherapee.thumbnailer
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>gedit /usr/share/thumbnailers/rawtherapee.thumbnailer
 </code></pre></div></div>
 
 <p>Copy and paste the following text into the file:</p>
@@ -230,7 +232,7 @@ MimeType=image/x-arw;image/x-bay;image/x-canon-cr2;image/x-canon-crw;image/x-cap
 
 <p>Though sometimes unnessesary, it’s always a good idea to start fresh with thumbnail creation. To do this, delete the thumbnailer cache using this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -r ~/.cache/thumbnails/*
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-r</span> ~/.cache/thumbnails/<span class="k">*</span>
 </code></pre></div></div>
 
 <p><strong>Note:</strong> This will force Nautilus to recreate the thumbnails for all of your files. Depending on the number, size, and format of your images, this can cause some lag the first time visiting an image-heavy directory.</p>
@@ -244,7 +246,7 @@ MimeType=image/x-arw;image/x-bay;image/x-canon-cr2;image/x-canon-crw;image/x-cap
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-02-04</p>
+        <p>Article last modified: 2021-06-09</p>
     </div>
 </div>
 
