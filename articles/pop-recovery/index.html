@@ -216,7 +216,7 @@
   <li><a href="/articles/pop-recovery/#reinstall">Reinstall</a></li>
 </ul>
 
-<h3 id="repair">Repair</h3>
+<h2 id="repair">Repair</h2>
 
 <p>If the existing system needs to be repaired, then click the <strong>Install Pop!_OS</strong> in the top left, and choose <strong>quit</strong>.</p>
 
@@ -259,19 +259,15 @@
       <td><strong>NVMe Drives</strong></td>
     </tr>
     <tr>
-      <td>sudo cryptsetup luksOpen /dev/sda3 cryptdata</td>
-      <td>sudo cryptsetup luksOpen /dev/nvme0n1p3 cryptdata</td>
-    </tr>
-    <tr>
-      <td>sudo lvscan</td>
-      <td>sudo lvscan</td>
-    </tr>
-    <tr>
-      <td>sudo vgchange -ay</td>
-      <td>sudo vgchange -ay</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo cryptsetup luksOpen /dev/sda3 cryptdata</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sudo cryptsetup luksOpen /dev/nvme0n1p3 cryptdata</code></td>
     </tr>
   </tbody>
 </table>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>lvscan
+<span class="nb">sudo </span>vgchange <span class="nt">-ay</span>
+</code></pre></div></div>
 
 <p><strong>Note:</strong> Pay attention to what the cryptdata group is called. If it is named something other than ‘data-root’ Substitute the correct info into this next command.  Make sure that <code class="language-plaintext highlighter-rouge">-root</code> is on the end:</p>
 
@@ -280,7 +276,7 @@
 
 <p>And now the existing hard drive can be accessed by going to the <code class="language-plaintext highlighter-rouge">/mnt</code> folder.  To use the <u>Files</u> program, go to ‘+ Other Locations’ -&gt; ‘Computer’ and then click on the <code class="language-plaintext highlighter-rouge">/mnt</code> folder.</p>
 
-<h3 id="chroot">Chroot</h3>
+<h2 id="chroot">Chroot</h2>
 
 <p><u>chroot</u> is the way to run commands as if the existing operating system had been booted.  Once these commands are run, then package manager (<u>apt</u>) and other system level commands can be run.</p>
 
@@ -293,31 +289,28 @@
       <td><strong>NVMe Drives</strong></td>
     </tr>
     <tr>
-      <td>sudo mount /dev/sda1 /mnt/boot/efi</td>
-      <td>sudo mount /dev/nvme0n1p1 /mnt/boot/efi</td>
-    </tr>
-    <tr>
-      <td>for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done</td>
-      <td>for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done</td>
-    </tr>
-    <tr>
-      <td>sudo cp -n /etc/resolv.conf /mnt/etc/</td>
-      <td>sudo cp -n /etc/resolv.conf /mnt/etc/</td>
-    </tr>
-    <tr>
-      <td>sudo chroot /mnt</td>
-      <td>sudo chroot /mnt</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo mount /dev/sda1 /mnt/boot/efi</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sudo mount /dev/nvme0n1p1 /mnt/boot/efi</code></td>
     </tr>
   </tbody>
 </table>
 
-<p>To exit from the <u>chroot</u> and reboot the computer, run these commands:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>i <span class="k">in </span>dev dev/pts proc sys run<span class="p">;</span> <span class="k">do </span><span class="nb">sudo </span>mount <span class="nt">-B</span> <span class="nv">$i</span> /mnt/<span class="nv">$i</span><span class="p">;</span> <span class="k">done 
+</span><span class="nb">sudo cp</span> <span class="nt">-n</span> /etc/resolv.conf /mnt/etc/
+<span class="nb">sudo chroot</span> /mnt
+</code></pre></div></div>
+
+<p>With this last command you will have root access to your installed system. You can also access your files with <u>files</u> via “Other Locations” &gt; Computer &gt; /mnt.</p>
+
+<h3 id="after-chroot">After Chroot</h3>
+
+<p>Once you are done accessing files or running commands in your installed OS, you can exit from the <u>chroot</u> and reboot the computer, run these commands:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit
 </span>reboot
 </code></pre></div></div>
 
-<h3 id="refresh-install">Refresh Install</h3>
+<h2 id="refresh-install">Refresh Install</h2>
 
 <p>Starting with new installations of Pop!_OS 19.04 (not through upgrading) the installer will include a new Refresh Install option that allows you to reinstall the OS to be reinstalled without losing user account information and data in the home directory. However, your applications will still need to be reinstalled.</p>
 

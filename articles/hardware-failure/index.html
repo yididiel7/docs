@@ -214,11 +214,13 @@
 
 <h4 id="memory">Memory</h4>
 
-<p>To run a memory test on your computer, we need to use a <a href="/articles/live-disk/">live disk</a> with Ubuntu. We also need to change the BIOS settings from UEFI mode to BIOS mode.  If you press the key indicated on boot to get into BIOS (<kbd>F2</kbd> for laptops, and <kbd>DEL</kbd> for most desktops), there will be a toggle between the two modes.</p>
+<p>We can test memory in your running OS with the ‘memtest’ package. You want to put <em>most</em> of your memory under test but still leave enough space for your normal workload and the OS to continue running. On a 8 GB system, testing 6 GB would be tested like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install memtester
+sudo memtester 6G 5
+</code></pre></div></div>
+<p>Memory test can take a number of hours. While this will not put all of memory under test, it will make any memory error likely to cause instability if not part of the tested memory or show up clearly with errors in the <code class="language-plaintext highlighter-rouge">memtester</code> run</p>
 
-<p>Once you switch to BIOS mode, restart, and use the key to boot from other drives (<kbd>F7</kbd> for laptops, and <kbd>F12</kbd> for most desktops) to select the USB.  Right after you select the USB for boot, start tapping the <kbd>ESC</kbd> key to get into the GRUB boot menu.  If you accidentally get to a GRUB command prompt, type in the word <code class="language-plaintext highlighter-rouge">normal</code>, press <kbd>Enter</kbd>, then immediately press <kbd>ESC</kbd>.  Grub is available for only a second, so if you miss the opportunity, turn your computer off and try again.</p>
-
-<p>In the grub boot menu, choose <strong>Memory test (memtest86+)</strong>.  Right as memtest loads (blue screen), press <kbd>F2</kbd> to enable multi-core mode.  Wait at least 20 minutes for the tests to run, or until any errors are shown in red.  If any errors are found, please run it again in single core mode, and let it run overnight to check for any memory errors.  6 to 8 passes are minimally recommended.  If memory errors show up, the memory stick should be replaced.</p>
+<p><a href="https://www.memtest86.com/">Memtest86++</a> also has ISO downloads for personal use. You would boot from a USB drive made with the ISO. Right as memtest loads (blue screen), press <kbd>F2</kbd> to enable multi-core mode.  Wait at least 20 minutes for the tests to run, or until any errors are shown in red.  If any errors are found, please run it again in single core mode, and let it run overnight to check for any memory errors.  6 to 8 passes are minimally recommended.  If memory errors show up, the memory stick should be replaced.</p>
 
 <h4 id="hard-drive">Hard Drive</h4>
 
