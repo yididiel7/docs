@@ -9,10 +9,10 @@
 
     <meta name="theme-color" content="#574e4a">
 
-    <title>Install System76 Software in other OSes - System76 Support</title>
-    <meta property="og:title" content="Install System76 Software in other OSes - System76 Support">
-    <meta itemprop="name" content="Install System76 Software in other OSes - System76 Support">
-    <meta name="twitter:title" content="Install System76 Software in other OSes - System76 Support">
+    <title>System76 Software (Install - Other Operating Systems) - System76 Support</title>
+    <meta property="og:title" content="System76 Software (Install - Other Operating Systems) - System76 Support">
+    <meta itemprop="name" content="System76 Software (Install - Other Operating Systems) - System76 Support">
+    <meta name="twitter:title" content="System76 Software (Install - Other Operating Systems) - System76 Support">
 
     <meta name="description" content="Learn what software is needed to use other OSes and install them
 ">
@@ -191,7 +191,7 @@
     <div class="row">
       <h1 class="small-12 columns greeting">
         <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
-        Install System76 Software in other OSes
+        System76 Software (Install - Other Operating Systems)
         <a href="https://github.com/system76/docs/edit/master/_articles/system76-software.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
       </h1>
     </div>
@@ -200,15 +200,19 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h1 id="notes-about-these-instructions">Notes about these instructions</h1>
+        <h1 id="system76-software-install---other-operating-systems">System76 Software (Install - Other Operating Systems)</h1>
 
-<p>NOTE: These instructions were tested on a Galago Pro (galp3-b) and Pangolin (pang10). Neither system have NVIDIA GPUs, so this process doesn’t go over installing the NVIDIA driver (system76-driver-nvidia). Due to these limitations, switchable graphics may not work on NVIDIA systems.</p>
+<blockquote>
+  <p><strong>NOTE:</strong> These instructions were tested on a Galago Pro (galp3-b) and Pangolin (pang10). Neither system have NVIDIA GPUs, so this process doesn’t go over installing the NVIDIA driver (system76-driver-nvidia). Due to these limitations, switchable graphics may not work on NVIDIA systems.</p>
+</blockquote>
 
-<h2 id="arch">Arch</h2>
+<h1 id="arch">Arch</h1>
 
 <p>Be sure to install the <u>System76 Driver</u> first. The steps to do that are <a href="/articles/system76-driver">here</a>.</p>
 
-<h3 id="system76-firmware-daemon">System76 Firmware Daemon</h3>
+<h2 id="system76-firmware-daemon">System76 Firmware Daemon</h2>
+
+<p>These commands will clone, build and install the <u>System76 Firmware Daemon</u> service.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/system76-firmware.git
 <span class="nb">cd </span>system76-firmware-daemon
@@ -217,14 +221,16 @@ makepkg <span class="nt">-srcif</span>
 <span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> adm
 </code></pre></div></div>
 
-<h3 id="system76-firmware-manager">System76 Firmware Manager</h3>
+<h2 id="system76-firmware-manager">System76 Firmware Manager</h2>
+
+<p>These commands will clone, build and install the <u>System76 Firmware Manager</u> application.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/firmware-manager.git
 <span class="nb">cd </span>firmware-manager
 makepkg <span class="nt">-srcif</span>
 </code></pre></div></div>
 
-<h3 id="system76-dkms">System76 DKMS</h3>
+<h2 id="system76-dkms">System76 DKMS</h2>
 
 <p>This package is needed for hotkeys and fan(s) on Closed Firmware systems:</p>
 
@@ -233,7 +239,7 @@ makepkg <span class="nt">-srcif</span>
 makepkg <span class="nt">-srcif</span>
 </code></pre></div></div>
 
-<h3 id="system76-acpi-dkms">System76 ACPI DKMS</h3>
+<h2 id="system76-acpi-dkms">System76 ACPI DKMS</h2>
 
 <p>This package is needed for hotkeys and fan(s) on Open Firmware systems:</p>
 
@@ -242,7 +248,7 @@ makepkg <span class="nt">-srcif</span>
 makepkg <span class="nt">-srcif</span>
 </code></pre></div></div>
 
-<h3 id="system76-power">System76 Power</h3>
+<h2 id="system76-power">System76 Power</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/system76-power.git
 <span class="nb">cd </span>system76-power
@@ -251,14 +257,16 @@ makepkg <span class="nt">-srcif</span>
 <span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> adm
 </code></pre></div></div>
 
-<h4 id="system76-power-gnome-shell-extension">System76 Power GNOME Shell Extension</h4>
+<h2 id="system76-power-gnome-shell-extension">System76 Power GNOME Shell Extension</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://aur.archlinux.org/gnome-shell-extension-system76-power-git.git
 <span class="nb">cd </span>gnome-shell-extension-system76-power
 makepkg <span class="nt">-srcif</span>
 </code></pre></div></div>
 
-<p>NOTE: As of this writing the GNOME Shell Extension doesn’t support GNOME 40.</p>
+<blockquote>
+  <p><strong>NOTE:</strong> As of this writing the GNOME Shell Extension doesn’t support GNOME 40.</p>
+</blockquote>
 
 <h3 id="system76-thelio-io-dkms">System76 Thelio Io DKMS</h3>
 
@@ -267,7 +275,9 @@ makepkg <span class="nt">-srcif</span>
 makepkg <span class="nt">-srcif</span>
 </code></pre></div></div>
 
-<p>NOTE: This package is only needed for Thelio desktops.</p>
+<blockquote>
+  <p><strong>NOTE:</strong> This package is only needed for Thelio desktops.</p>
+</blockquote>
 
 <h3 id="system76-oled">System76 OLED</h3>
 
@@ -276,13 +286,15 @@ makepkg <span class="nt">-srcif</span>
 makepkg <span class="nt">-srcif</span>
 </code></pre></div></div>
 
-<p>NOTE: This package is only needed for systems with OLED displays to control the brightness.</p>
+<blockquote>
+  <p><strong>NOTE:</strong> This package is only needed for systems with OLED displays to control the brightness.</p>
+</blockquote>
 
-<h2 id="fedora">Fedora</h2>
+<h1 id="fedora">Fedora</h1>
 
 <p>Be sure to install the <u>System76 Driver</u> first and the steps to do that are <a href="/articles/system76-driver">here</a>.</p>
 
-<h3 id="system76-firmware-manager-1">System76 Firmware Manager</h3>
+<h2 id="system76-firmware-manager-1">System76 Firmware Manager</h2>
 
 <p>Then install the <u>System76 Firmware Manager</u> and the <u>System76 Firmware Daemon</u>,enable the service and add your user to the adm group:</p>
 
@@ -291,7 +303,7 @@ makepkg <span class="nt">-srcif</span>
 <span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> adm
 </code></pre></div></div>
 
-<h3 id="system76-power-1">System76 Power</h3>
+<h2 id="system76-power-1">System76 Power</h2>
 
 <p>Use these commands to install the <u>System76 Power</u> package and enable the service:</p>
 
@@ -299,23 +311,38 @@ makepkg <span class="nt">-srcif</span>
 <span class="nb">sudo </span>systemctl start system76-power
 </code></pre></div></div>
 
-<h3 id="system76-dkms-1">System76 DKMS</h3>
+<h2 id="system76-power-gnome-shell-extension-1">System76 Power GNOME Shell Extension</h2>
 
-<p>This command will be used to install the <u>System76 DKMS</u> package which is for Proprietary Firmware systems:</p>
+<p>These commands will download the source code for the application, build it, install it and install the <u>Extensions</u> application:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/pop-os/gnome-shell-extension-system76-power.git
+<span class="nb">cd </span>gnome-shell-extension-system76-power
+<span class="nb">sudo </span>dnf <span class="nb">install </span>nodejs-typescript
+make
+make <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>Now log out and use the <u>Extensions</u> to enable the extenstion.</p>
+
+<h2 id="system76-dkms-1">System76 DKMS</h2>
+
+<p>These commands will be used to install the <u>System76 DKMS</u> package which is for Proprietary Firmware systems:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>system76-dkms
 <span class="nb">sudo </span>systemctl <span class="nb">enable </span>dkms
 </code></pre></div></div>
 
-<h3 id="system76-acpi-dkms-1">System76 ACPI DKMS</h3>
+<h2 id="system76-acpi-dkms-1">System76 ACPI DKMS</h2>
 
-<p>This command will be used to install the <u>System76 ACPI DKMS<u> package which is for Open Firmware systems:</u></u></p>
+<p>These commands will be used to install the <u>System76 ACPI DKMS</u> package which is for Open Firmware systems:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf <span class="nb">install </span>system76-acpi-dkms
 <span class="nb">sudo </span>systemctl <span class="nb">enable </span>dkms
 </code></pre></div></div>
 
-<p>NOTE: After enabling the dkms systemd service for either the <u>System76 DKMS</u> or the <u>System76 ACPI DKMS</u> package you will need to reboot the system:</p>
+<blockquote>
+  <p><strong>NOTE:</strong> After enabling the dkms systemd service for either the <u>System76 DKMS</u> or the <u>System76 ACPI DKMS</u> package you will need to reboot the system:</p>
+</blockquote>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl reboot
 </code></pre></div></div>
