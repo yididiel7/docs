@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="theme-color" content="#574e4a">
+
+    <title>Disaster Recovery - System76 Support</title>
+    <meta property="og:title" content="Disaster Recovery - System76 Support">
+    <meta itemprop="name" content="Disaster Recovery - System76 Support">
+    <meta name="twitter:title" content="Disaster Recovery - System76 Support">
+
+    <meta name="description" content="How to backup your files if your OS doesn't boot
+">
+    <meta property="og:description" content="How to backup your files if your OS doesn't boot
+">
+    <meta itemprop="description" content="How to backup your files if your OS doesn't boot
+">
+    <meta name="twitter:description" content="How to backup your files if your OS doesn't boot
+">
+
+    <meta name="keywords" content="files backup deja-dup">
+
+    
+    <meta property="og:image" content="http://support.system76.com/images/system76.png" />
+    <meta name="twitter:image:src" content="http://support.system76.com/images/system76.png">
+    
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@system76">
+    <meta name="twitter:creator" content="@system76">
+
+
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://system76.com/images/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://system76.com/images/touch-icon-ipad-retina.png">
+    <link rel="touch-icon" sizes="196x196" href="https://system76.com/images/icon-196.png">
+    <link rel="icon" sizes="196x196" href="https://system76.com/images/icon-196.png">
+
+    <link rel="stylesheet" type="text/css" media="all" href="https://system76.com/stylesheets/app.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!--[if lt IE 10]><script>document.documentElement.className += " legacy";</script><![endif]-->
+
+        <script>
+        (function() {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) {
+                var fbds = document.createElement('script');
+                fbds.async = true;
+                fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(fbds, s);
+                _fbq.loaded = true;
+            }
+        })();
+        window._fbq = window._fbq || [];
+        </script>
+
+        <script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+
+        <script>
+        var fbSent = false;
+
+        function facebookStatusChangeCallback(response) {
+            if (response.status === 'connected' && fbSent) {
+                window.oauthSuccess('facebook', response.authResponse.accessToken);
+            }
+        }
+
+        function facebookCheckLoginState() {
+            FB.getLoginStatus(function(response) {
+                facebookStatusChangeCallback(response);
+            });
+        }
+
+        function facebookLogin() {
+            fbSent = true;
+            FB.login(
+                facebookCheckLoginState,
+                {
+                    scope: 'email'
+                }
+            );
+        }
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '346948125501334',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.1'
+            });
+
+            FB.getLoginStatus(function(response) {
+                facebookStatusChangeCallback(response);
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <script>
+        function githubLogin() {
+            var gitHubWindow = popupCenter(
+                "https://github.com/login/oauth/authorize?" +
+                "client_id=dc1b6955f316f6f4633b" +
+                "&scope=user,user:email",
+                "GitHub"+Date.now(),
+                1024,
+                600
+            );
+        }
+        </script>
+
+        <meta name="google-signin-clientid" content="118911812273-tsqn79u4hm451chlbhm1gkkt63ttgoq9.apps.googleusercontent.com" />
+        <meta name="google-signin-scope" content="email" />
+        <meta name="google-signin-cookiepolicy" content="single_host_origin" />
+        <script src="https://apis.google.com/js/client:platform.js?onload=googleRender" async defer></script>
+
+        <script>
+        function googleLogin() {
+            gapi.auth.signIn({
+                'callback': googleSigninCallback
+            });
+        }
+
+        function googleSigninCallback(authResult) {
+            if (authResult['status']['signed_in']) {
+                if( authResult['status']['method'] == 'PROMPT' ) {
+                    window.oauthSuccess("google", authResult['access_token']);
+                }
+            }
+        }
+        </script>
+
+        <link href="https://cdn.rawgit.com/Lukas-W/font-linux/v0.5/assets/font-linux.css" rel="stylesheet">
+
+</head>
+
+  <body class="path-support">
+    <div id="page-container">
+        <header id="masthead" class="main">
+	<nav>
+		<a id="logo" class="home" href="https://system76.com"></a>
+
+		<ul class="quick" id="nav-links">
+			<li>
+				<a id="link-contact" href="https://system76.com/contact" title="Contact">
+					<i class="fa fa-comments"></i>
+					Contact
+				</a>
+			</li>
+
+			<li>
+				<a id="link-support" href="https://support.system76.com" title="Support">
+					<i class="fa fa-life-ring"></i>
+					Support
+				</a>
+			</li>
+
+			<li>
+				<a id="link-account" href="https://system76.com/my-account" title="Account">
+					<i class="fa fa-user"></i>
+					Account
+				</a>
+			</li>
+		</ul>
+
+		<ul id="nav-links" class="categories">
+			<li><a href="https://system76.com/laptops">Laptops</a></li>
+			<li><a href="https://system76.com/desktops">Desktops</a></li>
+			<li><a href="https://system76.com/desktops/meerkat">Mini</a></li>
+			<li><a href="https://system76.com/servers">Servers</a></li>
+			<li><a href="https://system76.com/pop">Pop!_OS</a></li>
+		</ul>
+	</nav>
+</header>
+
+
+  <header id="page-title">
+    <div class="row">
+      <h1 class="small-12 columns greeting">
+        <a href="/" title="Back to Support"><i class="fa fa-arrow-left"></i></a>
+        Disaster Recovery
+        <a href="https://github.com/system76/docs/edit/master/_articles/disaster-recovery.md" class="button"><i class="fa fa-github"></i> Edit on GitHub</a>
+      </h1>
+    </div>
+  </header>
+
+
+        <div class="row">
+    <div class="small-12 small-centered medium-10 large-8 columns">
+        <h1 id="disaster-recovery">Disaster Recovery</h1>
+
+<p>This article covers ways to extract and save your data in the event of an OS failure, update failure, or similar situation. If you are having issues reaching your login screen, this <a href="https://support.system76.com/articles/login-loop-pop/">article</a> may be helpful instead.</p>
+<h2 id="if-you-cant-boot-your-installed-os">If you can’t boot your installed OS</h2>
+
+<p>If you are not able to boot into your installed OS, then we will want to boot from a live disk. If you have Pop!_OS installed we can use the Pop!_OS Recovery Partition.</p>
+
+<h3 id="creating-the-live-disk-bootable-os">Creating the live disk (Bootable OS)</h3>
+
+<p>We can use this <a href="/articles/live-disk">article</a> to create a live disk of Ubuntu if you aren’t using Pop. For more information about accessing Recovery see <a href="/articles/pop-recovery">here</a>. For Ubuntu, refer to this <a href="/articles/bootloader">article</a>.</p>
+
+<p>We do not need to chroot into the installed OS to back up data, only mount the OS drive. Once this is done, we can install the software used for the backup process: <u>Deja Dup</u> (see below).</p>
+
+<h3 id="connect-to-the-internet">Connect to the Internet</h3>
+
+<p><img src="/images/disaster-recovery/Dialog.png" alt="Top Left Menu" /></p>
+
+<p>Use the top-right menu (as shown above) to connect to your Wi-Fi once booted into the live disk.</p>
+
+<h3 id="mount-the-installed-os">Mount the installed OS</h3>
+
+<p>Once connected to the Internet, open <u>Firefox</u> and access the <a href="/articles/bootloader">bootloader</a> article.
+Then copy and paste the encryption commands (if the OS is encrypted) and the mount commands.</p>
+
+<blockquote>
+  <p><strong>NOTE:</strong> If you own System76 hardware and/or have a System76 Account, this will also allow you to access Support Tickets, copy/paste commands from those tickets or upload log files, etc.</p>
+</blockquote>
+
+<h2 id="software">Software</h2>
+
+<p>Once the drive is mounted, we can install software to back up files.</p>
+<h3 id="deja-dup">Deja Dup</h3>
+
+<p><a href="https://wiki.gnome.org/Apps/DejaDup">Déjà Dup</a> is a popular, straightforward backup option. It can be used to back up user data locally, remotely, or to a cloud server. It can also be set up to run automatically on a regular basis.</p>
+
+<p><a href="">rsync</a> is a popular command-line tool to copy data while keeping the permissions. It is useful if the system is powering down or if you want a command-line tool to copy the files.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rsync <span class="nt">-avxP</span> <span class="se">\</span>
+/path/to/directory/to/backup <span class="se">\</span>
+/path/to/directory/for/storing/backup
+</code></pre></div></div>
+
+<h4 id="installation">Installation</h4>
+
+<p>To install <u>Deja Dup</u>, search for it in the <u>Pop!\_Shop</u>, <u>Ubuntu Software</u> or run this command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>deja-dup
+</code></pre></div></div>
+
+<p>Once Deja Dup is installed, it will be labeled as “Backups” in the Activities overview.</p>
+
+<h4 id="selecting-data-to-backup">Selecting Data to Backup</h4>
+
+<p>With Deja Dup (Backups) open, you can select the folders you wish to save or ignore using the pages listed on the left. By default, Deja Dup will backup your entire home directory, which includes your Documents, Pictures, Music, and Videos folders. It ignores your Downloads folder and any items in the Trash. Use the plus (+) and minus (-) buttons as needed to modify both categories.</p>
+
+<p><img src="/images/backup/deja_selection.png" alt="Selecting data to backup in Deja-Dup" /></p>
+
+<h4 id="choosing-a-backup-location">Choosing a Backup Location</h4>
+
+<p>On the <strong>Storage location</strong> page, you can configure the location where your backup will be stored.</p>
+
+<p><img src="/images/backup/deja_location.png" alt="Selecting a backup location in Deja-Dup" /></p>
+
+<h2 id="hardware">Hardware</h2>
+
+<p>An external or internal drive can be used as a local backup location.</p>
+
+<h3 id="external">External</h3>
+
+<p>The specs below offer an idea on what to look for when purchasing external storage:</p>
+
+<ul>
+  <li>USB 3.0/2.0</li>
+  <li>Match your OS drive size or larger. If you have a 1TB drive, purchase a 1TB drive or a 2TB+ drive, if you want to store multiple backups.</li>
+</ul>
+
+<h3 id="internal">Internal</h3>
+
+<p>If your system included a second drive beside the OS drive, we have this <a href="/articles/extra-drive/">article</a> that goes over setting up the drive to auto-mount once the OS is either repaired or reinstalled. 
+If we have the installed OS mounted in the live disk open the <u>Files</u> application then go to <strong><em>Other Locations</em></strong> to access the secondary drive. Unless you’ve changed the name of your drive, System76 systems ship with secondary drives labelled “Extra Drive” or “Extra Drive #.”</p>
+
+<h4 id="restoring-your-data">Restoring Your Data</h4>
+
+<p>Once we have our data backed up we can reinstall the OS. This <a href="https://support.system76.com/articles/install-pop/">article</a> goes over the usual install process whether you’re intalling from Recovery or a Live Disk:</p>
+
+<p>Now that we reinstalled the OS we can start restoring our data. To restore your data with Deja Dup, select the <strong>Overview</strong> page, then click the <strong>Restore…</strong> button. This will allow you to select the location containing the Deja Dup backup folder, and will copy the data from the most recent backup to its original location.</p>
+
+<p><img src="/images/backup/deja_overview.png" alt="Restoring data in Deja-Dup" /></p>
+
+<h2 id="if-the-system-doesnt-power-on">If the system doesn’t power on</h2>
+
+<p>Refer to your models <a href="/articles/service-manuals">service manual</a> for removing the drive(s). Once you have moved the drives containing your data to another system, you can transfer them to an external hard drive (or other location) with the steps in our <a href="/articles/backup-files">backup article</a>.</p>
+
+<h2 id="future-steps">Future Steps</h2>
+
+<p>Now that we have our data, and a clean install of the OS, let’s prepare for if this issue happens again. It’s good practice to set up scheduled backups. Our <a href="/articles/backup-files">backup article</a> can help.</p>
+
+<blockquote>
+  <p><strong>NOTE</strong> Good practice to prevent data loss is to ensure that any important files are backed up in at least three (3) places. Two (2) copies on-site, and one (1) copy off-site. This off-site backup could be through a cloud storage solution, or a drive that’s kept at a relative’s house, or in a safety deposit box.</p>
+</blockquote>
+
+<!--Rsync/Your Script? Let's also link to the service manuals page in case they need to pull the drive.-->
+
+    </div>
+    <div class="small-12 small-centered medium-10 large-8 columns timestamp">
+        <p>Article last modified: 2021-06-11</p>
+    </div>
+</div>
+
+    </div>
+    <footer id="foot">
+    <div id="foot-links" class="row">
+        <ul class="small-5 medium-2 columns">
+            <li><a href="https://system76.com/contact">Contact</a></li>
+            <li><a href="https://system76.com/support">Support</a></li>
+            <li><a href="https://system76.com/about">About Us</a></li>
+            <li><a href="http://blog.system76.com">Blog</a></li>
+            <li><a href="https://system76.com/careers">Careers</a></li>
+        </ul>
+        <ul class="small-7 medium-4 columns">
+            <li><a href="https://system76.com/shipping">Shipping Information</a></li>
+            <li><a href="https://system76.com/warranty">Warranty &amp; Returns</a></li>
+            <li><a href="https://system76.com/privacy">Privacy Policy</a></li>
+            <li><a href="https://system76.com/disclaimer">Disclaimer</a></li>
+            <li><a href="https://system76.com/terms">Terms &amp; Conditions</a></li>
+        </ul>
+        <ul id="social-links" class="small-12 medium-6 columns">
+            <li><a href="https://www.facebook.com/system76/"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/system76/"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.pinterest.com/system76/"><i class="fa fa-pinterest"></i></a></li>
+        </ul>
+    </div>
+    <div id="copyright" class="text-center">Copyright &copy; 2021 System76, Inc. </div>
+
+    <div class="disclaimer text-center">* All financing prices are based on the advertised price at 10% APR paid over 12 months.</div>
+
+    <div id="trademarks" class="text-center">Intel, the Intel Logo, Intel Core, and Xeon are trademarks of Intel Corporation in the U.S. and/or other countries.</div>
+</footer>
+
+<script src="https://system76.com/scripts/thinkbott1k.js"></script>
+
+<!--[if lt IE 10]>
+<div id="legacy-warning">
+<h1>System76 is built on modern web technologies your browser doesn&rsquo;t support.</h1>
+<p>This version of Internet Explorer is out of date and may contain bugs or security vulnerabilities. Please <a href="http://browsehappy.com/">upgrade</a> to IE 11 or an alternative web browser.</p>
+<p>If you have questions about an order or require support, feel free to <a href="/contact">contact us</a>.</p>
+<div id="legacy-warning-buttons">
+<a href="#" onClick="document.getElementById('legacy-warning').style.display = 'none';">Dismiss</a>
+<a class="primary" href="http://browsehappy.com/">Learn More</a>
+</div>
+</div>
+<![endif]-->
+
+  </body>
+</html>
