@@ -204,7 +204,13 @@
 
 <p>The recovery partition on this operating system is a full copy of the Pop!_OS installation disk. It can be used exactly the same as if a live disk copy of Pop!_OS was booted from a USB drive. The existing operating system can be repaired or reinstalled from the recovery mode. You can also perform a refresh install, which allows you to reinstall without losing any user data or data in your home directory, or opt to do a fresh install, which will essentially reset all OS data. Refresh Installs are only available on a fresh install of Pop!_OS 19.04 and above.</p>
 
-<p>To boot into recovery mode, bring up the <u>systemd-boot</u> menu by holding down <kbd>SPACE</kbd> while the system is booting. On the menu, choose <strong>Pop!_OS Recovery</strong>.</p>
+<p>To boot into recovery mode, bring up the <u>systemd-boot</u> menu by holding down <kbd>SPACE</kbd> while the system is booting, or by holding/tapping any function keys <strong>NOT</strong> used to <a href="https://support.system76.com/articles/boot-menu/">Access the BIOS/Boot Menu</a> (On non-System76 hardware, try the keys <kbd>F1</kbd> through <kbd>F12</kbd>)</p>
+
+<blockquote>
+  <p><strong>NOTE:</strong> These instructions assume Pop!_OS is the only OS running on your system. If you are booting more than one operating system you may need to change your boot order first, or manually select the Pop!_OS Disk from your BIOS/Boot menu.</p>
+</blockquote>
+
+<p>Once the menu is shown, choose <strong>Pop!_OS Recovery</strong>.</p>
 
 <p><img src="/images/pop-recovery/systemd-boot.png" alt="systemd-boot" /></p>
 
@@ -238,13 +244,11 @@
       <td><strong>NVMe Drives</strong></td>
     </tr>
     <tr>
-      <td>sudo mount /dev/sda3 /mnt</td>
-      <td>sudo mount /dev/nvme0n1p3 /mnt</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo mount /dev/sda3 /mnt</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sudo mount /dev/nvme0n1p3 /mnt</code></td>
     </tr>
   </tbody>
 </table>
-
-<p><strong>Note:</strong> Each box is one single command.</p>
 
 <p>If the command fails and says <code class="language-plaintext highlighter-rouge">mount: /mnt: unknown filesystem type 'crypto_LUKS'</code>, then the hard drive has been encrypted, and additional commands are needed to unlock it.</p>
 
@@ -324,7 +328,7 @@
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-06-09</p>
+        <p>Article last modified: 2021-06-11</p>
     </div>
 </div>
 
