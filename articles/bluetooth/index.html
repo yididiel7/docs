@@ -200,7 +200,64 @@
 
         <div class="row">
     <div class="small-12 small-centered medium-10 large-8 columns">
-        <h1 id="bluetooth-troubleshooting">Bluetooth Troubleshooting</h1>
+        <h1 id="important-notes-about-bluetooth">Important Notes About Bluetooth</h1>
+
+<p>Bluetooth is a bit odd. 
+There are a lot of factors that go into whether Bluetooth devices work together as expected.</p>
+
+<h2 id="bluetooth-version">Bluetooth version</h2>
+
+<p>Bluetooth 5.0 is backwards compatible with older Bluetooth versions, but older bluetooth versioned devices are not always compatible with newer versions or devices.</p>
+
+<h2 id="signal-interference">Signal Interference</h2>
+
+<p>Bluetooth uses the same bandwidth as the 2.4Ghz Wi-Fi band, and in most of our machines it is on the same chip as the Wi-Fi module. They usually have two antennae, one for Bluetooth, and one for Wi-Fi, but it is possible for other Wi-Fi or Bluetooth devices signals to cross and to cause connection issues. If users are in an area crowded with other Wi-Fi networks or devices, the interference from these outside sources can impact performance and range.</p>
+
+<h2 id="device-specific-differences">Device Specific Differences</h2>
+
+<p>Every Bluetooth device is different. They use the same or similar protocols, but the printed circuit boards (PCBs), are specific to each device, and the firmware they are running is often custom designed, and closed-source.</p>
+
+<p>Some of the code and technologies that make Bluetooth work reliably are patented, and only device vendors who have licensed the permission to use that patented technology will be able to experience the full benefits (for more information see the “Audio Input/Output” section below.)</p>
+
+<blockquote>
+  <p><strong>NOTE:</strong> Some devices, such as Apple or Sony headphones, particularly take advantage of these patents and technologies to ensure they work well with similar devices. Often these devices are not tested against Linux machines. That doesn’t mean these devices will not work, only that behavior or performance may vary.</p>
+</blockquote>
+
+<h2 id="kernel-versions">Kernel Versions</h2>
+
+<p>As the Linux kernel develops, support for more devices are added. Sometimes Bluetooth devices will work better in a different kernel version.</p>
+
+<h2 id="os-versions">OS Versions</h2>
+
+<p>Similar to the kernel versions. Improvements are often made in newer versions of Ubuntu and Pop!_OS. Running software updates is always a good idea, followed by a reboot.</p>
+
+<!--## Bluez Versions-->
+
+<h2 id="configuration-issues">Configuration Issues</h2>
+
+<p>Sometimes Bluetooth devices are working correctly, but something in settings needs to be reset.</p>
+
+<p>The easiest way to test this is to “forget” the paired Bluetooth device, and pair it again.</p>
+
+<p>A more thorough way of testing this would be to create a <a href="https://support.system76.com/articles/other-accounts/">test user</a>, or boot from a <a href="https://support.system76.com/articles/live-disk/">Live Disk</a> to see if Bluetooth works in either case. 
+If it does, config files may need deleted. If it doesn’t (especially in the Live Disk), reinstalling the OS may solve the problem. 
+Reinstalling the OS won’t affect Bluetooth hardware directly, but resetting and starting with a clean slate can solve a slew of problems and save time hunting for a specific file or bug.</p>
+
+<h1 id="setting-expectations">Setting Expectations</h1>
+
+<p>Because of all of these factors, if the steps outlined in the Bluetooth troubleshooting article, and the previous troubleshooting steps don’t resolve the issue, the issue may not be resolved at all. 
+Or, in a future update or change to the system, the devices may start working again. In some cases (many cases) users will not experience any issue with Bluetooth at all.</p>
+
+<h2 id="audio-inputoutput">Audio Input/Output</h2>
+
+<p>Bluetooth audio devices, such as headphones and speakers, usually default to the A2DP protocol, which works effectively as an audio output source.</p>
+
+<p>Bluetooth devices with microphones built in, can be used if the device supports HFP/HSP. However, without the technology that companies like Sony have patented, the solution is to divide up the audio stream so that some of it is used for audio out and some for audio in. 
+This process lowers the sound quality of the stream when in HSP/HFP mode, so audio may be “tinny,” compressed (lower-fidelity), or at a lower volume. That is expected behavior.</p>
+
+<hr />
+
+<h1 id="bluetooth-troubleshooting">Bluetooth Troubleshooting</h1>
 
 <p>Bluetooth issues can be troubleshooted in several ways.  The first thing to check is toggling airplane mode which will sometimes get Bluetooth functioning again.  Next, make sure Bluetooth is enabled in the top bar, or in the <u>Bluetooth</u> system settings.</p>
 
@@ -259,11 +316,11 @@ dmesg | <span class="nb">grep </span>Bluetooth
 
 <p>This will show all Bluetooth related messages.  Try leaving this command running while pairing or using a device to see any error messages or failures.</p>
 
-<h2 id="additional-info">Additional Info</h2>
+<h1 id="additional-info">Additional Info</h1>
 
 <p>Here are a few additional tidbits about the Bluetooth system that may help with troubleshooting.</p>
 
-<h4 id="controlling-audio">Controlling audio</h4>
+<h2 id="controlling-audio">Controlling audio</h2>
 
 <p>Once you are connected to a Bluetooth speaker, you may need to change where your current audio is “routed”. You can get a more advanced interface to settings on audio with the program called PulseAudio Volume Control. To install, run this command:</p>
 
@@ -271,7 +328,7 @@ dmesg | <span class="nb">grep </span>Bluetooth
 </code></pre></div></div>
 <p>There will be a drop-down in the Playback tab for each of your applications that is outputting sound that you should be able to change to your Bluetooth speaker.</p>
 
-<h4 id="linux-firmware">Linux Firmware</h4>
+<h2 id="linux-firmware">Linux Firmware</h2>
 
 <p>Occasionally the kernel and/or Linux firmware will have problems.  Sometimes, newer Linux firmware packages will have fixed bugs that aren’t yet in the repositories.  They can be downloaded from here:</p>
 
@@ -279,10 +336,12 @@ dmesg | <span class="nb">grep </span>Bluetooth
 
 <p>Then they can be installed with this command:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg <span class="nt">-i</span> linux-firmware_1.167.1_all.deb
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg <span class="nt">-i</span> linux-firmware_#.###.#_all.deb
 </code></pre></div></div>
-
-<h4 id="file-transfer">File Transfer</h4>
+<blockquote>
+  <p><strong>NOTE:</strong> You’ll need to replace the nubmers/file name with the most current version after downloading it.</p>
+  <h2 id="file-transfer">File Transfer</h2>
+</blockquote>
 
 <p>Sometimes, additional programs need to be installed for mobile equipment file transfer.  Please install the transfer tool with this command:</p>
 
@@ -293,7 +352,7 @@ dmesg | <span class="nb">grep </span>Bluetooth
 
     </div>
     <div class="small-12 small-centered medium-10 large-8 columns timestamp">
-        <p>Article last modified: 2021-06-09</p>
+        <p>Article last modified: 2021-06-11</p>
     </div>
 </div>
 
