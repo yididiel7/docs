@@ -61,7 +61,7 @@ Before upgrading, it can be helpful to ask yourself the following environment qu
 
 > **IMPORTANT NOTE:** The upgrade process will leave your files in place, but no matter which system version you are running, we **always** recommend first creating a good backup of your files, just to be on the safe side should anything unexpected happen during the upgrade.
 
-Please read our article on [how to backup your files](/articles/backup-files/) for helpful instructions.
+Please read our article on [how to back up your files](/articles/backup-files/) for helpful instructions.
 
 ### Create Installation USB (Optional)
 
