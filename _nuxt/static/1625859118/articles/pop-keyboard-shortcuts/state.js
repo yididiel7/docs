@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1625859118",layout:"default",error:a,serverRendered:true,routePath:"\u002Farticles\u002Fpop-keyboard-shortcuts",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:a},content:{dbHash:"60306cc7"}}}}(null));
