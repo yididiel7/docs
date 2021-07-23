@@ -30,25 +30,25 @@ section: software
 
 Before upgrading, it can be helpful to ask yourself the following environment questions:
 
-1. **Do I have a backup of my data (see next section).**
+1. **Do I have a backup of my data? (see [next section](#backing-up-your-data))**
 
-    - YES? - Proceed.
-    - NO? - Make a Backup.
+    - **Yes** - Proceed.
+    - **No** - Make a backup.
 
 2. **Is this a mission critical machine?**
 
-    - YES? - Wait until upgrading will not stop work.
-    - NO? - Proceed.
+    - **Yes** - Wait until upgrading will not stop your work.
+    - **No** - Proceed.
 
 3. **Do I have a backup/alternate machine if this one goes down temporarily?**
 
-    - YES? - Proceed.
-    - NO? - Make a backup, assess your comfort level, proceed if comfortable.
+    - **Yes** - Proceed.
+    - **No** - Make a backup, assess your comfort level, and proceed if you're comfortable.
 
 4. **How recently was this upgrade issued? Have any stability issues been reported?**
 
-    - YES? - Wait a week (or two), check again, then upgrade.
-    - NO? - Proceed.
+    - **Yes** - Wait a week (or two), check again, then upgrade.
+    - **No** - Proceed.
 
 ## Backing Up Your Data
 
