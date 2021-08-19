@@ -14,7 +14,7 @@ keywords:
 image: http://support.system76.com/images/system76.png
 hidden: false
 section: switching
-
+tableOfContents: true
 ---
 
 # **Switching from Windows to Pop!\_OS**
