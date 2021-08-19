@@ -46,7 +46,6 @@ In terms of System76 computers we recommend the [Oryx Pro](https://system76.com/
 
 ```
 sudo add-apt-repository -ys ppa:system76-dev/weekend-project
-sudo apt-get update
 sudo apt-get install arsandbox
 ```
 
