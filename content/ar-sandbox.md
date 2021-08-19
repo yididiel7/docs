@@ -40,7 +40,7 @@ In terms of System76 computers we recommend the [Oryx Pro](https://system76.com/
 
 ## Install Software
 
-- You'll need a computer running Pop!_OS or Ubuntu 18.04 or newer.
+- You'll need a computer running Pop!_OS/Ubuntu 20.04 LTS.
 
 - Add the needed PPA and install the software by opening a terminal and running these three commands:
 
@@ -50,16 +50,10 @@ sudo apt-get update
 sudo apt-get install arsandbox
 ```
 
-- Find out what your username is by running this command in the terminal:
+- Add yourself to the vrui-grp group with this command:
 
 ```
-whoami
-```
-
-- Add yourself to the vrui-grp group with this command, replacing USERNAME with the user-name returned by the whoami command above:
-
-```
-sudo adduser USERNAME vrui-grp
+sudo adduser $USER vrui-grp
 ```
 
 - Reboot your computer so all of the above changes take effect.
@@ -132,12 +126,12 @@ RawKinectViewer -compress 0
 
 ![Right Click Menu](/images/ar-sandbox/4-B-average-frames-1ba827544a.png)
 
-- Press and hold the 1 key, move your cursor over Extract Planes, then release the 1 key (releasing this key will trigger this action, so clicking with the mouse is not necessary):
+- Press and hold the 1 key (Num Pad), move your cursor over Extract Planes, then release the 1 key (Num Pad) (releasing this key will trigger this action, so clicking with the mouse is not necessary):
 
 ![Extract Planes](/images/ar-sandbox/4-C-extract-plane-1cbd8abb5e.png)
 
 - You now need to draw a rectangle that fits within the interior of your flat surface (in the depth view). You want some space between your rectangle and the edges of your flat surface.
-Start with your cursor near the top-left corner of your flat surface. Press and hold the 1 key, drag out a rectangle toward the bottom-right corner using the right mouse button, then release the 1 key:
+Start with your cursor near the top-left corner of your flat surface. Press and hold the 1 key (Num Pad), drag out a rectangle toward the bottom-right corner using the right mouse button, then release the 1 key (Num Pad):
 
 ![Kinect Area View](/images/ar-sandbox/4-D-drag-rectangle-a8b53ecc87.png)
 
@@ -185,7 +179,7 @@ RawKinectViewer -compress 0
 
 ![Right Click Menu](/images/ar-sandbox/4-B-average-frames-1ba827544a.png)
 
-- Press and hold the 1 key, move your cursor over Measure 3D positions, then release the 1 key:
+- Press and hold the 1 key (Num Pad), move your cursor over Measure 3D positions, then release the 1 key (Num Pad):
 
 ![Measure 3D Positions](/images/ar-sandbox/5-A-measure-3d-positions-14f7ae1f35.png)
 
@@ -193,21 +187,21 @@ RawKinectViewer -compress 0
 
 - Use the color-coded depth map to make sure you position your cursor over the sand surface and not over the sides of your sandbox. Position your cursor so that there's a small amount of space between the sand surface and the sides of your sandbox.
 
-First, move your cursor to the lower-left interior corner, then press the 1 key:
+First, move your cursor to the lower-left interior corner, then press the 1 key (Num Pad):
 
-Note there is no feedback from the UI when you press the 1 key.
+Note there is no feedback from the UI when you press the 1 key (Num Pad).
 
 ![Corner 1](/images/ar-sandbox/5-B-corner1-e25b256651.png)
 
-- Second, move your cursor to the lower-right interior corner, then press the 1 key:
+- Second, move your cursor to the lower-right interior corner, then press the 1 key (Num Pad):
 
 ![Corner 2](/images/ar-sandbox/5-B-corner2-2929d14acd.png)
 
-- Third, move your cursor to the upper-left interior corner, then press the 1 key:
+- Third, move your cursor to the upper-left interior corner, then press the 1 key (Num Pad):
 
 ![Corner 3](/images/ar-sandbox/5-B-corner3-879f6980e8.png)
 
-- Finally, move your cursor to the upper-right interior corner, then press the 1 key:
+- Finally, move your cursor to the upper-right interior corner, then press the 1 key (Num Pad):
 
 ![Corner 4](/images/ar-sandbox/5-B-corner4-323ddfd555.png)
 
@@ -281,15 +275,15 @@ CalibrateProjector -s 1920 1080
 
 ![CalibrateProjector](/images/ar-sandbox/7-maximize-478e070818.png)
 
-- Press and hold the 1 key, move your cursor over Capture, then release the 1 key:
+- Press and hold the 1 key (Num Pad), move your cursor over Capture, then release the 1 key (Num Pad):
 
 ![Tools Menu](/images/ar-sandbox/7-B-press-1-17ad6d4ad8.png)
 
-- Then press the 2 key when you see this dialog:
+- Then press the 2 key (Num Pad) when you see this dialog:
 
 ![Capture](/images/ar-sandbox/7-C-press-2-867c3ffac3.png)
 
-Press the 2 key to capture the background image, after which you'll briefly see a uniform red color projected onto your sandbox:
+Press the 2 key (Num Pad) to capture the background image, after which you'll briefly see a uniform red color projected onto your sandbox:
 
 ![Uniform Red Color](/images/ar-sandbox/7-D-capture-background-af5f6cb582.jpg)
 
@@ -299,7 +293,7 @@ After this is completed, you can proceed with the calibration.
 
 ![Lowest](/images/ar-sandbox/7-E-lowest-db2aad81b1.jpg)
 
-Then press the 1 key to capture this tie-point. After a brief moment, the software will automatically move the projected cross-hairs to the next tie-point.
+Then press the 1 key (Num Pad) to capture this tie-point. After a brief moment, the software will automatically move the projected cross-hairs to the next tie-point.
 
 Repeat this process for the remaining 11 tie-points at this depth. Once the white projected cross-hairs are back at their original position, you're ready to switch to a taller spacer.
 
@@ -307,7 +301,7 @@ Repeat this process for the remaining 11 tie-points at this depth. Once the whit
 
 ![Middle](/images/ar-sandbox/7-F-middle-8e56231939.jpg)
 
-Then press the 1 key to capture this tie-point. After a brief moment, the software will automatically move the projected cross-hairs to the next tie-point.
+Then press the 1 key (Num Pad) to capture this tie-point. After a brief moment, the software will automatically move the projected cross-hairs to the next tie-point.
 
 Repeat this process for the remaining 11 tie-points at this depth. Once the white projected cross-hairs are back at their original position, you're ready to switch to a larger spacer.
 
@@ -315,7 +309,7 @@ Repeat this process for the remaining 11 tie-points at this depth. Once the whit
 
 ![Highest](/images/ar-sandbox/7-G-highest-948cda7d1e.jpg)
 
-Then press the 1 key to capture this tie-point. After a brief moment, the software will automatically move the projected cross-hairs to the next tie-point.
+Then press the 1 key (Num Pad) to capture this tie-point. After a brief moment, the software will automatically move the projected cross-hairs to the next tie-point.
 
 Repeat this process for the remaining 11 tie-points at this depth. Once the white projected cross-hairs are back at their original position, you're done with the calibration!
 
@@ -406,5 +400,3 @@ SARndbox -uhm -fpv -evr -0.02
 ```
 
 Thanks again to [Oliver Kreylos](http://idav.ucdavis.edu/~okreylos/) for developing such an incredible, inspiring piece of software!
-
-Be sure to check out the [Augmented Reality Sandbox](https://arsandbox.ucdavis.edu/) website for more details.
