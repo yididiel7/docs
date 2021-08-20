@@ -54,9 +54,11 @@ sudo chown -Rv mchost /mchost/~
 
 ## Installing Minecraft Server
 
+A Minecraft can be ran with the jar provided by Mojang themselves or a 3rd party jar like Bukkit or Paper.  If you want to add plugins down the line or want more granular control over the server the PaperMC has you covered - paper beats rock afterall.
+
 ### Installing Mojang's Minecraft Server Jar
 
-We will want to download the server jar and create a working directory for server.
+The following command will download the jar from Mojang for the server.  You will want to make sure you are grabbing the newest jar by going to Minecraft's website and finding the jar.  The address changes with each update so you may have to do some searching.  Once you find the download copy its link and paste it in the commands bellow as a relacement for the WEBSITE-URL.
 
 ```bash
 sudo wget -O /mchost/v-1-17/live/minecraft_server.jar WEBSITE-URL
@@ -107,6 +109,7 @@ These values can be changed up to around 10GB if you need to go over 10GB. This 
 ```
 
 ## Optimization
+On higher end server hardware you may not need to do any optimisation for the server, but on mid to lower end hardware it is essential.  The server.properies file can be edited for both PaperMC and the vanilla jar from Mojang.
 
 ### Server Properties
 
@@ -321,7 +324,7 @@ nmap -p 25565 localhost`
 
 > **Note**: Opening ports to the internet makes you more susceptible to networking attacks or vulnerabilities and may not be allowed by your Internet Service Provider (ISP).
 
-To make your Minecraft server available outside of your LAN, you will need to forward the port to your router. Each brand, system, and ISP will have a different configuration. We recommend you reach out to your ISP for assistance with this. The address you will give your users is your public IP.
+To make your Minecraft server available outside of your LAN, you will need to forward the port to your router. Each brand, system, and ISP will have a different configuration. We recommend you reach out to your ISP for assistance. The address you will give your users is your public IP.
 
 ## Further Reading And Sources
 
